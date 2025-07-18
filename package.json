@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "prettier": "^3.6.2"
   }
 }
