@@ -4,6 +4,10 @@
   --radius: .9375rem;
 }
 
+body {
+  margin: 50px;
+}
+
 /* --------------------------------------------------------- */
 /* 전체 섹션 */
 
@@ -25,14 +29,17 @@
 }
 
 .schedule__show-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0 6px 10px;
   font-size: var(--fontSize16);
   font-weight: var(--semiBold);
-  padding: 6px 0 6px 10px;
-  border: 2px solid transparent;
+  color: inherit;
+  text-decoration: none;
   background-color: transparent;
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
 }
 
 .schedule__show-all-btn:focus-visible {
