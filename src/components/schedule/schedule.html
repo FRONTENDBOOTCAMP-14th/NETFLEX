@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./schedule.css" />
+  <script type="module" src="./schedule.js"></script>
+  <title>일정</title>
+</head>
+<body>
+  <section class="schedule">
+    <div class="schedule__header">
+      <h2 id="schedule__title">My 일정</h2>
+      <div class="schedule__show-all" tabindex="0">
+        <button type="button" class="schedule__show-all-btn" aria-label="전체 일정 보기">Show All</button>
+        <svg class="schedule__show-all-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.6875 3.38086L5.29395 2.8125L10.3125 7.5L5.29395 12.1875L4.6875 11.6221L9.09668 7.5L4.6875 3.38086Z"
+          fill="black" />
+        </svg>
+      </div>
+    </div>
+    <ul class="schedule__day-list">
+      <li class="schedule__day">
+        <!-- DAY 1 -->
+        <h3 class="schedule__day-label">DAY 1</h3>
+        <ul class="schedule__task-list">
+          <!-- Task 1 -->
+          <li class="schedule__task-item">
+            <label class="schedule__task-label" for="scheduleTask-1">
+              <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
+              <input type="checkbox" id="scheduleTask-1" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기"  />
+            </label>
+          </li>
+          <!-- Task 2 -->
+          <li class="schedule__task-item">
+            <label class="schedule__task-label" for="scheduleTask-2">
+              <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
+              <input type="checkbox" id="scheduleTask-2" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기"  />
+            </label>
+          </li>
+          <li class="schedule__task-item">
+            <label class="schedule__task-label" for="scheduleTask-3">
+              <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
+              <input type="checkbox" id="scheduleTask-3" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기" />
+            </label>
+          </li>
+        </ul>
+      </li>
+      <!-- DAY 2 -->
+      <li class="schedule__day">
+        <h3 class="schedule__day-label">DAY 2</h3>
+      </li>
+    </ul>
+  </section>
+</body>
+</html>
