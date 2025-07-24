@@ -1,0 +1,134 @@
+@import './../../styles/main.css';
+
+:root {
+  --radius: .9375rem;
+}
+
+/* --------------------------------------------------------- */
+/* 전체 섹션 */
+
+.schedule__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-block-end: 5px;
+}
+
+#schedule__title {
+  font-size: 2rem;
+  margin: 0 0 4px 0;
+}
+
+.schedule__show-all {
+  padding: 4px 0 4px 7px;
+  cursor: pointer;
+}
+
+.schedule__show-all-btn {
+  font-size: var(--fontSize16);
+  font-weight: var(--semiBold);
+  padding: 6px 0 6px 10px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.schedule__show-all-btn:focus-visible {
+  outline: none;
+  border-color: var(--black-100);
+}
+
+.schedule__show-all-icon {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* --------------------------------------------------------- */
+/* DAY 섹션 */
+
+.schedule__day-list {
+  max-inline-size: auto;
+  border: .0625rem solid var(--gray-300);
+  border-radius: var(--radius);
+  padding: 25px;
+  margin: 0;
+}
+
+.schedule__day {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-block-end: 18px;
+}
+
+.schedule__day-label {
+  font-size: var(--fontSize22);
+  font-weight: var(--semiBold);
+}
+
+/* --------------------------------------------------------- */
+/* 일정 리스트 스타일 */
+
+.schedule__task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.schedule__task-item {
+  background-color: var(--white-fa);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.schedule__task-label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: 15px;
+}
+
+.schedule__task-text {
+  font-size: var(--fontSize18);
+  font-weight: var(--medium);
+}
+
+.schedule__checkbox {
+  appearance: none;
+  position: absolute;
+  inline-size: 30px;
+  border: none;
+  opacity: 0; /* 실질적인 기능만 맡고, 커스텀 박스랑 겹치지 않기 위해 */
+}
+
+/* 체크되었을 때 */
+.schedule__checkbox:checked + .schedule__custom-box {
+  background-color: var(--blue-200);
+}
+
+/* 포커싱 */
+.schedule__checkbox:focus-visible + .schedule__custom-box {
+  outline: 2px solid var(--black-100);
+  outline-offset: 2px;
+}
+
+.schedule__custom-box {
+  inline-size: 30px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.schedule__check-icon {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
