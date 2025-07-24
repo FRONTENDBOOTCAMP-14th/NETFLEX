@@ -1,9 +1,11 @@
 @import url(../../styles/common/theme.css);
-body {
-}
+
 .map-section {
   h3 {
     padding: 15px 0 15px 30px;
+  }
+  .map-layout {
+    position: relative;
   }
 }
 
@@ -53,6 +55,135 @@ body {
         left: 50%;
         translate: -50% -50%;
       }
+    }
+  }
+}
+
+.map-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  width: 60vw;
+  background: var(--white);
+
+  .map-side__button--toggle {
+    position: absolute;
+    top: 50%;
+    left: -29px;
+    translate: 0 -50%;
+    max-width: 30px;
+    padding: 20px 15px 20px 6px;
+    border-radius: 5px 0 0 5px;
+    background: var(--white);
+
+    &.is-toggle {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .map__search {
+    padding: 15px 15px 0;
+
+    .map__search--tab-wrapper {
+      display: flex;
+
+      button {
+        &:nth-child(1) {
+          border-radius: 10px 0 0 10px;
+        }
+        &:nth-child(2) {
+          border-radius: 0 10px 10px 0;
+        }
+      }
+    }
+
+    .map__search--tab {
+      padding: 13px 18px;
+      width: 100%;
+      border: 1px solid var(--gray-300);
+      font-weight: 600;
+      transition-property: border, background-color, color;
+      transition-duration: 0.25s;
+      transition-timing-function: ease-in-out;
+
+      &.is-activate {
+        border: 1px solid var(--blue-200);
+        background-color: var(--blue-200);
+
+        color: #f4f9fe;
+      }
+    }
+
+    .map__search-form {
+      margin-top: 15px;
+      padding-inline: 8px 15px;
+      border: 1px solid var(--gray-400);
+      border-radius: 10px;
+
+      .map__search-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .map__search-input {
+        padding-block: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  .map__search-list {
+    padding-inline: 15px 0;
+    .map__search-list--filter {
+      display: flex;
+      justify-content: start;
+      gap: 5px;
+      font-size: var(--fontSize12);
+      color: var(--gray-500);
+
+      button {
+        padding: 15px 5px;
+      }
+    }
+  }
+  .map__search-list--list {
+    li {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      &.is-toggle {
+        path {
+          fill: var(--blue-200);
+        }
+      }
+    }
+    a {
+      width: 80%;
+    }
+    figure {
+      display: flex;
+      gap: 5px;
+    }
+    picture {
+      flex-shrink: 0;
+    }
+    figcaption {
+      flex-shrink: 1;
+      font-size: var(--fontSize12);
+      /* overflow: hidden; */
+      text-overflow: ellipsis;
+    }
+    h5 {
+      font-size: var(--fontSize14);
+    }
+
+    span {
+      display: none;
     }
   }
 }
