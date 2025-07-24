@@ -14,7 +14,7 @@ let currentIndex = 0
 
 function moveSlide() {
   const gap = 1.8 * 16 // rem -> px 변환
-  const cardWidth = 730 //px
+  const cardWidth = 759 //px
   const move = (cardWidth + gap) * currentIndex * -1
   cardContainer.style.transform = `translateX(${move}px)`
 
