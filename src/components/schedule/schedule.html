@@ -11,12 +11,13 @@
   <section class="schedule">
     <div class="schedule__header">
       <h2 id="schedule__title">My 일정</h2>
-      <div class="schedule__show-all" tabindex="0">
-        <button type="button" class="schedule__show-all-btn" aria-label="전체 일정 보기">Show All</button>
-        <svg class="schedule__show-all-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.6875 3.38086L5.29395 2.8125L10.3125 7.5L5.29395 12.1875L4.6875 11.6221L9.09668 7.5L4.6875 3.38086Z"
-          fill="black" />
-        </svg>
+      <div class="schedule__show-all">
+        <a href="#" class="schedule__show-all-btn" aria-label="전체 일정 보기">
+          Show All
+          <svg class="schedule__show-all-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.6875 3.38086L5.29395 2.8125L10.3125 7.5L5.29395 12.1875L4.6875 11.6221L9.09668 7.5L4.6875 3.38086Z" fill="black" />
+          </svg>
+        </a>
       </div>
     </div>
     <ul class="schedule__day-list">
@@ -28,20 +29,40 @@
           <li class="schedule__task-item">
             <label class="schedule__task-label" for="scheduleTask-1">
               <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
-              <input type="checkbox" id="scheduleTask-1" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기"  />
+              <input type="checkbox" id="scheduleTask-1" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기" />
+              <span class="schedule__custom-box">
+                <svg class="schedule__check-icon" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.45498 10.85L0.16693 6.1C-0.0557247 5.9 -0.0557247 5.55 0.16693 5.3L1.00188 4.55C1.22454 4.35 1.61418 4.35 1.8925 4.55L5.90028 8.15L14.8065 0.15C15.0291 -0.05 15.4188 -0.05 15.6971 0.15L16.532 0.9C16.7547 1.1 16.7547 1.45 16.532 1.7L6.34559 10.85C6.06728 11.05 5.67763 11.05 5.45498 10.85Z" 
+                  fill="#fafafa" />
+                </svg>
+              </span>
             </label>
           </li>
           <!-- Task 2 -->
           <li class="schedule__task-item">
             <label class="schedule__task-label" for="scheduleTask-2">
               <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
-              <input type="checkbox" id="scheduleTask-2" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기"  />
+              <input type="checkbox" id="scheduleTask-2" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기" checked />
+              <span class="schedule__custom-box">
+                <svg class="schedule__check-icon" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.45498 10.85L0.16693 6.1C-0.0557247 5.9 -0.0557247 5.55 0.16693 5.3L1.00188 4.55C1.22454 4.35 1.61418 4.35 1.8925 4.55L5.90028 8.15L14.8065 0.15C15.0291 -0.05 15.4188 -0.05 15.6971 0.15L16.532 0.9C16.7547 1.1 16.7547 1.45 16.532 1.7L6.34559 10.85C6.06728 11.05 5.67763 11.05 5.45498 10.85Z"
+                  fill="#fafafa" />
+                </svg>
+              </span>
             </label>
           </li>
           <li class="schedule__task-item">
             <label class="schedule__task-label" for="scheduleTask-3">
               <span class="schedule__task-text" aria-hidden="true">스탬포드 브릿지 투어하기</span>
               <input type="checkbox" id="scheduleTask-3" name="scheduleTask" class="schedule__checkbox" aria-label="스탬포드 브릿지 투어하기" />
+              <span class="schedule__custom-box">
+                <svg class="schedule__check-icon" width="17" height="11" viewBox="0 0 17 11" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5.45498 10.85L0.16693 6.1C-0.0557247 5.9 -0.0557247 5.55 0.16693 5.3L1.00188 4.55C1.22454 4.35 1.61418 4.35 1.8925 4.55L5.90028 8.15L14.8065 0.15C15.0291 -0.05 15.4188 -0.05 15.6971 0.15L16.532 0.9C16.7547 1.1 16.7547 1.45 16.532 1.7L6.34559 10.85C6.06728 11.05 5.67763 11.05 5.45498 10.85Z"
+                    fill="#fafafa" />
+                </svg>
+              </span>
             </label>
           </li>
         </ul>
