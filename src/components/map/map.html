@@ -16,206 +16,214 @@
   <body>
     <section class="map-section">
       <h3>지도</h3>
-      <div class="map">
-        <div id="map"></div>
-        <button type="button" class="map__button--search">
-          <svg
-            width="11"
-            height="10"
-            viewBox="0 0 11 10"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.849075 6.40797L0.849074 9.57123L2.02886 8.42418C2.93114 9.30304 4.17864 9.84668 5.55699 9.84668C8.30996 9.84668 10.542 7.67658 10.542 5.00001C10.542 2.32344 8.30996 0.153346 5.55699 0.153346C3.71919 0.153345 2.1136 1.12026 1.24912 2.55972L1.23624 2.58274L2.34208 3.20311C2.99429 2.11463 4.18944 1.3945 5.55699 1.3945C7.605 1.3945 9.26542 3.00884 9.26542 5.00001C9.26542 6.99118 7.605 8.60553 5.55699 8.60553C4.53133 8.60553 3.60287 8.20083 2.93156 7.54653L4.10303 6.40756L0.848659 6.40756L0.849075 6.40797Z"
-              fill="white"
-            />
-          </svg>
-          <span>지도내 검색</span>
-        </button>
-        <div class="map__button--control">
-          <button
-            type="button"
-            class="map__button map__button--zoom-in"
-            aria-label="지도 확대하기"
-          >
+      <div class="map-layout">
+        <div class="map">
+          <div id="map"></div>
+          <button type="button" class="map__button--search">
             <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
+              width="11"
+              height="10"
+              viewBox="0 0 11 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M8 1C8 0.447716 8.44772 0 9 0C9.55228 0 10 0.447715 10 1V17C10 17.5523 9.55228 18 9 18C8.44772 18 8 17.5523 8 17V1Z"
-                fill="#2C79FE"
-              />
-              <path
-                d="M17 8C17.5523 8 18 8.44771 18 9C18 9.55229 17.5523 10 17 10L1 10C0.447716 10 -2.41411e-08 9.55229 0 9C2.41411e-08 8.44771 0.447715 8 1 8L17 8Z"
-                fill="#2C79FE"
+                d="M0.849075 6.40797L0.849074 9.57123L2.02886 8.42418C2.93114 9.30304 4.17864 9.84668 5.55699 9.84668C8.30996 9.84668 10.542 7.67658 10.542 5.00001C10.542 2.32344 8.30996 0.153346 5.55699 0.153346C3.71919 0.153345 2.1136 1.12026 1.24912 2.55972L1.23624 2.58274L2.34208 3.20311C2.99429 2.11463 4.18944 1.3945 5.55699 1.3945C7.605 1.3945 9.26542 3.00884 9.26542 5.00001C9.26542 6.99118 7.605 8.60553 5.55699 8.60553C4.53133 8.60553 3.60287 8.20083 2.93156 7.54653L4.10303 6.40756L0.848659 6.40756L0.849075 6.40797Z"
+                fill="white"
               />
             </svg>
+            <span>지도내 검색</span>
           </button>
-          <button
-            type="button"
-            class="map__button map__button--zoom-out"
-            aria-label="지도 축소하기"
-          >
-            <svg
-              width="18"
-              height="2"
-              viewBox="0 0 18 2"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <div class="map__button--control">
+            <button
+              type="button"
+              class="map__button map__button--zoom-in"
+              aria-label="지도 확대하기"
             >
-              <rect
-                x="18"
-                width="2"
-                height="18"
-                rx="1"
-                transform="rotate(90 18 0)"
-                fill="#2C79FE"
-              />
-            </svg>
-          </button>
-          <button
-            type="button"
-            class="map__button map__button--current"
-            aria-label="현재 위치로 이동"
-          >
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8.5C12 10.433 10.433 12 8.5 12C6.567 12 5 10.433 5 8.5C5 6.567 6.567 5 8.5 5C10.433 5 12 6.567 12 8.5Z"
-                fill="#2C79FE"
-              />
-              <path
-                d="M8 16.5V15.5C8 15.4935 8.00073 15.487 8.00098 15.4805C4.53247 15.2361 1.76243 12.4667 1.51855 8.99805C1.51238 8.99827 1.50623 9 1.5 9H0.5C0.223858 9 0 8.77614 0 8.5C0 8.22386 0.223858 8 0.5 8H1.5C1.50622 8 1.51239 8.00075 1.51855 8.00098C1.76288 4.53277 4.53277 1.76288 8.00098 1.51855C8.00075 1.51239 8 1.50622 8 1.5V0.5C8 0.223858 8.22386 0 8.5 0C8.77614 0 9 0.223858 9 0.5V1.5C9 1.50623 8.99827 1.51238 8.99805 1.51855C12.4667 1.76243 15.2361 4.53247 15.4805 8.00098C15.487 8.00073 15.4935 8 15.5 8H16.5C16.7761 8 17 8.22386 17 8.5C17 8.77614 16.7761 9 16.5 9H15.5C15.4934 9 15.487 8.9983 15.4805 8.99805C15.2365 12.467 12.467 15.2365 8.99805 15.4805C8.9983 15.487 9 15.4934 9 15.5V16.5C9 16.7761 8.77614 17 8.5 17C8.22386 17 8 16.7761 8 16.5ZM8.5 2.5C5.18629 2.5 2.5 5.18629 2.5 8.5C2.5 11.8137 5.18629 14.5 8.5 14.5C11.8137 14.5 14.5 11.8137 14.5 8.5C14.5 5.18629 11.8137 2.5 8.5 2.5Z"
-                fill="#2C79FE"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div>
-        <button type="button" aria-label="검색창 열기">
-          <svg
-            width="8"
-            height="16"
-            viewBox="0 0 8 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            role="none"
-          >
-            <path
-              d="M7.64746 8L0.412015 15.7942L0.412016 0.205771L7.64746 8Z"
-              fill="#2C79FE"
-            />
-          </svg>
-        </button>
-        <div class="map__search">
-          <div>
-            <button type="button" class="map__search--tab is-activate">
-              주변 탐색
-            </button>
-            <button type="button" class="map__search--tab">여행 일정</button>
-          </div>
-          <form
-            action="https://www.google.com/maps"
-            method="post"
-            class="map__search__form"
-          >
-            <label for="map-search">
-              <input
-                type="search"
-                id="map-search"
-                name="map-search"
-                placeholder="주소를 입력해주세요"
-              />
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                role="none"
-                aria-label="검색하기"
               >
                 <path
-                  d="M12.537 12.6353L17 17M14.3333 7.51977C14.3333 11.1205 11.3486 14.0395 7.66667 14.0395C3.98477 14.0395 1 11.1205 1 7.51977C1 3.919 3.98477 1 7.66667 1C11.3486 1 14.3333 3.919 14.3333 7.51977Z"
-                  stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  d="M8 1C8 0.447716 8.44772 0 9 0C9.55228 0 10 0.447715 10 1V17C10 17.5523 9.55228 18 9 18C8.44772 18 8 17.5523 8 17V1Z"
+                  fill="#2C79FE"
+                />
+                <path
+                  d="M17 8C17.5523 8 18 8.44771 18 9C18 9.55229 17.5523 10 17 10L1 10C0.447716 10 -2.41411e-08 9.55229 0 9C2.41411e-08 8.44771 0.447715 8 1 8L17 8Z"
+                  fill="#2C79FE"
                 />
               </svg>
-            </label>
-          </form>
+            </button>
+            <button
+              type="button"
+              class="map__button map__button--zoom-out"
+              aria-label="지도 축소하기"
+            >
+              <svg
+                width="18"
+                height="2"
+                viewBox="0 0 18 2"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="18"
+                  width="2"
+                  height="18"
+                  rx="1"
+                  transform="rotate(90 18 0)"
+                  fill="#2C79FE"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="map__button map__button--current"
+              aria-label="현재 위치로 이동"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8.5C12 10.433 10.433 12 8.5 12C6.567 12 5 10.433 5 8.5C5 6.567 6.567 5 8.5 5C10.433 5 12 6.567 12 8.5Z"
+                  fill="#2C79FE"
+                />
+                <path
+                  d="M8 16.5V15.5C8 15.4935 8.00073 15.487 8.00098 15.4805C4.53247 15.2361 1.76243 12.4667 1.51855 8.99805C1.51238 8.99827 1.50623 9 1.5 9H0.5C0.223858 9 0 8.77614 0 8.5C0 8.22386 0.223858 8 0.5 8H1.5C1.50622 8 1.51239 8.00075 1.51855 8.00098C1.76288 4.53277 4.53277 1.76288 8.00098 1.51855C8.00075 1.51239 8 1.50622 8 1.5V0.5C8 0.223858 8.22386 0 8.5 0C8.77614 0 9 0.223858 9 0.5V1.5C9 1.50623 8.99827 1.51238 8.99805 1.51855C12.4667 1.76243 15.2361 4.53247 15.4805 8.00098C15.487 8.00073 15.4935 8 15.5 8H16.5C16.7761 8 17 8.22386 17 8.5C17 8.77614 16.7761 9 16.5 9H15.5C15.4934 9 15.487 8.9983 15.4805 8.99805C15.2365 12.467 12.467 15.2365 8.99805 15.4805C8.9983 15.487 9 15.4934 9 15.5V16.5C9 16.7761 8.77614 17 8.5 17C8.22386 17 8 16.7761 8 16.5ZM8.5 2.5C5.18629 2.5 2.5 5.18629 2.5 8.5C2.5 11.8137 5.18629 14.5 8.5 14.5C11.8137 14.5 14.5 11.8137 14.5 8.5C14.5 5.18629 11.8137 2.5 8.5 2.5Z"
+                  fill="#2C79FE"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="map__search-list">
-          <div class="map__search-list--around">
-            <div class="map__search-list--filter">
-              <button type="button">거리순</button>
-              <button type="button">리뷰 많은 순</button>
-              <button type="button">예약 가능</button>
+        <div class="map-side">
+          <button
+            type="button"
+            aria-label="검색창 열기"
+            class="map-side__button--toggle"
+          >
+            <svg
+              width="8"
+              height="16"
+              viewBox="0 0 8 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              role="none"
+            >
+              <path
+                d="M7.64746 8L0.412015 15.7942L0.412016 0.205771L7.64746 8Z"
+                fill="#2C79FE"
+              />
+            </svg>
+          </button>
+          <div class="map__search">
+            <div class="map__search--tab-wrapper">
+              <button type="button" class="map__search--tab is-activate">
+                주변 탐색
+              </button>
+              <button type="button" class="map__search--tab">여행 일정</button>
             </div>
-            <ul class="map__search-list--list">
-              <!-- 컴포넌트 스타일링을 위한 임시 컴포넌트 마크업 -->
-              <li>
-                <button
-                  type="button"
-                  class="map__search-list--saved"
-                  aria-label="즐겨찾기"
-                >
+            <form
+              action="https://www.google.com/maps"
+              method="post"
+              class="map__search-form"
+            >
+              <label for="map-search" class="map__search-label">
+                <input
+                  type="search"
+                  id="map-search"
+                  name="map-search"
+                  placeholder="주소를 입력해주세요"
+                  class="map__search-input"
+                />
+                <button type="submit" aria-label="검색하기">
                   <svg
-                    width="17"
-                    height="16"
-                    viewBox="0 0 17 16"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     role="none"
                   >
                     <path
-                      d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
-                      fill="#E8E8E8"
+                      d="M12.537 12.6353L17 17M14.3333 7.51977C14.3333 11.1205 11.3486 14.0395 7.66667 14.0395C3.98477 14.0395 1 11.1205 1 7.51977C1 3.919 3.98477 1 7.66667 1C11.3486 1 14.3333 3.919 14.3333 7.51977Z"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
                   </svg>
                 </button>
-                <a href="#">
-                  <article>
-                    <figure>
-                      <picture>
-                        <img
-                          src="../../assets/images/natural-history-museum.jpg"
-                          alt="런던 자연사 박물관"
-                          width="80"
-                          height="80"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </picture>
-                      <figcaption>
-                        <p>자연사 박물관</p>
-                        <p>Natural History Museum</p>
-                        <span
-                          >Cromwell Rd, South Kensington, London SW7 5BD
-                          영국</span
-                        >
-                        <span>월요일 오전 10:00~오후 5:50</span>
-                        <span>월요일 오전 10:00~오후 5:50</span>
-                      </figcaption>
-                    </figure>
-                  </article>
-                </a>
-              </li>
-            </ul>
+              </label>
+            </form>
           </div>
-          <div class="map__search-list--saved"></div>
+          <div class="map__search-list">
+            <div class="map__search-list--around">
+              <div class="map__search-list--filter">
+                <button type="button">거리순</button>
+                <button type="button">리뷰 많은 순</button>
+                <button type="button">예약 가능</button>
+              </div>
+              <ul class="map__search-list--list">
+                <!-- 컴포넌트 스타일링을 위한 임시 컴포넌트 마크업 -->
+                <li>
+                  <button
+                    type="button"
+                    class="map__search-list--saved"
+                    aria-label="즐겨찾기"
+                  >
+                    <svg
+                      width="17"
+                      height="16"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      role="none"
+                    >
+                      <path
+                        d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
+                        fill="#E8E8E8"
+                      />
+                    </svg>
+                  </button>
+                  <a href="#">
+                    <article>
+                      <figure>
+                        <picture>
+                          <img
+                            src="../../assets/images/natural-history-museum.jpg"
+                            alt="런던 자연사 박물관"
+                            width="80"
+                            height="80"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                        <figcaption>
+                          <h5>자연사 박물관</h5>
+                          <p>Natural History Museum</p>
+                          <span
+                            >Cromwell Rd, South Kensington, London SW7 5BD
+                            영국</span
+                          >
+                          <span>월요일 오전 10:00~오후 5:50</span>
+                          <span>월요일 오전 10:00~오후 5:50</span>
+                        </figcaption>
+                      </figure>
+                    </article>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="map__search-list--saved"></div>
+          </div>
         </div>
       </div>
     </section>
