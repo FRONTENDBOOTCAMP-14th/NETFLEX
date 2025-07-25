@@ -81,6 +81,7 @@ body {
   left: 100%;
   width: 60vw;
   background: var(--white);
+  transition: left 0.2s ease-in-out;
 
   &.side-open {
     left: 40%;
@@ -175,6 +176,16 @@ body {
 
   .map__search-list {
     padding-inline: 15px 0;
+    /* .is-activate */
+    .map__search-list--around,
+    .map__search-list--saved {
+      display: none;
+
+      &.is-activate {
+        display: block;
+      }
+    }
+
     .map__search-list--filter {
       display: flex;
       justify-content: start;
