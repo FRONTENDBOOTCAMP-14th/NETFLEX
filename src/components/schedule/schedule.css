@@ -4,12 +4,11 @@
   --radius: .9375rem;
 }
 
-body {
-  margin: 50px;
-}
-
 /* --------------------------------------------------------- */
 /* 전체 섹션 */
+.schedule {
+  max-inline-size: 514px;
+}
 
 .schedule__header {
   display: flex;
@@ -18,7 +17,7 @@ body {
   margin-block-end: 5px;
 }
 
-#schedule__title {
+.schedule__title {
   font-size: 2rem;
   margin: 0 0 4px 0;
 }
@@ -32,7 +31,6 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 0 6px 10px;
   font-size: var(--fontSize16);
   font-weight: var(--semiBold);
   color: inherit;
@@ -56,11 +54,12 @@ body {
 /* DAY 섹션 */
 
 .schedule__day-list {
-  max-inline-size: auto;
   border: .0625rem solid var(--gray-300);
   border-radius: var(--radius);
   padding: 25px;
   margin: 0;
+  block-size: 400px;
+  overflow-y: scroll;
 }
 
 .schedule__day {
@@ -88,6 +87,7 @@ body {
   background-color: var(--white-fa);
   border: 1px solid var(--gray-200);
   border-radius: 8px;
+  inline-size: 100%;
 }
 
 .schedule__task-label {
@@ -113,8 +113,8 @@ body {
   /* 실질적인 기능만 맡고, 커스텀 박스랑 겹치지 않기 위해 */
 }
 
-/* 체크되었을 때 */
-.schedule__checkbox:checked+.schedule__custom-box {
+/* 체크 상태일 때 배경색 변경 */
+.schedule__task-item.is-checked .schedule__custom-box {
   background-color: var(--blue-200);
 }
 
@@ -139,4 +139,52 @@ body {
 .schedule__check-icon {
   opacity: 1;
   transition: opacity 0.2s ease;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .schedule__title {
+    font-size: var(--fontSize22);
+  }
+
+  .schedule__show-all-btn {
+    font-size: 14px;
+    padding: 6px 0 0px 10px;
+  }
+
+  .schedule__day-list {
+    block-size: 304px;
+  }
+
+  .schedule__day {
+    font-size: var(--fontSize18);
+  }
+
+  .schedule__task-text {
+    font-size: var(--fontSize14);
+  }
+}
+
+/* 테블릿 */
+@media (max-width: 1279px) {
+  .schedule {
+    max-inline-size: 450px;
+  }
+
+  .schedule__title {
+    font-size: var(--fontSize26);
+  }
+
+  .schedule__show-all-btn {
+    font-size: 14px;
+    padding: 6px 0 0px 10px;
+  }
+
+  .schedule__day-list {
+    block-size: 384px;
+  }
+
+  .schedule__task-text {
+    font-size: var(--fontSize20);
+  }
 }
