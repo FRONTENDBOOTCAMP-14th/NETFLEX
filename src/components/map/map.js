@@ -53,8 +53,8 @@ let map, infoWindow;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 6,
+    center: { lat: 37.571325, lng: 126.9790389 },
+    zoom: 17,
     disableDefaultUI: true,
   });
   infoWindow = new google.maps.InfoWindow();
