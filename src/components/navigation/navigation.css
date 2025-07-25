@@ -1,0 +1,156 @@
+.nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--white-fa);
+  padding: 36px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.logo__header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 36px;
+}
+
+.nav__list {
+  margin-bottom: 108px;
+  display: block;
+}
+
+.nav__item {
+  --medium: 400;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: var(--fontSize16);
+  font-weight: var(--medium);
+  z-index: 1;
+}
+
+.nav__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1);
+  width: calc(100% + 72px);
+  height: 100%;
+  background-color: var(--blue-200);
+  opacity: 0;
+  z-index: -1;
+}
+
+.nav__item:hover::before {
+  opacity: 1;
+}
+
+.nav__item:hover {
+  color: var(--white);
+}
+
+.nav__item:hover .nav__icon path {
+  fill: var(--white);
+}
+
+.nav__label {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav__icon {
+  width: 23px;
+  height: 24px;
+}
+
+.nav__close {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.nav__open {
+  display: none;
+}
+
+/* -------------------- 768px 이하 미디어 쿼리 -------------------- */
+@media (max-width: 768px) {
+  .nav__wrapper {
+    padding: 10px 15px;
+  }
+
+  .logo__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 41px;
+    background-color: var(--white-fa);
+    padding-bottom: 0;
+		border-radius: 10px;
+  }
+
+  .logo__header .nav__open {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .logo__header .nav__close {
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .nav__wrapper.is-open .logo__header .nav__close {
+    display: block;
+  }
+  .nav__wrapper.is-open .logo__header .nav__open {
+    display: none;
+  }
+
+  .logo__header h1 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav__list {
+    display: none;
+    margin-bottom: 20px;
+    padding-left: 0;
+  }
+
+  .nav__wrapper.is-open .nav__list {
+    display: block;
+    position: relative;
+  }
+}
