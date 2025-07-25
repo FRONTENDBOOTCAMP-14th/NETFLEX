@@ -143,10 +143,6 @@
 
 /* 모바일 */
 @media (max-width: 767px) {
-  .schedule {
-    max-inline-size: 345px;
-  }
-
   .schedule__title {
     font-size: var(--fontSize22);
   }
@@ -157,7 +153,7 @@
   }
 
   .schedule__day-list {
-    block-size: 300px;
+    block-size: 304px;
   }
 
   .schedule__day {
