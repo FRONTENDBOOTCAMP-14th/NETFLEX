@@ -1,8 +1,12 @@
 @import url(../../styles/common/theme.css);
+body {
+  background: var(--gray-200);
+}
 
 .map-section {
   h3 {
     padding: 15px 0 15px 30px;
+    font-size: var(--fontSize22);
   }
   .map-layout {
     position: relative;
@@ -74,9 +78,18 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 40%;
+  left: 100%;
   width: 60vw;
   background: var(--white);
+
+  &.side-open {
+    left: 40%;
+    .map-side__button--toggle {
+      svg {
+        rotate: 180deg;
+      }
+    }
+  }
 
   .map-side__button--toggle {
     position: absolute;
@@ -89,14 +102,12 @@
     background: var(--white);
     transition: background 0.2s ease-in-out;
 
-    &:hover {
-      background: var(--white-fa);
+    svg {
+      translate: 50% 0;
     }
 
-    &.is-toggle {
-      svg {
-        transform: rotate(180deg);
-      }
+    &:hover {
+      background: var(--white-fa);
     }
   }
 
@@ -189,7 +200,7 @@
       }
     }
     a {
-      width: 80%;
+      width: 100%;
     }
     figure {
       display: flex;
@@ -206,9 +217,112 @@
     h5 {
       font-size: var(--fontSize14);
     }
-
+    p {
+      margin-block: -2px -3px;
+    }
     span {
-      display: none;
+      display: block;
+      margin-top: -1px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .map-section {
+    --fontSize32: 32px;
+    h3 {
+      padding: 10px 0;
+      font-size: var(--fontSize32);
+    }
+  }
+
+  .map {
+    #map {
+      height: 60vw;
+      border-radius: 10px;
+    }
+
+    .map__button--search {
+      top: 25px;
+      left: 20px;
+    }
+    .map__button--control {
+      .map__button {
+        inline-size: 30px;
+        block-size: 30px;
+      }
+    }
+  }
+
+  .map-side {
+    width: 40vw;
+    border-radius: 0 10px 10px 0;
+
+    &.side-open {
+      left: 60%;
+    }
+
+    .map__search-list--list {
+      li {
+        display: flex;
+        gap: 10px;
+      }
+      figure {
+        gap: 10px;
+      }
+      picture {
+        flex-shrink: 0;
+      }
+      figcaption {
+        flex-shrink: 1;
+        font-size: var(--fontSize12);
+        text-overflow: ellipsis;
+      }
+      h5 {
+        font-size: var(--fontSize14);
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .map-section {
+    overflow: hidden;
+    max-width: 900px;
+  }
+  .map {
+    #map {
+      max-height: 550px;
+    }
+  }
+
+  .map-side {
+    width: 350px;
+
+    &.side-open {
+      left: 550px;
+    }
+
+    .map__search-list--list {
+      li {
+        display: flex;
+        gap: 10px;
+      }
+      figure {
+        gap: 10px;
+        width: 100%;
+      }
+      picture {
+        flex-shrink: 0;
+      }
+      figcaption {
+        flex-shrink: 1;
+        font-size: var(--fontSize12);
+        text-overflow: ellipsis;
+      }
+      h5 {
+        font-size: var(--fontSize14);
+      }
     }
   }
 }
