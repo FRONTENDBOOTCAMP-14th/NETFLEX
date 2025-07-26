@@ -4,94 +4,91 @@
 //-----------------------------------------------------------------------
 
 const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
+const zoomOutButton = document.querySelector(".map__button--zoom-out");
+const zoomInButton = document.querySelector(".map__button--zoom-in");
+const locationButton = document.querySelector(".map__button--current");
 
+// <script> 태그 동적 호출
 const script = document.createElement("script");
 script.src = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap&loading=async`;
 script.async = true;
 script.defer = true;
 document.head.appendChild(script);
 
-((g) => {
-  var h,
-    a,
-    k,
-    p = "The Google Maps JavaScript API",
-    c = "google",
-    l = "importLibrary",
-    q = "__ib__",
-    m = document,
-    b = window;
-  b = b[c] || (b[c] = {});
-  var d = b.maps || (b.maps = {}),
-    r = new Set(),
-    e = new URLSearchParams(),
-    u = () =>
-      h ||
-      (h = new Promise((f, n) => {
-        a = m.createElement("script");
-        e.set("libraries", [...r] + "");
-        for (k in g)
-          e.set(
-            k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
-            g[k]
-          );
-        e.set("callback", c + ".maps." + q);
-        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-        d[q] = f;
-        a.onerror = () => (h = n(Error(p + " could not load.")));
-        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-        m.head.append(a);
-      }));
-  d[l]
-    ? console.warn(p + " only loads once. Ignoring:", g)
-    : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
-})({
-  key: MAP_API_KEY,
-  v: "weekly",
-  // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-  // Add other bootstrap parameters as needed, using camel case.
+let map, infoWindow;
+let zoomValue = 17;
+
+// 지도 축소
+zoomOutButton.addEventListener("click", () => {
+  zoomValue = --zoomValue;
+  map.setZoom(zoomValue);
+});
+// 지도 확대
+zoomInButton.addEventListener("click", () => {
+  zoomValue = ++zoomValue;
+  map.setZoom(zoomValue);
 });
 
-let map, infoWindow;
-
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 37.571325, lng: 126.9790389 },
-    zoom: 17,
-    disableDefaultUI: true,
-  });
-  infoWindow = new google.maps.InfoWindow();
-
-  const locationButton = document.createElement("button");
-
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+// 현재 위치 좌표 구하기
+function getCurrentPosition() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error("위치를 찾을 수 없습니다."));
     }
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 }
+
+// 지도 호출
+window.initMap = async function () {
+  try {
+    const position = await getCurrentPosition();
+    const pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    };
+
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: pos,
+      zoom: zoomValue,
+      disableDefaultUI: true,
+    });
+
+    infoWindow = new google.maps.InfoWindow();
+  } catch (error) {
+    const defaultPos = { lat: 37.571325, lng: 126.9790389 };
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: defaultPos,
+      zoom: zoomValue,
+      disableDefaultUI: true,
+    });
+
+    infoWindow = new google.maps.InfoWindow();
+    console.error("위치 정보를 불러올 수 없습니다 :", error);
+  }
+};
+
+// 현재 위치로 이동
+locationButton.addEventListener("click", () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        infoWindow.setPosition(pos);
+        map.setCenter(pos);
+      },
+      () => {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }
+    );
+  } else {
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+});
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -103,12 +100,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-window.initMap = initMap;
+// window.initMap = initMap();
 
 // ui 구현
 //-----------------------------------------------------------------------
 
-// 사이드 메뉴 dom 호풀
+// 사이드 메뉴 dom 호출
 const mapSearchMenu = document.querySelector(".map-side");
 const mapMenuToggleButton = mapSearchMenu.querySelector(
   ".map-side__button--toggle"
