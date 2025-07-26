@@ -130,20 +130,20 @@
               </button>
               <button type="button" class="map__search--tab">여행 일정</button>
             </div>
-            <form
-              action="https://www.google.com/maps"
-              method="post"
-              class="map__search-form"
-            >
+            <form method="POST" class="map__search-form" id="map__search-form">
               <label for="map-search" class="map__search-label">
                 <input
-                  type="search"
+                  type="text"
                   id="map-search"
                   name="map-search"
                   placeholder="주소를 입력해주세요"
                   class="map__search-input"
                 />
-                <button type="submit" aria-label="검색하기">
+                <button
+                  type="submit"
+                  aria-label="검색하기"
+                  class="map__search-button"
+                >
                   <svg
                     width="18"
                     height="18"

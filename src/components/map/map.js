@@ -39,6 +39,8 @@ function getCurrentPosition() {
   });
 }
 
+script.src = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap&libraries=places`;
+
 // 지도 호출
 window.initMap = async function () {
   try {
@@ -52,6 +54,15 @@ window.initMap = async function () {
       center: pos,
       zoom: zoomValue,
       disableDefaultUI: true,
+      mapId: "DEMO_MAP_ID",
+    });
+
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    const marker = new AdvancedMarkerElement({
+      map,
+      position: pos,
+      title: "my location",
     });
 
     infoWindow = new google.maps.InfoWindow();
@@ -157,3 +168,9 @@ function getSelectedIndex() {
 function getSelectIndex(button) {
   return mapTabs.findIndex((tab) => tab === button);
 }
+
+const seachButton = mapSearchMenu.querySelector(".map__search - button;");
+
+seachButton.addEventListener("submie", (e) => {
+  e.preventDefault();
+});
