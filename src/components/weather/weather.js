@@ -5,10 +5,13 @@ function getWeatherImage(weatherMain) {
   const weatherIconMap = {
     Clear: "sunny.svg",
     Clouds: "cloudy.svg",
+    ScatteredClouds: "cloudy-01.svg",
+    FewClouds: "cloudy-03.svg",
     Rain: "rainy-01.svg",
-    Thunderstorm: "rainy-02.svg",
-    Drizzle: "rainy-03.svg",
+		ThunderstormWithRain: "rainy-02.svg",
+		DrizzleRain: "rainy-03.svg",
     Snow: "snow.svg",
+    Thunderstorm: "thunder.svg",
   };
   return `../../../src/assets/svg/${weatherIconMap[weatherMain] || "default.svg"}`;
 }
