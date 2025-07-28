@@ -15,15 +15,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       li.innerHTML = `
         <div class="checklist__text-box">
-          <strong class="checklist__item-title">${item.title}</strong>
-          ${item.required ? `
+          <strong class="checklist__item-title">${item.title}</strong>${
+            item.required
+              ? `
             <span class="checklist__badge">
               <svg class="checklist__badge-icon" aria-hidden="true" width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.78843 10.85L0.50038 6.1C0.277726 5.9 0.277726 5.55 0.50038 5.3L1.33533 4.55C1.55799 4.35 1.94763 4.35 2.22595 4.55L6.23374 8.15L15.1399 0.15C15.3626 -0.05 15.7522 -0.05 16.0305 0.15L16.8655 0.9C17.0881 1.1 17.0881 1.45 16.8655 1.7L6.67904 10.85C6.40073 11.05 6.01108 11.05 5.78843 10.85Z" fill="#FF5B55" />
               </svg>
               <span>필수</span>
-            </span>` : ''
-        }
+            </span>`
+              : ''
+          }
           <p class="checklist__description">${item.description}</p>
         </div>
         <label for="${item.id}" class="checklist__label">
