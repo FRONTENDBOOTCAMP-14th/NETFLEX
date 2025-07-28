@@ -6,6 +6,12 @@
     "required": true
   },
   {
+    "id": "visa",
+    "title": "비자 확인",
+    "description": "입국에 필요한 비자를 발급 받았나요?",
+    "required": true
+  },
+  {
     "id": "sim",
     "title": "유심 / 로밍",
     "description": "인터넷 사용 방법은 정하셨나요?",

@@ -134,10 +134,18 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.checklist__checkbox:checked + .checklist__custom-box {
+/* .checklist__checkbox:checked + .checklist__custom-box {
   background-color: var(--blue-200);
 }
 
 .checklist__checkbox:checked + .checklist__custom-box .checklist__check-icon {
+  display: block;
+} */
+
+.checklist__item.is-checked .checklist__custom-box {
+  background-color: var(--blue-200);
+}
+
+.checklist__custom-box.is-checked .checklist__check-icon {
   display: block;
 }
