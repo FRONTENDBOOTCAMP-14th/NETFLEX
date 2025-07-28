@@ -37,8 +37,15 @@ export default defineConfig([
       // 화살표 함수 일관성
       "prefer-arrow-callback": "error",
 
-      // 일관된 공백 사용
-      "space-before-function-paren": ["error", "never"],
+      // 일관된 공백 사용 - Prettier와 충돌하므로 수정
+      "space-before-function-paren": [
+        "error",
+        {
+          anonymous: "always",
+          named: "never",
+          asyncArrow: "always",
+        },
+      ],
       "space-before-blocks": ["error", "always"],
 
       // 주석 스타일

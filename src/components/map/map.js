@@ -71,7 +71,7 @@ window.initMap = async function () {
 
     const { Place } = await google.maps.importLibrary("places");
 
-    searchForm.addEventListener("submit", async (e) => {
+    searchForm.addEventListener("submit", async e => {
       e.preventDefault();
       const keyword = searchInput.value.trim();
       if (!keyword) return;
@@ -174,8 +174,8 @@ window.initMap = async function () {
         searchList.innerHTML = searchResultsHTML;
 
         // 각 검색 결과 클릭 시 지도 이동 기능 추가
-        searchList.querySelectorAll(".place-result").forEach((link) => {
-          link.addEventListener("click", (e) => {
+        searchList.querySelectorAll(".place-result").forEach(link => {
+          link.addEventListener("click", e => {
             const lat = parseFloat(e.currentTarget.dataset.lat);
             const lng = parseFloat(e.currentTarget.dataset.lng);
             if (lat && lng) {
@@ -210,7 +210,7 @@ window.initMap = async function () {
 locationButton.addEventListener("click", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      position => {
         const pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
@@ -288,9 +288,9 @@ mapTabMenu.addEventListener("click", ({ target }) => {
 
 // 활성 클래스 인덱스 찾기
 function getSelectedIndex() {
-  return mapTabs.findIndex((tab) => tab.classList.contains(TAB_ACTIVATE_CLASS));
+  return mapTabs.findIndex(tab => tab.classList.contains(TAB_ACTIVATE_CLASS));
 }
 
 function getSelectIndex(button) {
-  return mapTabs.findIndex((tab) => tab === button);
+  return mapTabs.findIndex(tab => tab === button);
 }
