@@ -25,7 +25,7 @@ export default defineConfig([
       // 세미콜론 강제
       semi: ["error", "always"],
 
-      // 작은따옴표 사용
+      // 큰따옴표 사용
       quotes: ["error", "double", { avoidEscape: true }],
 
       // var 사용 금지
