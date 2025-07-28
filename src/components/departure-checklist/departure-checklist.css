@@ -134,18 +134,55 @@ body {
   transition: background-color 0.2s ease;
 }
 
-/* .checklist__checkbox:checked + .checklist__custom-box {
-  background-color: var(--blue-200);
-}
-
-.checklist__checkbox:checked + .checklist__custom-box .checklist__check-icon {
-  display: block;
-} */
-
 .checklist__item.is-checked .checklist__custom-box {
   background-color: var(--blue-200);
 }
 
 .checklist__custom-box.is-checked .checklist__check-icon {
   display: block;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .checklist {
+    max-inline-size: 345px;
+  }
+
+  .checklist__title {
+    font-size: var(--fontSize22);
+    text-overflow: ellipsis;
+  }
+
+  .checklist__show-all-btn {
+    font-size: var(--fontSize14);
+  }
+
+  .checklist__list {
+    grid-template-columns: repeat(1, 1fr);
+    block-size: 560px;
+    padding: 15px
+  }
+
+  .checklist__item {
+    inline-size: auto;
+  }
+
+  .checklist__item-title {
+    font-size: var(--fontSize16);
+  }
+
+  .checklist__description {
+    font-size: 12px;
+    display: block;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .checklist__label {
+    margin-inline-end: 0;
+  }
+
+  .checklist__text-box {}
 }
