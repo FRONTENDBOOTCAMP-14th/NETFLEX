@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./exchange-rate.css" />
+    <script type="module" src="./exchange-rate.js"></script>
+    <title>환율 컴포넌트</title>
+  </head>
+  <body>
+    <article class="exchange-form">
+      <h3 id="exchange-title" class="exchange-title">환율</h3>
+      <!-- 환율 입력 영역-->
+      <div
+        class="currency-input-box"
+        role="group"
+        aria-labelledby="currency-label"
+      >
+        <div class="currency-select">
+          <label for="base-currency" class="sr-only" id="currency-label"
+            >통화 선택</label
+          >
+          <select id="base-currency">
+            <option value="USD" data-symbol="달러">🇺🇸 미국 (USD)</option>
+            <option value="GBP" selected data-symbol="파운드">
+              🇬🇧 영국 (GBP)
+            </option>
+            <option value="EUR" data-symbol="유로">🇪🇺 유로 (EUR)</option>
+            <option value="JPY" data-symbol="엔">🇯🇵 일본 (JPY)</option>
+          </select>
+          <div class="currency-labels">
+            <span class="country-name">영국</span>
+            <span class="currency-code">GBP</span>
+          </div>
+        </div>
+
+        <div class="currency-amount">
+          <label for="base-amount" class="sr-only">금액 입력</label>
+          <input
+            type="number"
+            id="base-amount"
+            value="1"
+            min="0"
+            inputmode="decimal"
+            aria-label="금액 입력"
+          />
+          <span class="unit-text">단위</span>
+        </div>
+      </div>
+
+      <!-- 환율 출력 영역 -->
+      <div class="currency-box result" aria-label="환전 대상 금액">
+        <div class="currency-select">
+          <span id="target-label" class="sr-only">환전 대상</span>
+          <div class="currency-labels">
+            <span class="country-name">대한민국</span>
+            <span class="currency-code">KRW</span>
+          </div>
+        </div>
+
+        <div class="currency-amount">
+          <strong id="converted-amount" class="converted"></strong>
+          <span class="unit-text"></span>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>

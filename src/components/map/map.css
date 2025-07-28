@@ -26,11 +26,12 @@ body {
     top: 15px;
     left: 15px;
     border: none;
-    padding: 12px 17px 12px 10px;
+    padding: 12px 10px 12px 10px;
     border-radius: 50px;
     background: var(--blue-200);
     font-size: var(--fontSize14);
     color: var(--white);
+    font-weight: var(--semiBold);
     box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
     transition: background 0.2s ease-in-out;
 
@@ -40,11 +41,12 @@ body {
 
     svg {
       display: inline;
-      margin-right: 5px;
+      margin-right: -2px;
     }
   }
   .map__button--control {
     display: flex;
+    flex-direction: column;
     gap: 5px;
     position: absolute;
     bottom: 15px;
@@ -79,12 +81,13 @@ body {
   top: 0;
   bottom: 0;
   left: 100%;
-  width: 60vw;
+  overflow-y: scroll;
+  width: 70vw;
   background: var(--white);
   transition: left 0.2s ease-in-out;
 
   &.side-open {
-    left: 40%;
+    left: 30%;
     .map-side__button--toggle {
       svg {
         rotate: 180deg;
@@ -113,7 +116,12 @@ body {
   }
 
   .map__search {
-    padding: 15px 15px 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 15px 10px 0;
+    background: var(--white);
 
     .map__search--tab-wrapper {
       display: flex;
@@ -156,7 +164,7 @@ body {
 
     .map__search-form {
       margin-top: 15px;
-      padding-inline: 8px 15px;
+      padding-inline: 15px;
       border: 1px solid var(--gray-400);
       border-radius: 10px;
       font-size: var(--fontSize14);
@@ -175,7 +183,9 @@ body {
   }
 
   .map__search-list {
-    padding-inline: 15px 0;
+    position: relative;
+    padding-inline: 10px;
+
     /* .is-activate */
     .map__search-list--around,
     .map__search-list--saved {
@@ -187,10 +197,14 @@ body {
     }
 
     .map__search-list--filter {
+      position: sticky;
+      top: 115px;
+      left: 0;
       display: flex;
       justify-content: start;
       gap: 5px;
       font-size: var(--fontSize12);
+      background: var(--white);
       color: var(--gray-500);
 
       button {
@@ -202,6 +216,7 @@ body {
     li {
       display: flex;
       gap: 10px;
+      padding-block-end: 30px;
     }
     button {
       &.is-toggle {
@@ -219,11 +234,13 @@ body {
     }
     picture {
       flex-shrink: 0;
+      border-radius: 5px;
+      overflow: hidden;
     }
     figcaption {
       flex-shrink: 1;
       font-size: var(--fontSize12);
-      text-overflow: ellipsis;
+      max-width: 180px;
     }
     h5 {
       font-size: var(--fontSize14);
@@ -232,8 +249,14 @@ body {
       margin-block: -2px -3px;
     }
     span {
-      display: block;
+      /* display: block; */
       margin-top: -1px;
+    }
+    .result-hours {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
@@ -256,8 +279,13 @@ body {
     .map__button--search {
       top: 25px;
       left: 20px;
+
+      svg {
+        margin-right: 5px;
+      }
     }
     .map__button--control {
+      flex-direction: row;
       .map__button {
         inline-size: 30px;
         block-size: 30px;
@@ -267,10 +295,19 @@ body {
 
   .map-side {
     width: 40vw;
+
     border-radius: 0 10px 10px 0;
 
     &.side-open {
       left: 60%;
+    }
+
+    .map__search {
+      padding: 15px 15px 0;
+    }
+
+    .map__search-list {
+      padding-inline: 15px;
     }
 
     .map__search-list--list {
@@ -285,9 +322,7 @@ body {
         flex-shrink: 0;
       }
       figcaption {
-        flex-shrink: 1;
-        font-size: var(--fontSize12);
-        text-overflow: ellipsis;
+        max-width: 250px;
       }
       h5 {
         font-size: var(--fontSize14);
@@ -308,10 +343,10 @@ body {
   }
 
   .map-side {
-    width: 350px;
+    width: 450px;
 
     &.side-open {
-      left: 550px;
+      left: 450px;
     }
 
     .map__search-list--list {
@@ -327,9 +362,7 @@ body {
         flex-shrink: 0;
       }
       figcaption {
-        flex-shrink: 1;
-        font-size: var(--fontSize12);
-        text-overflow: ellipsis;
+        width: 280px;
       }
       h5 {
         font-size: var(--fontSize14);
