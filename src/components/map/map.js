@@ -1,8 +1,6 @@
 /* global google */
 
 // 구글맵 api 호출
-//-----------------------------------------------------------------------
-
 const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
 const mapSection = document.querySelector(".map-section");
 const zoomOutButton = mapSection.querySelector(".map__button--zoom-out");
@@ -223,7 +221,7 @@ locationButton.addEventListener("click", () => {
       },
       () => {
         handleLocationError(true, infoWindow, map.getCenter());
-      }
+      },
     );
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
@@ -235,7 +233,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setContent(
     browserHasGeolocation
       ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
+      : "Error: Your browser doesn't support geolocation.",
   );
   infoWindow.open(map);
 }
@@ -243,12 +241,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // window.initMap = initMap();
 
 // ui 구현
-//-----------------------------------------------------------------------
 
 // 사이드 메뉴 dom 호출
 const mapSearchMenu = document.querySelector(".map-side");
 const mapMenuToggleButton = mapSearchMenu.querySelector(
-  ".map-side__button--toggle"
+  ".map-side__button--toggle",
 );
 const SIDE_OPEN_CLASS = "side-open";
 
