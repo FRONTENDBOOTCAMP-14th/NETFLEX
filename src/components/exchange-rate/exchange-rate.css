@@ -1,0 +1,93 @@
+@import "./../../styles/main.css";
+
+/* 카드 전체 컨테이너 */
+.exchange-form {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+}
+
+/* 기본 박스 구조 */
+.currency-input-box,
+.currency-box {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  font-family: sans-serif;
+}
+
+/* 왼쪽 박스 */
+.currency-select {
+  background-color: #f9f9fb;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  position: relative;
+}
+
+.currency-select select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.currency-labels {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.country-name {
+  font-weight: 500;
+}
+
+.currency-code {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* 오른쪽 박스 */
+.currency-amount {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.currency-amount input {
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  text-align: right;
+  outline: none;
+  width: 100%;
+}
+
+.unit-text {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* 결과 출력 영역 전용 스타일 */
+.currency-box.result .currency-select {
+  cursor: default;
+}
+
+.converted {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
