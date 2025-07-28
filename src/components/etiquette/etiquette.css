@@ -15,34 +15,85 @@ h3 {
   max-width: 100%;
 }
 
-.etiquette-title {
+.etiquette__title {
   display: flex;
   align-items: center;
 }
 
+/* 나라 선별 라벨 선택 */
+/* ------------------------------------------------ */
 
-.etiquette-label {
-  margin-left:10px ;
+.etiquette__dropdown-horizontal {
+  position: relative;
+  display: inline-block;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.etiquette__label {
+  margin-left: 10px;
   background-color: var(--blue-200);
   font-size: var(--fontSize12);
   font-weight: var(--bold);
   color: var(--white-fa);
-  padding: 5px 12px ;
-  text-align: center;
+  padding: 5px 12px;
   border-radius: 10px;
   display: flex;
+  align-items: center;
 }
 
-.etiquette-label p {
-  font-size: var(--fontSize20);
-  font-weight: var(--semiBold);
-  padding: 5px 15px;
-  margin-left: 1rem;
+.etiquette__options {
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  background: var(--white-fa);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 6px 8px;
+  z-index: 1000; 
+  white-space: nowrap;
+  margin: 0;
 }
+
+.etiquette__options li {
+  list-style: none;
+}
+
+.etiquette__options button {
+  background: none;
+  border: none;
+  padding: 4px 10px;
+  font-size: var(--fontSize14);
+  font-weight: var(--bold);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.etiquette__options button:hover,
+.etiquette__options button:focus {
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  font-weight: var(--bold);  
+}
+
 
 /* 카드 영역  */
-
-.etiquette-contents {
+/* ------------------------------------------------ */
+.etiquette__card-container {
+  overflow:hidden;
+}
+.etiquette__contents {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,12 +103,7 @@ h3 {
   margin-top: 2rem;
 }
 
-.etiquette-container{
-  overflow: hidden;
-  width: 760px;
-}
-
-.etiquette-cards {
+.etiquette__cards {
   display: flex;
   gap: 1.8rem;
   transition: transform 0.4s ease;
@@ -70,7 +116,7 @@ h3 {
 
 /* 개별 카드 */
 
-.etiquette-card {
+.etiquette__card {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -101,21 +147,21 @@ h3 {
 
 /* 개별 카드 이미지 삽입 */
 .etiquette-img.card-01 {
-  background-image: url(../../assets/images/etiquette-london-1_1x\ \ .webp); 
+  background-image: url(../../assets/images/etiquette-london-1_1x.webp); 
 }
 .etiquette-img.card-02 {
-  background-image: url(../../assets/images/etiquette-london-2_1x\ \ .webp); 
+  background-image: url(../../assets/images/etiquette-london-2_1x.webp); 
 }
 .etiquette-img.card-03 {
-  background-image: url(../../assets/images/etiquette-london-3_1x\ \ .webp); 
+  background-image: url(../../assets/images/etiquette-london-3_1x.webp); 
 }
 .etiquette-img.card-04 {
-  background-image: url(../../assets/images/etiquette-london-4_1x\ \ .webp); 
+  background-image: url(../../assets/images/etiquette-london-4_1x.webp); 
 }
 
 /* 개별 카드 텍스트 영역 */
 
-.etiquette-cardTxt {
+.etiquette__cardTxt {
   flex: 5;
   margin: 0 10px;
   width: 100%;
@@ -123,14 +169,14 @@ h3 {
   justify-content:start;
 }
 
-.etiquette-cardTxt h4 {
+.etiquette__cardTxt h4 {
   position: absolute;
   top: 40px;
   font-size: var(--fontSize24);
 }
 
 .etiquette-cardTxt p {
-  position: absolute;
+  /* position: absolute; */
   top: 80px;
   font-size: var(--fontSize14);
   margin-top: 10px;
@@ -138,7 +184,7 @@ h3 {
   line-height: 1;
 }
 
-.etiquette-nav {
+.etiquette__nav {
   display: flex;
   box-sizing:border-box;
   justify-content: center;
@@ -159,3 +205,4 @@ h3 {
   position: absolute;
   right: 25px;
 }
+
