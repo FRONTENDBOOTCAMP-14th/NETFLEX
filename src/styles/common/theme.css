@@ -1,6 +1,6 @@
 :root {
   /* color */
-  --white: fff;
+  --white: #fff;
   --white-fa: #fafafa;
   --black-100: #000;
   --black-200: #27273c;
@@ -8,7 +8,7 @@
   --gray-100: #eeeeee;
   --gray-200: #e8e8e8;
   --gray-300: #d4d4d4;
-  --gray-300: #b2b2b2;
+  --gray-400: #b2b2b2;
   --gray-500: #a4a9ac;
   --gray-600: #666c70;
   --gray-700: #5a5a5a;
