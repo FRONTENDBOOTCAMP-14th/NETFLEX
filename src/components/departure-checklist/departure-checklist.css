@@ -145,6 +145,34 @@ body {
   display: block;
 }
 
+/* 테블릿 */
+@media (max-width: 1279px) {
+  .checklist {
+    max-inline-size: 738px;
+  }
+
+  .checklist__description {
+    inline-size: 150px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: inline-size 0.2s ease-in;
+
+    &:hover {
+      inline-size: 100%;
+    }
+
+    .checklist__badge {
+      margin-block-end: 6px;
+    }
+
+    @media (width > 400px) {
+      inline-size: 100%;
+    }
+  }
+}
+
 /* 모바일 */
 @media (max-width: 767px) {
   .checklist {
@@ -187,6 +215,10 @@ body {
     &:hover {
       inline-size: 100%;
     }
+
+    @media (width > 400px) {
+      inline-size: 100%;
+    }
   }
 
   .checklist__label {
@@ -195,29 +227,5 @@ body {
 
   .checklist__badge {
     margin-block-start: 6px;
-  }
-}
-
-/* 테블릿 */
-@media (max-width: 1279px) {
-  .checklist {
-    max-inline-size: 738px;
-  }
-
-  .checklist__description {
-    inline-size: 150px;
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    transition: inline-size 0.2s ease-in;
-
-    &:hover {
-      inline-size: 100%;
-    }
-
-    .checklist__badge {
-      margin-block-end: 6px;
-    }
   }
 }
