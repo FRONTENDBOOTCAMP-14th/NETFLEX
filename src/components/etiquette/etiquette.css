@@ -5,6 +5,12 @@ body {
 
 /* 에티켓 시작 */
 
+h3 {
+  font-size: 32px;
+  /* font-size: var(--fontSize32); */
+  font-weight: var(--bold);
+}
+
 .etiquette {
   max-width: 100%;
 }
@@ -17,7 +23,7 @@ body {
 
 .etiquette-label {
   margin-left:10px ;
-  background-color: var(--blue-100);
+  background-color: var(--blue-200);
   font-size: var(--fontSize12);
   font-weight: var(--bold);
   color: var(--white-fa);
@@ -25,6 +31,13 @@ body {
   text-align: center;
   border-radius: 10px;
   display: flex;
+}
+
+.etiquette-label p {
+  font-size: var(--fontSize20);
+  font-weight: var(--semiBold);
+  padding: 5px 15px;
+  margin-left: 1rem;
 }
 
 /* 카드 영역  */
@@ -35,6 +48,13 @@ body {
   justify-content: center;
   position: relative;
   width: 900px;
+
+  margin-top: 2rem;
+}
+
+.etiquette-container{
+  overflow: hidden;
+  width: 760px;
 }
 
 .etiquette-cards {
@@ -44,7 +64,6 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   will-change: transform;
-  overflow: hidden;
   width: 760px;
   transform: 0;
 }

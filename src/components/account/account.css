@@ -1,0 +1,48 @@
+@import url(../../styles/main.css);
+
+body {
+  padding: 50px;
+}
+
+/* ----------------------------------------- */
+
+.account {
+  max-width: 900px;
+}
+
+.account__show-total--Container {
+  width: 100%;
+  max-height: 120px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  padding: 1rem 1.9rem;
+}
+
+.account__show-total--Container {
+  font-size: var(--fontSize28);
+}
+
+.account__currency-exchange--btn {
+  border: none;
+  padding: 0;
+}
+
+.account__total--wrapper {
+  display: flex;
+  justify-content: end;
+
+}
+
+.account__total-cost {
+  
+  font-size: var(--fontSize28);
+  font-weight: var(--semiBold);
+}
+
+.account__output-table table {
+  border: 1px solid green;
+}
+.account__output-table td {
+  border: 1px solid blue;
+}
