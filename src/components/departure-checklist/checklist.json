@@ -1,0 +1,38 @@
+[
+  {
+    "id": "passport",
+    "title": "여권 확인",
+    "description": "유효 기간이 6개월 이상인가요?",
+    "required": true
+  },
+  {
+    "id": "sim",
+    "title": "유심 / 로밍",
+    "description": "인터넷 사용 방법은 정하셨나요?",
+    "required": true
+  },
+  {
+    "id": "hotel",
+    "title": "숙소 예약",
+    "description": "숙소 예약 바우처 할인 적용 확인하셨나요?",
+    "required": true
+  },
+  {
+    "id": "currency",
+    "title": "환전 여부",
+    "description": "현지 화폐로 환전은 넉넉히 하셨나요?",
+    "required": true
+  },
+  {
+    "id": "baggage",
+    "title": "수하물 규정 확인",
+    "description": "기내 수하물 무게 확인하셨나요?",
+    "required": true
+  },
+  {
+    "id": "departure",
+    "title": "출국 시간",
+    "description": "여권을 챙기셨나요?",
+    "required": true
+  }
+]
