@@ -4,18 +4,20 @@
 //-----------------------------------------------------------------------
 
 const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
-const zoomOutButton = document.querySelector(".map__button--zoom-out");
-const zoomInButton = document.querySelector(".map__button--zoom-in");
-const locationButton = document.querySelector(".map__button--current");
+const mapSection = document.querySelector(".map-section");
+const zoomOutButton = mapSection.querySelector(".map__button--zoom-out");
+const zoomInButton = mapSection.querySelector(".map__button--zoom-in");
+const locationButton = mapSection.querySelector(".map__button--current");
 
 // <script> 태그 동적 호출
 const script = document.createElement("script");
-script.src = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap&loading=async`;
+script.src = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap&libraries=places&loading=async`;
+
 script.async = true;
 script.defer = true;
 document.head.appendChild(script);
 
-let map, infoWindow;
+let map, infoWindow, marker;
 let zoomValue = 17;
 
 // 지도 축소
@@ -39,8 +41,6 @@ function getCurrentPosition() {
   });
 }
 
-script.src = `https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&callback=initMap&libraries=places`;
-
 // 지도 호출
 window.initMap = async function () {
   try {
@@ -59,13 +59,142 @@ window.initMap = async function () {
 
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-    const marker = new AdvancedMarkerElement({
+    marker = new AdvancedMarkerElement({
       map,
       position: pos,
       title: "my location",
     });
 
     infoWindow = new google.maps.InfoWindow();
+
+    const searchForm = mapSection.querySelector(".map__search-form");
+    const searchInput = mapSection.querySelector(".map__search-input");
+    const searchList = mapSection.querySelector(".map__search-list--list");
+
+    const { Place } = await google.maps.importLibrary("places");
+
+    searchForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const keyword = searchInput.value.trim();
+      if (!keyword) return;
+
+      try {
+        const response = await Place.searchByText({
+          textQuery: keyword,
+          fields: [
+            "displayName",
+            "formattedAddress",
+            "location",
+            "photos",
+            "regularOpeningHours",
+            "internationalPhoneNumber",
+          ],
+        });
+
+        const places = response.places;
+        if (!places || places.length === 0) {
+          alert("검색 결과가 없습니다.");
+          return;
+        }
+
+        // 첫 번째 결과로 지도 이동 및 마커 이동
+        const firstPlace = places[0];
+        if (firstPlace && firstPlace.location) {
+          map.setCenter(firstPlace.location);
+          map.setZoom(15); // 여러 결과를 볼 수 있도록 줌 레벨 조정
+          marker.position = firstPlace.location;
+        }
+
+        // 모든 검색 결과를 리스트로 표시
+        let searchResultsHTML = "";
+
+        places.forEach((place, index) => {
+          // 각 장소의 정보 추출
+          const name =
+            place.displayName?.text ||
+            place.displayName ||
+            place.name ||
+            place.title ||
+            `장소 ${index + 1}`;
+          const address = place.formattedAddress || "주소 없음";
+          const phone = place.internationalPhoneNumber || "전화번호 없음";
+
+          const hours =
+            place.regularOpeningHours?.weekdayDescriptions?.join(" ") ||
+            "운영시간 정보 없음";
+
+          // 사진 URL 처리
+          let photoUrl = "https://via.placeholder.com/70";
+          if (place.photos && place.photos.length > 0) {
+            try {
+              photoUrl = place.photos[0].getURI({
+                maxHeight: 400,
+                maxWidth: 400,
+              });
+            } catch (photoError) {
+              console.warn("사진 URL 생성 실패:", photoError);
+            }
+          }
+
+          // 각 장소를 클릭했을 때 지도 이동하는 기능 추가
+          const locationData = place.location
+            ? `data-lat="${place.location.lat()}" data-lng="${place.location.lng()}"`
+            : "";
+
+          searchResultsHTML += `
+            <li>
+              <button type="button" class="map__search-list--saved" aria-label="즐겨찾기">
+                <svg width="17" height="16" ...>...</svg>
+              </button>
+              <a href="${place.website || "#"}" target="_blank" rel="noopener noreferrer" 
+                 class="place-result" ${locationData}>
+                <article>
+                  <figure>
+                    <picture>
+                      <img
+                        src="${photoUrl}"
+                        alt="${name}"
+                        width="70"
+                        height="70"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <figcaption>
+                      <h5>${name}</h5>
+                      <p>${address}</p>
+                      <span class="result-hours">${hours}</span>
+                      <span>${phone}</span>
+                    </figcaption>
+                  </figure>
+                </article>
+              </a>
+            </li>
+          `;
+        });
+
+        searchList.innerHTML = searchResultsHTML;
+
+        // 각 검색 결과 클릭 시 지도 이동 기능 추가
+        searchList.querySelectorAll(".place-result").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const lat = parseFloat(e.currentTarget.dataset.lat);
+            const lng = parseFloat(e.currentTarget.dataset.lng);
+            if (lat && lng) {
+              const position = { lat, lng };
+              map.setCenter(position);
+              map.setZoom(17);
+              marker.position = position;
+            }
+          });
+        });
+
+        searchInput.value = "";
+      } catch (err) {
+        console.error("Place API 검색 오류:", err);
+        alert("검색 중 오류가 발생했습니다.");
+      }
+    });
   } catch (error) {
     const defaultPos = { lat: 37.571325, lng: 126.9790389 };
     map = new google.maps.Map(document.getElementById("map"), {
@@ -168,9 +297,3 @@ function getSelectedIndex() {
 function getSelectIndex(button) {
   return mapTabs.findIndex((tab) => tab === button);
 }
-
-const seachButton = mapSearchMenu.querySelector(".map__search - button;");
-
-seachButton.addEventListener("submie", (e) => {
-  e.preventDefault();
-});
