@@ -1,0 +1,188 @@
+@import './../../styles/main.css';
+
+:root {
+  --fontSize32: 32px;
+}
+
+body {
+  margin: 50px;
+}
+
+.checklist {
+  max-inline-size: 900px;
+}
+
+.checklist__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-block-end: 5px;
+}
+
+.checklist__title {
+  font-size: var(--fontSize32);
+}
+
+.checklist__show-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fontSize16);
+  font-weight: var(--semiBold);
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.checklist__show-all-btn:focus-visible {
+  outline: none;
+  border-color: var(--black-100);
+}
+
+.checklist__show-all-icon {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* --------------------------------------------------------- */
+/* 체크리스트 항목 */
+
+.checklist__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 25px;
+  border: .0625rem solid var(--gray-300);
+  border-radius: 15px;
+  padding: 25px;
+  block-size: 310px;
+  overflow-y: scroll;
+}
+
+.checklist__item {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-color: var(--white-fa);
+  padding-inline: 15px;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid var(--gray-200);
+  block-size: 70px;
+}
+
+.checklist__text-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-block: 8px;
+}
+
+.checklist__item-title {
+  display: inline;
+  font-size: var(--fontSize20);
+}
+
+.checklist__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background-color: var(--cream);
+  padding: 1px 5px 1px 8px;
+  border-radius: 5px;
+  margin-inline-start: 10px;
+  height: 24px;
+}
+
+.checklist__badge-icon {
+  margin-block-end: 2px;
+}
+
+.checklist__badge span {
+  font-size: var(--fontSize14);
+  line-height: 1;
+  display: block;
+}
+
+.checklist__description {
+  inline-size: 100%;
+  font-size: var(--fontSize14);
+  color: var(--gray-600);
+  margin-block-end: 10px;
+}
+
+.checklist__label {
+  display: flex;
+  align-items: center;
+  margin-inline-end: 12px;
+}
+
+.checklist__checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.checklist__custom-box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 5px;
+  background-color: var(--gray-200);
+  transition: background-color 0.2s ease;
+}
+
+.checklist__item.is-checked .checklist__custom-box {
+  background-color: var(--blue-200);
+}
+
+.checklist__custom-box.is-checked .checklist__check-icon {
+  display: block;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .checklist {
+    max-inline-size: 345px;
+  }
+
+  .checklist__title {
+    font-size: var(--fontSize22);
+    text-overflow: ellipsis;
+  }
+
+  .checklist__show-all-btn {
+    font-size: var(--fontSize14);
+  }
+
+  .checklist__list {
+    grid-template-columns: repeat(1, 1fr);
+    block-size: 560px;
+    padding: 15px
+  }
+
+  .checklist__item {
+    inline-size: auto;
+  }
+
+  .checklist__item-title {
+    font-size: var(--fontSize16);
+  }
+
+  .checklist__description {
+    font-size: 12px;
+    display: block;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .checklist__label {
+    margin-inline-end: 0;
+  }
+
+  .checklist__text-box {}
+}
