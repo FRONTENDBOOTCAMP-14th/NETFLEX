@@ -103,26 +103,26 @@
             </button>
           </div>
         </div>
-        <div class="map-side">
-          <button
-            type="button"
-            aria-label="검색창 열기"
-            class="map-side__button--toggle"
+        <button
+          type="button"
+          aria-label="검색창 열기"
+          class="map-side__button--toggle"
+        >
+          <svg
+            width="8"
+            height="16"
+            viewBox="0 0 8 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="none"
           >
-            <svg
-              width="8"
-              height="16"
-              viewBox="0 0 8 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              role="none"
-            >
-              <path
-                d="M7.64746 8L0.412015 15.7942L0.412016 0.205771L7.64746 8Z"
-                fill="#2C79FE"
-              />
-            </svg>
-          </button>
+            <path
+              d="M7.64746 8L0.412015 15.7942L0.412016 0.205771L7.64746 8Z"
+              fill="#2C79FE"
+            />
+          </svg>
+        </button>
+        <div class="map-side">
           <div class="map__search">
             <div class="map__search--tab-wrapper">
               <button type="button" class="map__search--tab is-activate">
@@ -171,54 +171,7 @@
                 <button type="button">리뷰 많은 순</button>
                 <button type="button">예약 가능</button>
               </div>
-              <ul class="map__search-list--list">
-                <!-- 컴포넌트 스타일링을 위한 임시 컴포넌트 마크업 -->
-                <li>
-                  <button
-                    type="button"
-                    class="map__search-list--saved"
-                    aria-label="즐겨찾기"
-                  >
-                    <svg
-                      width="17"
-                      height="16"
-                      viewBox="0 0 17 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      role="none"
-                    >
-                      <path
-                        d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
-                        fill="#E8E8E8"
-                      />
-                    </svg>
-                  </button>
-                  <a href="#">
-                    <article>
-                      <figure>
-                        <picture>
-                          <img
-                            src="../../assets/images/natural-history-museum.jpg"
-                            alt="런던 자연사 박물관"
-                            width="70"
-                            height="70"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </picture>
-                        <figcaption>
-                          <h5>자연사 박물관</h5>
-                          <p>Natural History Museum</p>
-                          <span class="result-hours"
-                            >월요일 오전 10:00~오후 5:50</span
-                          >
-                          <span>+44 20 7942 5000</span>
-                        </figcaption>
-                      </figure>
-                    </article>
-                  </a>
-                </li>
-              </ul>
+              <ul class="map__search-list--list"></ul>
             </div>
             <div class="map__search-list--saved"></div>
           </div>
