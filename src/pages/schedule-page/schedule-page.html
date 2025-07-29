@@ -47,15 +47,9 @@
                 <time datetime="2025-08-08" data-end-date>8.8 (금)</time>
               </p>
             </div>
-            <div class="schedule-card__thumnail">
+            <div class="schedule-card__thumbnail">
               <picture>
-                <source
-                  srcset="
-                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.webp 1x,
-                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.webp 2x
-                  "
-                  type="image/webp"
-                />
+                <!-- avif -->
                 <source
                   srcset="
                     ./../../assets/images/schedule-page/1x/london-thumbnail-1x.avif 1x,
@@ -63,7 +57,64 @@
                   "
                   type="image/avif"
                 />
+                <!-- webp -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.webp 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <!-- png -->
                 <img
+                  loading="lazy"
+                  decoding="async"
+                  width="190"
+                  height="96"
+                  src="./../../assets/images/schedule-page/1x/london-thumbnail-1x.png"
+                  srcset="
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.png 2x
+                  "
+                  alt="런던 타워 브릿지"
+                />
+              </picture>
+            </div>
+          </a>
+        </li>
+        <li class="schedule-card">
+          <a href="#" class="schedule-card__link">
+            <div class="schedule-card__text">
+              <h3 class="schedule-card__location" data-location>지역명</h3>
+              <p class="schedule-card__date">
+                <time datetime="2025-08-01" data-start-date>8.1 (금)</time>
+                <span class="dash">-</span>
+                <time datetime="2025-08-08" data-end-date>8.8 (금)</time>
+              </p>
+            </div>
+            <div class="schedule-card__thumbnail">
+              <picture>
+                <!-- avif -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.avif 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <!-- webp -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.webp 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <!-- png -->
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  width="190"
+                  height="96"
                   src="./../../assets/images/schedule-page/1x/london-thumbnail-1x.png"
                   srcset="
                     ./../../assets/images/schedule-page/2x/london-thumbnail-2x.png 2x
