@@ -37,7 +37,6 @@
 .exchange-form {
   display: flex;
   flex-direction: column;
-  background: #fff;
   border: 1px solid var(--gray-200);
   border-radius: 15px;
   padding: 20px;
