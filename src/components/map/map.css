@@ -76,43 +76,46 @@ body {
   }
 }
 
-.map-side {
+.map-side__button--toggle {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 100%;
+  top: 50%;
+  /* left: calc(30vw - 29px); */
+  right: 0;
+  z-index: 200;
+  translate: 0 -50%;
+  max-width: 30px;
+  padding: 20px 15px 20px 6px;
+  border-radius: 5px 0 0 5px;
+  background: var(--white);
+  transition: background 0.2s ease-in-out;
+
+  svg {
+    translate: 50% 0;
+  }
+
+  &:hover {
+    background: var(--white-fa);
+  }
+
+  &.side-open {
+    right: 70vw;
+    svg {
+      rotate: 180deg;
+    }
+  }
+}
+
+.map-side {
   overflow-y: scroll;
+  position: absolute;
+  inset: 0;
+  left: 100%;
   width: 70vw;
   background: var(--white);
   transition: left 0.2s ease-in-out;
 
   &.side-open {
     left: 30%;
-    .map-side__button--toggle {
-      svg {
-        rotate: 180deg;
-      }
-    }
-  }
-
-  .map-side__button--toggle {
-    position: absolute;
-    top: 50%;
-    left: -29px;
-    translate: 0 -50%;
-    max-width: 30px;
-    padding: 20px 15px 20px 6px;
-    border-radius: 5px 0 0 5px;
-    background: var(--white);
-    transition: background 0.2s ease-in-out;
-
-    svg {
-      translate: 50% 0;
-    }
-
-    &:hover {
-      background: var(--white-fa);
-    }
   }
 
   .map__search {
@@ -179,11 +182,17 @@ body {
         padding-block: 10px;
         width: 100%;
       }
+      .map__search-button {
+        padding: 10px;
+      }
     }
   }
 
   .map__search-list {
-    position: relative;
+    /* position: sticky; */
+    /* inset: 0; */
+    /* overflow-y: scroll; */
+    /* margin-block-start: 150px; */
     padding-inline: 10px;
 
     /* .is-activate */
@@ -199,7 +208,10 @@ body {
     .map__search-list--filter {
       position: sticky;
       top: 115px;
+      /* top: 0; */
       left: 0;
+      bottom: 0;
+      z-index: 200;
       display: flex;
       justify-content: start;
       gap: 5px;
@@ -213,6 +225,7 @@ body {
     }
   }
   .map__search-list--list {
+    /* translate: 0 120px; */
     li {
       display: flex;
       gap: 10px;
@@ -249,7 +262,6 @@ body {
       margin-block: -2px -3px;
     }
     span {
-      /* display: block; */
       margin-top: -1px;
     }
     .result-hours {
