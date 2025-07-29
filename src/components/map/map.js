@@ -157,6 +157,7 @@ window.initMap = async function () {
                     </svg>
               </button>
               <a href="${place.website || '#'}" class="place-result" ${locationData}>
+
                 <article>
                   <figure>
                     <picture>
@@ -256,6 +257,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // 사이드 메뉴 dom 호출
 const mapSearchMenu = mapSection.querySelector('.map-side');
 const mapMenuToggleButton = mapSection.querySelector(
+
   '.map-side__button--toggle',
 );
 const SIDE_OPEN_CLASS = 'side-open';
