@@ -79,7 +79,7 @@ body {
 .map-side__button--toggle {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: -0.5px;
   z-index: 200;
   translate: 0 -50%;
   max-width: 30px;
@@ -168,7 +168,6 @@ body {
     .map__search-form {
       overflow: hidden;
       margin-top: 15px;
-      padding-inline-end: 15px;
       border: 1px solid var(--gray-400);
       border-radius: 10px;
       font-size: var(--fontSize14);
@@ -184,13 +183,13 @@ body {
         width: 100%;
       }
       .map__search-button {
-        padding: 10px;
+        padding: 12px 15px;
       }
     }
   }
 
   .map__search-list {
-    padding-inline: 10px;
+    /* padding-inline: 10px; */
     /* .is-activate */
     .map__search-list--around,
     .map__search-list--saved {
@@ -220,13 +219,14 @@ body {
     } */
   }
   .map__search-list--list {
+    padding-block-start: 10px;
     li {
       display: flex;
-      gap: 10px;
-      padding-block: 15px;
+      padding-block: 10px;
     }
-    button {
-      &.is-toggle {
+    .map__search-list--saved-button {
+      padding-inline: 10px;
+      &.is-saved {
         path {
           fill: var(--blue-200);
         }
@@ -247,7 +247,11 @@ body {
     figcaption {
       flex-shrink: 1;
       font-size: var(--fontSize12);
-      max-width: 180px;
+      max-width: 150px;
+
+      @media (min-width: 500px) {
+        max-width: 250px;
+      }
     }
     h5 {
       font-size: var(--fontSize14);
@@ -258,7 +262,7 @@ body {
     span {
       margin-top: -1px;
     }
-    .result-hours {
+    .result-overflow {
       display: block;
       overflow: hidden;
       white-space: nowrap;
@@ -313,15 +317,7 @@ body {
       padding: 15px 15px 0;
     }
 
-    .map__search-list {
-      padding-inline: 15px;
-    }
-
     .map__search-list--list {
-      li {
-        display: flex;
-        gap: 10px;
-      }
       figure {
         gap: 10px;
       }
@@ -329,7 +325,11 @@ body {
         flex-shrink: 0;
       }
       figcaption {
-        max-width: 250px;
+        max-width: 180px;
+
+        @media (min-width: 900px) {
+          max-width: 250px;
+        }
       }
       h5 {
         font-size: var(--fontSize14);
@@ -359,22 +359,12 @@ body {
     width: 450px;
 
     .map__search-list--list {
-      li {
-        display: flex;
-        gap: 10px;
-      }
       figure {
-        gap: 10px;
         width: 100%;
       }
-      picture {
-        flex-shrink: 0;
-      }
+
       figcaption {
         width: 280px;
-      }
-      h5 {
-        font-size: var(--fontSize14);
       }
     }
   }
