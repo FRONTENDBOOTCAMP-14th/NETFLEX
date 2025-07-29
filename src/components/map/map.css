@@ -224,6 +224,7 @@ body {
       display: flex;
       gap: 10px;
       padding-block: 15px;
+      padding-block: 15px;
     }
     button {
       &.is-toggle {
