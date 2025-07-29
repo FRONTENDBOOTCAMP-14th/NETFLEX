@@ -116,11 +116,11 @@ window.initMap = async function () {
             `장소 ${index + 1}`;
           const address = place.formattedAddress || '주소 없음';
           const phone = place.internationalPhoneNumber || '전화번호 없음';
-
           const hours =
             place.regularOpeningHours?.weekdayDescriptions?.join(' ') ||
             '운영시간 정보 없음';
-
+          const lat = place.location?.lat?.();
+          const lng = place.location?.lng?.();
           // 사진 URL 처리
           let photoUrl = 'https://via.placeholder.com/70';
           if (place.photos && place.photos.length > 0) {
@@ -134,6 +134,16 @@ window.initMap = async function () {
             }
           }
 
+          const isSaved = isPlaceSaved({
+            name,
+            address,
+            hours,
+            phone,
+            lat,
+            lng,
+            image: photoUrl,
+          });
+
           // 각 장소를 클릭했을 때 지도 이동하는 기능 추가
           const locationData = place.location
             ? `data-lat="${place.location.lat()}" data-lng="${place.location.lng()}"`
@@ -141,14 +151,13 @@ window.initMap = async function () {
 
           searchResultsHTML += `
             <li>
-              <button type="button" class="map__search-list--saved" aria-label="즐겨찾기">
-                    <svg
+              <button type="button" class="map__search-list--saved-button ${isSaved ? 'is-saved' : ''}" aria-label="즐겨찾기">
+                     <svg
                       width="17"
                       height="16"
                       viewBox="0 0 17 16"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      role="none"
                     >
                       <path
                         d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
@@ -157,7 +166,6 @@ window.initMap = async function () {
                     </svg>
               </button>
               <a href="${place.website || '#'}" class="place-result" ${locationData}>
-
                 <article>
                   <figure>
                     <picture>
@@ -172,9 +180,9 @@ window.initMap = async function () {
                     </picture>
                     <figcaption>
                       <h5>${name}</h5>
-                      <p class="result-hours">${address}</p>
-                      <span class="result-hours">${hours}</span>
-                      <span>${phone}</span>
+                      <p class="result-overflow result-address">${address}</p>
+                      <span class="result-overflow result-hours">${hours}</span>
+                      <span class="result-call">${phone}</span>
                     </figcaption>
                   </figure>
                 </article>
@@ -257,7 +265,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // 사이드 메뉴 dom 호출
 const mapSearchMenu = mapSection.querySelector('.map-side');
 const mapMenuToggleButton = mapSection.querySelector(
-
   '.map-side__button--toggle',
 );
 const SIDE_OPEN_CLASS = 'side-open';
@@ -308,3 +315,80 @@ function getSelectedIndex() {
 function getSelectIndex(button) {
   return mapTabs.findIndex(tab => tab === button);
 }
+
+// 검색 결과 즐겨찾기 추가
+
+// searchList.addEventListener('click', e => {
+//   const savedButton = e.target.closest('.map__search-list--saved-button');
+//   if (savedButton) {
+//     // 즐겨찾기 로직 실행
+//     console.log('즐겨찾기 클릭됨:', savedButton);
+//   }
+// });
+
+const SAVED_KEY = 'savedPlace';
+const searchList = mapSection.querySelector('.map__search-list--list');
+
+function toggleSaved(place) {
+  const saved = JSON.parse(localStorage.getItem(SAVED_KEY)) || [];
+  const exites = saved.some(
+    save =>
+      save.name === place.name &&
+      save.lat === place.lat &&
+      save.lng === place.lng,
+  );
+
+  let updatedSaved;
+  if (exites) {
+    updatedSaved = saved.filter(
+      save =>
+        !(
+          save.name === place.name &&
+          save.lat === place.lat &&
+          save.lng === place.lng
+        ),
+    );
+  } else {
+    updatedSaved = [...saved, place];
+  }
+
+  localStorage.setItem(SAVED_KEY, JSON.stringify(updatedSaved));
+}
+
+function isPlaceSaved(place) {
+  const saveds = JSON.parse(localStorage.getItem(SAVED_KEY)) || [];
+  return saveds.some(
+    save =>
+      save.name === place.name &&
+      save.lat === place.lat &&
+      save.lng === place.lng,
+  );
+}
+
+searchList.addEventListener('click', e => {
+  const target = e.target.closest('.map__search-list--saved-button');
+  if (!target) return;
+
+  const parent = target.closest('li');
+  const link = parent.querySelector('.place-result');
+
+  const name = parent.querySelector('h5').textContent;
+  const address = parent.querySelector('.result-address').textContent;
+  const hours = parent.querySelector('.result-hours').textContent;
+  const phone = parent.querySelector('.result-call').textContent;
+  const lat = parseFloat(link.dataset.lat);
+  const lng = parseFloat(link.dataset.lng);
+
+  const place = {
+    name,
+    address,
+    hours,
+    phone,
+    lat,
+    lng,
+    image: parent.querySelector('img')?.src || '',
+  };
+
+  target.classList.toggle('is-saved');
+  toggleSaved(place);
+});
