@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
@@ -19,9 +21,5 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.10",
     "live-server": "^1.2.2"
-  },
-  "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
   }
 }

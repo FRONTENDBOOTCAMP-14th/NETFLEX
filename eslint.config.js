@@ -1,64 +1,61 @@
-import js from "@eslint/js";
-import globals from "globals";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
-    extends: ["js/recommended"],
+    extends: ['js/recommended'],
   },
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.browser,
         ...globals.node,
       },
     },
     rules: {
-      // 들여쓰기 2칸 강제
-      indent: ["error", 2],
-
       // 세미콜론 강제
-      semi: ["error", "always"],
+      semi: ['error', 'always'],
 
       // 큰따옴표 사용
-      quotes: ["error", "double", { avoidEscape: true }],
+      quotes: ['error', 'single', { avoidEscape: true }],
 
       // var 사용 금지
-      "no-var": "error",
+      'no-var': 'error',
 
       // 가능한 경우 const 사용
-      "prefer-const": "error",
+      'prefer-const': 'error',
 
       // 화살표 함수 일관성
-      "prefer-arrow-callback": "error",
+      'prefer-arrow-callback': 'error',
 
       // 일관된 공백 사용 - Prettier와 충돌하므로 수정
-      "space-before-function-paren": [
-        "error",
+      'space-before-function-paren': [
+        'error',
         {
-          anonymous: "always",
-          named: "never",
-          asyncArrow: "always",
+          anonymous: 'always',
+          named: 'never',
+          asyncArrow: 'always',
         },
       ],
-      "space-before-blocks": ["error", "always"],
+      'space-before-blocks': ['error', 'always'],
 
       // 주석 스타일
-      "spaced-comment": ["error", "always"],
+      'spaced-comment': ['error', 'always'],
 
       // 콤마 스타일
-      "comma-dangle": ["error", "always-multiline"],
+      'comma-dangle': ['error', 'always-multiline'],
 
       // 객체 속성 간격
-      "key-spacing": ["error", { beforeColon: false, afterColon: true }],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
 
       // 연산자 간격
-      "space-infix-ops": "error",
+      'space-infix-ops': 'error',
     },
   },
 ]);
