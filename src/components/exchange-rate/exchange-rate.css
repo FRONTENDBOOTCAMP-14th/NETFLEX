@@ -1,33 +1,45 @@
 @import "./../../styles/main.css";
 
+:root {
+  --fontSize11: 11px;
+  --fontSize15: 15px;
+  --gray668: #f6f6f8;
+}
+
 /* 카드 전체 컨테이너 */
 .exchange-form {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 20px;
-  width: 100%;
+}
+
+.exchange-title {
+  padding-block-end: 20px;
 }
 
 /* 기본 박스 구조 */
 .currency-input-box,
 .currency-box {
   display: flex;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  min-width: 309px;
+  max-height: 50px;
+  border: 1px solid var(--gray-200);
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 16px;
-  font-family: sans-serif;
 }
 
 /* 왼쪽 박스 */
 .currency-select {
-  background-color: #f9f9fb;
-  padding: 12px;
   display: flex;
+  min-width: 108px;
+  background-color: var(--gray668);
+  padding: 12px;
   align-items: center;
   gap: 8px;
-  min-width: 140px;
   position: relative;
 }
 
@@ -47,29 +59,32 @@
 }
 
 .country-name {
-  font-weight: 500;
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
 }
 
 .currency-code {
-  font-size: 0.85rem;
-  color: #666;
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+  color: var(--black-100);
 }
 
 /* 오른쪽 박스 */
 .currency-amount {
-  flex: 1;
-  padding: 12px;
-  background: #fff;
-  text-align: right;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
+  background: var(--white-fa);
+  border-left: 1px solid var(--gray-200);
+  padding: 12px;
+  text-align: right;
 }
 
 .currency-amount input {
-  font-size: 1.25rem;
-  font-weight: bold;
-  border: none;
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);
   background: transparent;
   text-align: right;
   outline: none;
@@ -77,8 +92,9 @@
 }
 
 .unit-text {
-  font-size: 0.85rem;
-  color: #aaa;
+  color: var(--gray-500);
+  font-size: var(--fontSize12);
+  margin-inline-end: 14px;
 }
 
 /* 결과 출력 영역 전용 스타일 */
@@ -87,7 +103,8 @@
 }
 
 .converted {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #1a1a1a;
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);;
+  margin-inline-end: 14px;
 }
