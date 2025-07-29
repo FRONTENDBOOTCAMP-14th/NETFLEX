@@ -1,37 +1,79 @@
 @import "./../../styles/main.css";
 
-/* 카드 전체 컨테이너 */
-.exchange-form {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  width: 100%;
+:root {
+  --fontSize11: 11px;
+  --fontSize15: 15px;
+  --gray668: #f6f6f8;
+  --boldRegular: 800px;
 }
 
-/* 기본 박스 구조 */
-.currency-input-box,
-.currency-box {
+/* 국기 아이콘 */
+.exchange-form__flag-icon {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* 국기 배경 이미지 */
+.flag-us {
+  background-image: url("./../../assets/svg/us.svg");
+}
+.flag-uk {
+  background-image: url("./../../assets/svg/uk.svg");
+}
+.flag-eu {
+  background-image: url("./../../assets/svg/eu.svg");
+}
+.flag-jp {
+  background-image: url("./../../assets/svg/jp.svg");
+}
+
+/* 컨테이너 */
+.exchange-form {
   display: flex;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  flex-direction: column;
+  border: 1px solid var(--gray-200);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.exchange-form__title {
+  padding-bottom: 15px;
+}
+
+.exchange-form__input-box,
+.exchange-form__currency-box {
+  display: flex;
+  min-width: 309px;
+  max-height: 50px;
+  border: 1px solid var(--gray-200);
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 16px;
-  font-family: sans-serif;
 }
 
-/* 왼쪽 박스 */
-.currency-select {
-  background-color: #f9f9fb;
-  padding: 12px;
+.exchange-form__currency-select {
   display: flex;
+  justify-content: space-between;
+  background-color: var(--gray668);
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+  width: 100px;
+  padding: 12px;
   align-items: center;
-  gap: 8px;
-  min-width: 140px;
   position: relative;
 }
 
-.currency-select select {
+.exchange-form__currency-select--custom {
+  width: auto;
+}
+
+.exchange-form__select {
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -40,54 +82,80 @@
   cursor: pointer;
 }
 
-.currency-labels {
+.exchange-form__currency-labels {
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  padding-inline-end: 5px;
 }
 
-.country-name {
-  font-weight: 500;
+.exchange-form__country-name,
+.exchange-form__currency-code {
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
 }
 
-.currency-code {
-  font-size: 0.85rem;
-  color: #666;
+.exchange-form__currency-code {
+  color: var(--black-100);
 }
 
-/* 오른쪽 박스 */
-.currency-amount {
-  flex: 1;
-  padding: 12px;
-  background: #fff;
-  text-align: right;
+.exchange-form__custom-select-btn {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+}
+
+.exchange-form__custom-select-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exchange-form__dropdown-arrow {
+  margin-left: 18px;
+  pointer-events: none;
+
+}
+
+.exchange-form__currency-amount {
+  display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
+  background: var(--white-fa);
+  border-left: 1px solid var(--gray-200);
+  padding: 12px;
+  text-align: right;
 }
 
-.currency-amount input {
-  font-size: 1.25rem;
-  font-weight: bold;
-  border: none;
+.exchange-form__input {
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);
   background: transparent;
   text-align: right;
   outline: none;
   width: 100%;
 }
 
-.unit-text {
-  font-size: 0.85rem;
-  color: #aaa;
+.exchange-form__unit-text {
+  color: var(--gray-500);
+  font-size: var(--fontSize12);
+  margin-inline-end: 14px;
 }
 
-/* 결과 출력 영역 전용 스타일 */
-.currency-box.result .currency-select {
+.exchange-form__currency-box--result .exchange-form__currency-select {
   cursor: default;
 }
 
-.converted {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #1a1a1a;
+.exchange-form__converted-amount {
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);
+  margin-inline-end: 14px;
 }
