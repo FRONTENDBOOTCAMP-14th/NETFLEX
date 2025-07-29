@@ -1,37 +1,56 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  // ----------------------------------
-  //  캐러셀 코드
-  // ----------------------------------
 
+  //  변수 선언
   const etiquette = document.querySelector(".etiquette");
   const cardContainer = document.querySelector(".etiquette__cards");
-  const cards = cardContainer.querySelectorAll(".etiquette__card");
   const prevButton = etiquette.querySelector(".etiquette__nav.prev");
   const nextButton = etiquette.querySelector(".etiquette__nav.next");
+  const summary = document.querySelector(".etiquette__label");
+  const buttons = document.querySelectorAll(".etiquette__options button");
 
-  const cardsPerView = 2;
-  const totalSlide = Math.ceil(cards.length / cardsPerView);
+  let cardData = {};
+  let cards = [];
   let currentIndex = 0;
+  let cardsPerView = 1;
+  let maxIndex = 0;
 
-  function moveSlide() {
-    const gap = 1.8 * 16;
-    const cardWidth = 758;
-    const move = (cardWidth + gap) * currentIndex * -1;
-    cardContainer.style.transform = `translateX(${move}px)`;
-
-    if (currentIndex === 0) {
-      prevButton.style.visibility = "hidden";
-      nextButton.style.visibility = "visible";
-    } else if (currentIndex >= totalSlide - 1) {
-      prevButton.style.visibility = "visible";
-      nextButton.style.visibility = "hidden";
-    } else {
-      prevButton.style.visibility = "visible";
-      nextButton.style.visibility = "visible";
-    }
+  // 뷰포트에 따라 보여질 카드 수 (반응형)
+  function showCard() {
+    const width = window.innerWidth;
+    if (width <= 375) return 1;
+    if (width <= 1028) return 2;
+    return 2;
   }
 
+  // 카드 너비 + gap 계산
+  function getCardWidthWithGap() {
+    const card = cards[0];
+    const style = window.getComputedStyle(cardContainer);
+    const gap = parseFloat(style.gap) || 0;
+    return card.offsetWidth + gap;
+  }
+
+  // 슬라이드 이동
+  function moveSlide() {
+    if (!cards.length) return;
+    const moveX = getCardWidthWithGap() * currentIndex * -1;
+    cardContainer.style.transform = `translateX(${moveX}px)`;
+
+    // 버튼 표시 조건
+    prevButton.style.visibility = currentIndex === 0 ? "hidden" : "visible";
+    nextButton.style.visibility = currentIndex >= maxIndex ? "hidden" : "visible";
+  }
+
+  // 캐러셀 상태 갱신
+  function updateCarouselState() {
+    cards = cardContainer.querySelectorAll(".etiquette__card");
+    cardsPerView = showCard();
+    maxIndex = Math.max(0, cards.length - cardsPerView);
+    currentIndex = 0;
+    moveSlide();
+  }
+
+  // 버튼 클릭 이동 이벤트
   prevButton.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
@@ -40,76 +59,73 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   nextButton.addEventListener("click", () => {
-    if (currentIndex < totalSlide - 1) {
+    if (currentIndex < maxIndex) {
       currentIndex++;
       moveSlide();
     }
   });
 
-  moveSlide();
+  // 리사이즈 대응
+  window.addEventListener("resize", () => {
+    updateCarouselState();
+  });
 
-  // ----------------------------------
-  //  나라별 카드 데이터 반영
-  // ----------------------------------
-  
+  // 나라 선택 드롭다운 핸들러 
+  function renderCards(country) {
+    const cardList = document.querySelector(".etiquette__cards");
+    cardList.innerHTML = "";
 
-  // 드롭다운 및 JSON 렌더링 코드
-  const summary = document.querySelector(".etiquette__label");
-  const buttons = document.querySelectorAll(".etiquette__options button");
-  const cardList = document.querySelector(".etiquette__cards");
-  
-  let cardData = {};
+    cardData[country].forEach(card => {
+      const li = document.createElement("li");
+      li.className = "etiquette__card";
 
-  // 1. json데이터 불러오기
+      const imgSpan = document.createElement("span");
+      imgSpan.className = "etiquette-img";
+      imgSpan.style.backgroundImage = `url(../../assets/images/${card.image})`;
+
+      const textContainer = document.createElement("div");
+      textContainer.className = "etiquette__cardTxt";
+
+      const h4 = document.createElement("h4");
+      h4.textContent = card.title;
+      textContainer.appendChild(h4);
+
+      if (Array.isArray(card.desc)) {
+        card.desc.forEach(line => {
+          const p = document.createElement("p");
+          p.textContent = line;
+          textContainer.appendChild(p);
+        });
+      }
+
+      li.appendChild(imgSpan);
+      li.appendChild(textContainer);
+      cardList.appendChild(li);
+    });
+
+    updateCarouselState();
+  }
+
+  // JSON 불러오기 + 버튼 이벤트 연결
   fetch("./etiquette-data.json")
     .then(response => response.json())
     .then(data => {
       cardData = data;
 
-      // 2. 버튼 감지 summary 변환
       buttons.forEach(button => {
         button.addEventListener("click", () => {
           const selected = button.textContent.trim();
           summary.textContent = selected;
+          renderCards(selected);
 
-          // 3. 기존 카드 삭제
-          cardList.innerHTML = "";
-
-          // 4. 선택한 국가 카드 내용으로 변경
-          cardData[selected].forEach((card, idx) => {
-            const li = document.createElement("li");
-            li.className = "etiquette__card";
-
-            // 4-1. 이미지
-            const imgSpan = document.createElement("span");
-            imgSpan.className = "etiquette-img";
-            imgSpan.style.backgroundImage = `url(../../assets/images/${card.image})`;
-
-            // 4-2. 텍스트
-            const textContainer = document.createElement("div");
-            textContainer.className = "etiquette__cardTxt";
-
-            const h4 = document.createElement("h4");
-            h4.textContent = card.title;
-            textContainer.appendChild(h4);
-
-            if (Array.isArray(card.desc)) {
-              card.desc.forEach(line => {
-                const p = document.createElement("p");
-                p.textContent = line;
-                textContainer.appendChild(p);
-              });
-            }
-
-            li.appendChild(imgSpan);
-            li.appendChild(textContainer);
-            cardList.appendChild(li);
-          });
-
-          // 닫기
           const details = button.closest("details");
           if (details) details.removeAttribute("open");
         });
       });
+
+      // 초기 로딩 시 첫 국가 표시 (예: 첫 버튼 기준)
+      const firstCountry = buttons[0].textContent.trim();
+      summary.textContent = firstCountry;
+      renderCards(firstCountry);
     });
 });
