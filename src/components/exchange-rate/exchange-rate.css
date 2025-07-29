@@ -4,25 +4,51 @@
   --fontSize11: 11px;
   --fontSize15: 15px;
   --gray668: #f6f6f8;
+  --boldRegular: 800px;
 }
 
-/* 카드 전체 컨테이너 */
+/* 국기 아이콘 */
+.exchange-form__flag-icon {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* 국기 배경 이미지 */
+.flag-us {
+  background-image: url("./../../assets/svg/us.svg");
+}
+.flag-uk {
+  background-image: url("./../../assets/svg/uk.svg");
+}
+.flag-eu {
+  background-image: url("./../../assets/svg/eu.svg");
+}
+.flag-jp {
+  background-image: url("./../../assets/svg/jp.svg");
+}
+
+/* 컨테이너 */
 .exchange-form {
   display: flex;
   flex-direction: column;
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-200);
   border-radius: 15px;
   padding: 20px;
 }
 
-.exchange-title {
-  padding-block-end: 20px;
+.exchange-form__title {
+  padding-bottom: 15px;
 }
 
-/* 기본 박스 구조 */
-.currency-input-box,
-.currency-box {
+.exchange-form__input-box,
+.exchange-form__currency-box {
   display: flex;
   min-width: 309px;
   max-height: 50px;
@@ -32,18 +58,23 @@
   margin-bottom: 16px;
 }
 
-/* 왼쪽 박스 */
-.currency-select {
+.exchange-form__currency-select {
   display: flex;
-  min-width: 108px;
+  justify-content: space-between;
   background-color: var(--gray668);
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+  width: 100px;
   padding: 12px;
   align-items: center;
-  gap: 8px;
   position: relative;
 }
 
-.currency-select select {
+.exchange-form__currency-select--custom {
+  width: auto;
+}
+
+.exchange-form__select {
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -52,25 +83,47 @@
   cursor: pointer;
 }
 
-.currency-labels {
+.exchange-form__currency-labels {
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  padding-inline-end: 5px;
 }
 
-.country-name {
+.exchange-form__country-name,
+.exchange-form__currency-code {
   font-size: var(--fontSize11);
   font-weight: var(--semiBold);
 }
 
-.currency-code {
-  font-size: var(--fontSize11);
-  font-weight: var(--semiBold);
+.exchange-form__currency-code {
   color: var(--black-100);
 }
 
-/* 오른쪽 박스 */
-.currency-amount {
+.exchange-form__custom-select-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+}
+
+.exchange-form__custom-select-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exchange-form__dropdown-arrow {
+  margin-left: 18px;
+  pointer-events: none;
+
+}
+
+.exchange-form__currency-amount {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -81,7 +134,7 @@
   text-align: right;
 }
 
-.currency-amount input {
+.exchange-form__input {
   color: var(--black-200);
   font-size: var(--fontSize15);
   font-weight: var(--semiBold);
@@ -91,20 +144,19 @@
   width: 100%;
 }
 
-.unit-text {
+.exchange-form__unit-text {
   color: var(--gray-500);
   font-size: var(--fontSize12);
   margin-inline-end: 14px;
 }
 
-/* 결과 출력 영역 전용 스타일 */
-.currency-box.result .currency-select {
+.exchange-form__currency-box--result .exchange-form__currency-select {
   cursor: default;
 }
 
-.converted {
+.exchange-form__converted-amount {
   color: var(--black-200);
   font-size: var(--fontSize15);
-  font-weight: var(--semiBold);;
+  font-weight: var(--semiBold);
   margin-inline-end: 14px;
 }
