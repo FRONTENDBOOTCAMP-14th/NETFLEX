@@ -79,7 +79,6 @@ body {
 .map-side__button--toggle {
   position: absolute;
   top: 50%;
-  /* left: calc(30vw - 29px); */
   right: 0;
   z-index: 200;
   translate: 0 -50%;
@@ -88,6 +87,7 @@ body {
   border-radius: 5px 0 0 5px;
   background: var(--white);
   transition: background 0.2s ease-in-out;
+  transition: translate 0.2s ease-in-out;
 
   svg {
     translate: 50% 0;
@@ -98,7 +98,7 @@ body {
   }
 
   &.side-open {
-    right: 70vw;
+    translate: -70vw -50%;
     svg {
       rotate: 180deg;
     }
@@ -112,10 +112,10 @@ body {
   left: 100%;
   width: 70vw;
   background: var(--white);
-  transition: left 0.2s ease-in-out;
+  transition: translate 0.2s ease-in-out;
 
   &.side-open {
-    left: 30%;
+    translate: -100% 0;
   }
 
   .map__search {
@@ -166,8 +166,9 @@ body {
     }
 
     .map__search-form {
+      overflow: hidden;
       margin-top: 15px;
-      padding-inline: 15px;
+      padding-inline-end: 15px;
       border: 1px solid var(--gray-400);
       border-radius: 10px;
       font-size: var(--fontSize14);
@@ -179,7 +180,7 @@ body {
       }
 
       .map__search-input {
-        padding-block: 10px;
+        padding: 10px 0 10px 15px;
         width: 100%;
       }
       .map__search-button {
@@ -189,12 +190,7 @@ body {
   }
 
   .map__search-list {
-    /* position: sticky; */
-    /* inset: 0; */
-    /* overflow-y: scroll; */
-    /* margin-block-start: 150px; */
     padding-inline: 10px;
-
     /* .is-activate */
     .map__search-list--around,
     .map__search-list--saved {
@@ -205,10 +201,9 @@ body {
       }
     }
 
-    .map__search-list--filter {
+    /* .map__search-list--filter {
       position: sticky;
       top: 115px;
-      /* top: 0; */
       left: 0;
       bottom: 0;
       z-index: 200;
@@ -222,14 +217,13 @@ body {
       button {
         padding: 15px 5px;
       }
-    }
+    } */
   }
   .map__search-list--list {
-    /* translate: 0 120px; */
     li {
       display: flex;
       gap: 10px;
-      padding-block-end: 30px;
+      padding-block: 15px;
     }
     button {
       &.is-toggle {
@@ -305,14 +299,15 @@ body {
     }
   }
 
+  .map-side__button--toggle {
+    &.side-open {
+      translate: -40vw -50%;
+    }
+  }
+
   .map-side {
     width: 40vw;
-
     border-radius: 0 10px 10px 0;
-
-    &.side-open {
-      left: 60%;
-    }
 
     .map__search {
       padding: 15px 15px 0;
@@ -354,12 +349,14 @@ body {
     }
   }
 
+  .map-side__button--toggle {
+    &.side-open {
+      translate: -450px -50%;
+    }
+  }
+
   .map-side {
     width: 450px;
-
-    &.side-open {
-      left: 450px;
-    }
 
     .map__search-list--list {
       li {
