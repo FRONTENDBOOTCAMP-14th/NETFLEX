@@ -142,10 +142,22 @@ window.initMap = async function () {
           searchResultsHTML += `
             <li>
               <button type="button" class="map__search-list--saved" aria-label="즐겨찾기">
-                <svg width="17" height="16" ...>...</svg>
+                    <svg
+                      width="17"
+                      height="16"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      role="none"
+                    >
+                      <path
+                        d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
+                        fill="#E8E8E8"
+                      />
+                    </svg>
               </button>
-              <a href="${place.website || '#'}" target="_blank" rel="noopener noreferrer" 
-                 class="place-result" ${locationData}>
+              <a href="${place.website || '#'}" class="place-result" ${locationData}>
+
                 <article>
                   <figure>
                     <picture>
@@ -160,7 +172,7 @@ window.initMap = async function () {
                     </picture>
                     <figcaption>
                       <h5>${name}</h5>
-                      <p>${address}</p>
+                      <p class="result-hours">${address}</p>
                       <span class="result-hours">${hours}</span>
                       <span>${phone}</span>
                     </figcaption>
@@ -243,14 +255,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // ui 구현
 
 // 사이드 메뉴 dom 호출
-const mapSearchMenu = document.querySelector('.map-side');
-const mapMenuToggleButton = mapSearchMenu.querySelector(
+const mapSearchMenu = mapSection.querySelector('.map-side');
+const mapMenuToggleButton = mapSection.querySelector(
+
   '.map-side__button--toggle',
 );
 const SIDE_OPEN_CLASS = 'side-open';
 
 // 사이드 메뉴 열기
 mapMenuToggleButton.addEventListener('click', () => {
+  mapMenuToggleButton.classList.toggle(SIDE_OPEN_CLASS);
   mapSearchMenu.classList.toggle(SIDE_OPEN_CLASS);
 
   // 상태에 따른 aria-label 값 조정
