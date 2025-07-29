@@ -1,31 +1,23 @@
-/* 오버레이 스타일, 기본은 none값 */
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0; /* top:0; left:0; right:0; bottom:0; */
-  background: rgba(24, 24, 27, 0.45);
-  z-index: 15; /* nav__wrapper 보다 낮게 */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+@import "./../../../src/styles/main.css";
+
+:root {
+  --gray111: #cdcdcd;
+  --medium: 400;
 }
 
 /* 네비게이션 바 */
 .nav__wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
   background-color: var(--white-fa);
-  padding: 36px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px 0 0 20px;
 }
 
 /* 로고 헤더 부분 */
 .logo__header {
   display: flex;
   justify-content: center;
-  padding-bottom: 36px;
+  padding-block: 36px;
 }
 
 /* 네비게이션 리스트  */
@@ -36,8 +28,6 @@
 
 /* 네비게이션 리스트 아이템 */
 .nav__item {
-  --medium: 400;
-
   display: flex;
   position: relative;
   align-items: center;
@@ -49,26 +39,13 @@
   cursor: pointer;
 }
 
-/* 네비게이션 호버 상태 */
-.nav__item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(1);
-  width: calc(100% + 72px);
-  height: 100%;
-  background-color: var(--blue-200);
-  opacity: 0;
-  z-index: -1;
-}
-
 .nav__item:hover::before {
   opacity: 1;
 }
 
 .nav__item:hover {
   color: var(--white);
+  background-color: var(--blue-200);
 }
 
 .nav__item:hover .nav__icon path {
@@ -81,7 +58,6 @@
   gap: 32px;
 }
 
-/* 모바일 상태 아닐 때, 네비게이션 닫기 버튼 숨김  */
 .nav__close {
   display: none;
   position: absolute;
@@ -102,7 +78,26 @@
 /* 모바일 */
 @media (max-width: 768px) {
   .nav__wrapper {
-    padding: 10px 15px;
+    margin: 10px 15px;
+    border: 1px solid var(--gray111);
+    border-radius: 10px;
+  }
+
+  /* 오버레이: 네비 열릴 때만 활성화 */
+  .nav__overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(55, 55, 55, 0.4);
+    z-index: -998;
+  }
+  .nav__overlay.active {
+    display: block;
+  }
+
+  .nav__wrapper {
+    background: var(--white-fa);
+    z-index: 1; /* 오버레이 위에 위치 */
   }
 
   .logo__header {
@@ -110,47 +105,13 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 41px;
+    height: 40px;
     background-color: var(--white-fa);
-    margin: 20px;
-    padding-bottom: 0;
+    padding-bottom: 32px;
     border-radius: 10px;
   }
 
-  .logo__header .nav__open {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .logo__header .nav__close {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 20%;
-    transform: translateY(-100%);
-
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .nav__wrapper.is-open .logo__header .nav__close {
-    display: block;
-  }
-  .nav__wrapper.is-open .logo__header .nav__open {
-    display: none;
-  }
-
   .logo__header h1 {
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,14 +119,48 @@
     height: 40px;
   }
 
+  .logo__header .nav__open {
+    display: block;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .logo__header .nav__close {
+    display: none;
+  }
+
+  .nav__wrapper.is-open {
+    max-width: 346px;
+    margin: 0px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .nav__wrapper.is-open .logo__header .nav__close {
+    display: block;
+    right: 16px;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-90%);
+    cursor: pointer;
+  }
+  .nav__wrapper.is-open .logo__header .nav__open {
+    display: none;
+  }
+
+  .nav__wrapper.is-open .logo__header h1 {
+    width: 40px;
+  }
+
   .nav__list {
     display: none;
     margin-bottom: 20px;
-    padding-left: 0;
   }
 
   .nav__wrapper.is-open .nav__list {
     display: block;
-    position: relative;
+    min-height: 1024px;
   }
 }
