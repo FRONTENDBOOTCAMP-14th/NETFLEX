@@ -1,19 +1,19 @@
 body {
   font-family:
-    "Pretendard Variable",
+    'Pretendard Variable',
     Pretendard,
     -apple-system,
     BlinkMacSystemFont,
     system-ui,
     Roboto,
-    "Helvetica Neue",
-    "Segoe UI",
-    "Apple SD Gothic Neo",
-    "Noto Sans KR",
-    "Malgun Gothic",
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
     sans-serif;
   line-height: 1.5;
 }
@@ -46,7 +46,7 @@ textarea {
   font: inherit;
   letter-spacing: inherit;
 }
-input[type="text"],
+input[type='text'],
 textarea {
   width: 100%;
 }
@@ -61,6 +61,15 @@ button {
   line-height: 1;
   background-color: transparent;
 }
+
+button,
+input,
+a,
+textarea {
+  &:focus {
+    outline: 2px solid var(--black-100);
+  }
+}
 iframe,
 img,
 object,
@@ -73,7 +82,7 @@ table {
   table-layout: fixed;
   width: 100%;
 }
-[tabindex="-1"] {
+[tabindex='-1'] {
   outline: 0 !important;
 }
 
