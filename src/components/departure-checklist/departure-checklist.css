@@ -4,10 +4,6 @@
   --fontSize32: 32px;
 }
 
-body {
-  margin: 50px;
-}
-
 .checklist {
   max-inline-size: 900px;
 }
