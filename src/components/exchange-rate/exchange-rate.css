@@ -1,4 +1,4 @@
-@import "./../../styles/main.css";
+@import './../../styles/main.css';
 
 :root {
   --fontSize11: 11px;
@@ -21,16 +21,16 @@
 
 /* 국기 배경 이미지 */
 .flag-us {
-  background-image: url("./../../assets/svg/us.svg");
+  background-image: url('./../../assets/svg/us.svg');
 }
 .flag-uk {
-  background-image: url("./../../assets/svg/uk.svg");
+  background-image: url('./../../assets/svg/uk.svg');
 }
 .flag-eu {
-  background-image: url("./../../assets/svg/eu.svg");
+  background-image: url('./../../assets/svg/eu.svg');
 }
 .flag-jp {
-  background-image: url("./../../assets/svg/jp.svg");
+  background-image: url('./../../assets/svg/jp.svg');
 }
 
 /* 컨테이너 */
@@ -119,7 +119,6 @@
 .exchange-form__dropdown-arrow {
   margin-left: 18px;
   pointer-events: none;
-
 }
 
 .exchange-form__currency-amount {
