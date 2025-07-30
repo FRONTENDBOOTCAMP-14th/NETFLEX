@@ -2,6 +2,7 @@
 
 :root {
   --fontSize32: 32px;
+  --fontSize36: 36px;
 }
 
 .schedule {
@@ -28,6 +29,10 @@
   transition: background-color 0.2s ease-out;
 }
 
+.schedule__add-button:focus-visible {
+  outline: 2px solid black;
+}
+
 .schedule__add-button:hover {
   background-color: var(--blue-100);
 }
@@ -46,9 +51,6 @@
 }
 
 .schedule-card {
-  border: 1px solid var(--gray-100);
-  border-radius: 15px;
-  padding: 37px;
   transition: background-color 0.2s ease-in;
 }
 
@@ -57,8 +59,15 @@
 }
 
 .schedule-card__link {
+  border: 1px solid var(--gray-100);
   display: flex;
   justify-content: space-between;
+  border-radius: 15px;
+  padding: 37px;
+}
+
+.schedule-card__link:focus-visible {
+  outline: 2px solid black;
 }
 
 .schedule-card__text {
@@ -81,6 +90,96 @@
   overflow: hidden;
 }
 
-/* 테블릿 */
-@media (max-width: 1279px) {
+/* ---------------------------------------------------- */
+/* Modal */
+
+body.modal-is-open {
+  overflow: hidden;
+}
+
+dialog.location-dialog {
+  border: none;
+  border-radius: 24px;
+  padding: 70px;
+  inline-size: 100%;
+  max-inline-size: 620px;
+  block-size: 550px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.location-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-dialog__title {
+  font-size: var(--fontSize36);
+}
+
+.location-dialog__description {
+  margin-block-end: 6px;
+  font-size: var(--fontSize28);
+}
+
+.location-dialog__input-wrapper {
+  display: flex;
+  gap: 10px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.location-dialog__input-wrapper:focus-within {
+  outline: 2px solid black;
+}
+
+.location-dialog__input-wrapper input {
+  translate: 0 2px;
+  padding: 18px 0 20px 0px;
+  border-radius: 10px;
+  outline: 0;
+}
+
+.location-dialog__input-wrapper input::placeholder {
+  font-size: var(--fontSize20);
+}
+
+.location-dialog__input-wrapper svg {
+  order: -1;
+  translate: 0 17px;
+  margin-inline-start: 23px;
+}
+
+.location-dialog__result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 14px 0 14px 23px;
+  font-size: var(--fontSize20);
+}
+
+.location-dialog__buttons {
+  display: flex;
+  margin: 0 auto;
+  gap: 24px;
+  margin-block-start: 8px;
+}
+
+.location-dialog__next:focus-within,
+.location-dialog__close:focus-within {
+  outline: 2px solid black;
+}
+
+.location-dialog__next,
+.location-dialog__close {
+  padding: 16px 48px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  font-weight: var(--bold);
 }

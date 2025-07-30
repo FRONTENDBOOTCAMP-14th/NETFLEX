@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./schedule-page.css" />
-    <script type="module" src="./schedule.js"></script>
+    <script type="module" src="./schedule-page.js"></script>
     <title>P4T : 일정</title>
   </head>
   <body>
@@ -33,6 +33,50 @@
           </span>
         </button>
       </div>
+
+      <!-- 지역 선택 모달 -->
+      <dialog id="locationDialog" class="location-dialog">
+        <form method="dialog" class="location-dialog__form">
+          <h2 class="location-dialog__title">어디를 여행하실 계획이신가요?</h2>
+          <p class="location-dialog__description">
+            장소를 선택하여 시작해 보세요
+          </p>
+          <label for="cityInput" class="location-dialog__input-wrapper">
+            <input
+              type="text"
+              id="cityInput"
+              name="city"
+              placeholder="도시를 입력하세요"
+              autocomplete="off"
+              required
+            />
+            <svg
+              aria-hidden="true"
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.3898 21.444L19.1012 16.1554C20.194 14.5085 20.8335 12.5366 20.8335 10.4168C20.8335 4.67297 16.1606 0 10.4168 0C4.67297 0 0 4.67297 0 10.4168C0 16.1606 4.67297 20.8335 10.4168 20.8335C12.5366 20.8335 14.5085 20.194 16.1554 19.1012L21.444 24.3898C22.2565 25.2034 23.5773 25.2034 24.3898 24.3898C25.2034 23.5763 25.2034 22.2575 24.3898 21.444ZM3.12503 10.4168C3.12503 6.3959 6.3959 3.12503 10.4168 3.12503C14.4376 3.12503 17.7085 6.3959 17.7085 10.4168C17.7085 14.4376 14.4376 17.7085 10.4168 17.7085C6.3959 17.7085 3.12503 14.4376 3.12503 10.4168Z"
+                fill="#4A4A4A"
+              />
+            </svg>
+          </label>
+          <!-- 매칭된 도시 + 국가 출력 -->
+          <div class="location-dialog__result" id="matchedResult">
+            <p class="location-dialog__result-city">
+              <strong>도시</strong>
+            </p>
+            <p class="location-dialog__result-country">나라</p>
+          </div>
+          <div class="location-dialog__buttons">
+            <button type="submit" class="location-dialog__next">다음</button>
+            <button type="button" class="location-dialog__close">닫기</button>
+          </div>
+        </form>
+      </dialog>
 
       <!-- 일정이 있을 경우 렌더링될 리스트 -->
       <ul class="schedule__list" id="scheduleList">
