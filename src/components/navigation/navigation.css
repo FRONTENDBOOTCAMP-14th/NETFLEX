@@ -1,4 +1,4 @@
-@import "./../../../src/styles/main.css";
+@import './../../../src/styles/main.css';
 
 :root {
   --gray111: #cdcdcd;
@@ -9,6 +9,7 @@
 .nav__wrapper {
   display: flex;
   flex-direction: column;
+  max-width: 300px;
   background-color: var(--white-fa);
   border-radius: 0 0 0 20px;
 }
@@ -76,7 +77,7 @@
 }
 
 /* 모바일 */
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   .nav__wrapper {
     margin: 10px 15px;
     border: 1px solid var(--gray111);
@@ -97,6 +98,7 @@
 
   .nav__wrapper {
     background: var(--white-fa);
+    max-width: none;
     z-index: 1; /* 오버레이 위에 위치 */
   }
 
@@ -136,6 +138,7 @@
     max-width: 346px;
     margin: 0px;
     border-radius: 0 20px 20px 0;
+    height: 100dvh;
   }
 
   .nav__wrapper.is-open .logo__header .nav__close {
@@ -156,11 +159,10 @@
 
   .nav__list {
     display: none;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
   .nav__wrapper.is-open .nav__list {
     display: block;
-    min-height: 1024px;
   }
 }
