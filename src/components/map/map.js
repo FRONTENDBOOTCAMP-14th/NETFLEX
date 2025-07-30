@@ -71,6 +71,40 @@ window.initMap = async function () {
 
     const { Place } = await google.maps.importLibrary('places');
 
+    const locationSearchButton = mapSection.querySelector(
+      '.map__button--search',
+    );
+    const aroundListEl = mapSection.querySelector('.map__search-list--around');
+
+    locationSearchButton.addEventListener('click', async () => {
+      try {
+        const { Place } = await google.maps.importLibrary('places');
+        const bounds = map.getBounds();
+
+        const response = await Place.searchByText({
+          textQuery: '근처 맛집',
+          locationRestriction: bounds.toJSON(),
+          fields: [
+            'displayName',
+            'formattedAddress',
+            'location',
+            'photos',
+            'regularOpeningHours',
+            'internationalPhoneNumber',
+          ],
+        });
+
+        const results = response.places;
+        if (results && results.length > 0) {
+          renderSearchResults(results, aroundListEl);
+        } else {
+          console.log('검색 결과 없음');
+        }
+      } catch (err) {
+        console.error('지도 내 검색 실패:', err);
+      }
+    });
+
     searchForm.addEventListener('submit', async e => {
       e.preventDefault();
       const keyword = searchInput.value.trim();
@@ -143,7 +177,6 @@ window.initMap = async function () {
             lng,
             image: photoUrl,
           });
-
           // 각 장소를 클릭했을 때 지도 이동하는 기능 추가
           const locationData = place.location
             ? `data-lat="${place.location.lat()}" data-lng="${place.location.lng()}"`
@@ -179,7 +212,7 @@ window.initMap = async function () {
                       />
                     </picture>
                     <figcaption>
-                      <h5>${name}</h5>
+                      <h5 class="result-overflow">${name}</h5>
                       <p class="result-overflow result-address">${address}</p>
                       <span class="result-overflow result-hours">${hours}</span>
                       <span class="result-call">${phone}</span>
@@ -258,8 +291,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-// window.initMap = initMap();
-
 // ui 구현
 
 // 사이드 메뉴 dom 호출
@@ -315,16 +346,6 @@ function getSelectedIndex() {
 function getSelectIndex(button) {
   return mapTabs.findIndex(tab => tab === button);
 }
-
-// 검색 결과 즐겨찾기 추가
-
-// searchList.addEventListener('click', e => {
-//   const savedButton = e.target.closest('.map__search-list--saved-button');
-//   if (savedButton) {
-//     // 즐겨찾기 로직 실행
-//     console.log('즐겨찾기 클릭됨:', savedButton);
-//   }
-// });
 
 const SAVED_KEY = 'savedPlace';
 const searchList = mapSection.querySelector('.map__search-list');
@@ -494,3 +515,96 @@ savedList.addEventListener('click', e => {
     marker.position = pos;
   }
 });
+
+// const aroundListEl = document.querySelector('.map__search-list--around');
+
+function renderSearchResults(results, aroundListEl) {
+  let searchResultsHTML = '';
+  aroundListEl.innerHTML = '';
+
+  results.forEach((place, index) => {
+    const name =
+      place.displayName?.text ||
+      place.displayName ||
+      place.name ||
+      place.title ||
+      `장소 ${index + 1}`;
+
+    const address = place.formattedAddress || '주소 없음';
+    const phone = place.internationalPhoneNumber || '전화번호 없음';
+    const hours =
+      place.regularOpeningHours?.weekdayDescriptions?.join(' ') ||
+      '운영시간 정보 없음';
+    const lat = place.location?.lat?.();
+    const lng = place.location?.lng?.();
+    // 사진 URL 처리
+    let photoUrl = 'https://via.placeholder.com/70';
+    if (place.photos && place.photos.length > 0) {
+      try {
+        photoUrl = place.photos[0].getURI({
+          maxHeight: 400,
+          maxWidth: 400,
+        });
+      } catch (photoError) {
+        console.warn('사진 URL 생성 실패:', photoError);
+      }
+    }
+
+    const locationData = place.location
+      ? `data-lat="${place.location.lat()}" data-lng="${place.location.lng()}"`
+      : '';
+
+    const isSaved = isPlaceSaved({
+      name,
+      address,
+      hours,
+      phone,
+      lat,
+      lng,
+      image: photoUrl,
+    });
+
+    searchResultsHTML += `
+            <li class="result-item">
+              <button type="button" class="map__search-list--saved-button ${isSaved ? 'is-saved' : ''}" aria-label="즐겨찾기">
+                     <svg
+                      width="17"
+                      height="16"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.5 0L10.9981 5.06168L16.584 5.87336L12.542 9.81332L13.4962 15.3766L8.5 12.75L3.50383 15.3766L4.45801 9.81332L0.416019 5.87336L6.00191 5.06168L8.5 0Z"
+                        fill="#E8E8E8"
+                      />
+                    </svg>
+              </button>
+              <a href="${place.website || '#'}" class="place-result" ${locationData}>
+                <article>
+                  <figure>
+                    <picture>
+                      <img
+                        src="${photoUrl}"
+                        alt="${name}"
+                        width="70"
+                        height="70"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                    <figcaption>
+                      <h5>${name}</h5>
+                      <p class="result-overflow result-address">${address}</p>
+                      <span class="result-overflow result-hours">${hours}</span>
+                      <span class="result-call">${phone}</span>
+                    </figcaption>
+                  </figure>
+                </article>
+              </a>
+            </li>
+          `;
+  });
+
+  aroundListEl.innerHTML = searchResultsHTML;
+}
