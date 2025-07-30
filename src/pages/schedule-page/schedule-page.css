@@ -1,6 +1,7 @@
 @import './../../styles/main.css';
 
 :root {
+  --fontSize11: 11px;
   --fontSize32: 32px;
   --fontSize36: 36px;
 }
@@ -52,10 +53,7 @@
 
 .schedule-card {
   transition: background-color 0.2s ease-in;
-}
-
-.schedule-card:hover {
-  background-color: var(--gray-100);
+  border-radius: 15px;
 }
 
 .schedule-card__link {
@@ -64,6 +62,11 @@
   justify-content: space-between;
   border-radius: 15px;
   padding: 37px;
+}
+
+.schedule-card__link:hover {
+  transition: border-color 0.2s ease-in;
+  border-color: var(--blue-300);
 }
 
 .schedule-card__link:focus-visible {
@@ -91,7 +94,7 @@
 }
 
 /* ---------------------------------------------------- */
-/* Modal */
+/* Location Modal */
 
 body.modal-is-open {
   overflow: hidden;
@@ -182,4 +185,131 @@ dialog.location-dialog {
   color: var(--white-fa);
   border-radius: 10px;
   font-weight: var(--bold);
+}
+
+/* ---------------------------------------------------- */
+/* Calendar Modal */
+
+.calendar-dialog {
+  inline-size: 100%;
+  max-inline-size: 900px;
+  block-size: 603px;
+  border: none;
+  border-radius: 24px;
+  padding: 70px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: auto;
+}
+
+.calendar-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.calendar-dialog__title {
+  font-size: var(--fontSize36);
+}
+
+.calendar-dialog__description {
+  font-size: var(--fontSize20);
+}
+
+.calendar-dialog__calendar-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-block-start: 42px;
+  justify-content: center;
+}
+
+.calendar-dialog__each-month:nth-child(1) {
+  margin-inline-end: 70px;
+}
+
+.calendar-dialog__month-header {
+  display: flex;
+}
+
+.calendar-dialog__current-month-year {
+  margin: 0 auto;
+  margin-block-end: 15px;
+}
+
+.calendar-dialog__days,
+.calendar-dialog__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 33px;
+}
+
+.calendar-dialog__days {
+  font-size: var(--fontSize12);
+  margin-block-end: 12px;
+}
+
+.calendar-dialog__date {
+  font-size: var(--fontSize11);
+}
+
+/* 지난 날짜 회색으로 처리 */
+.calendar-dialog__date.past {
+  color: var(--gray-300);
+  cursor: not-allowed;
+}
+
+/* 선택된 날짜 파란색으로 표시 */
+.calendar-dialog__date.start-date,
+.calendar-dialog__date.end-date {
+  background-color: var(--blue-200);
+  border-radius: 100%;
+  aspect-ratio: 1;
+  padding: 5px;
+  color: var(--white-fa);
+  font-weight: var(--semiBold);
+  z-index: 1;
+}
+
+/* 기간 - 연한 파란색으로 배경 설정 */
+.calendar-dialog__date.in-range {
+  background-color: var(--blue-600);
+  color: var(--black);
+  border-radius: 0;
+}
+
+.calendar-dialog__date.in-range.left-rounded {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+.calendar-dialog__date.in-range.right-rounded {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+.calendar-dialog__buttons {
+  display: flex;
+  margin: 0 auto;
+  gap: 24px;
+  margin-block-start: 20px;
+}
+
+.calendar-dialog__next:focus-within,
+.calendar-dialog__close:focus-within {
+  outline: 2px solid black;
+}
+
+.calendar-dialog__next,
+.calendar-dialog__close {
+  padding: 16px 48px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  font-weight: var(--bold);
+}
+
+.calendar-dialog__next:hover,
+.calendar-dialog__close:hover {
+  background-color: var(--blue-100);
+  transition: background-color 0.2s ease-out;
 }
