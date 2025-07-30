@@ -1,5 +1,5 @@
 /* global google */
-
+import './map.css';
 // 구글맵 api 호출
 const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
 const mapSection = document.querySelector('.map-section');
