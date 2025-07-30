@@ -35,30 +35,26 @@
       </div>
 
       <div class="account__register--container">
-        <div>
-          <label for="">항목</label>
-          <input type="none" id="" name="" value=""/>
-          <label for="">금액</label>
-          <input type="none" id="" name="" value=""/>
-          <div>
-            <div class="account__">
-              <button type="button">카드</button>
-              <button type="button">현금</button>
-            </div>
-            <button class="button">등록</button>
+          <div class="account__register--costRow">
+            <label for="accountItems">항목</label>
+            <input type="text" id="accountItems" placeholder="예시 교통비 🚌"/>
           </div>
-        </div>
+          <div class="account__register--costRow">
+            <label for="accountCost" >금액</label>
+            <input type="number" id="accountCost" placeholder="1000" min="0"/>
+          </div>
+        <button class="account__register--button">등록</button>
       </div>
 
       <div class="account__output-table">
         <table>
           <tr>
-            <td>날짜</td>
-            <td>금액</td>
-            <td>항목</td>
-            <td>수단</td>
-            <td>수정</td>
-            <td>삭제</td>
+            <td class="account__date">날짜</td>
+            <td class="account__cost">금액</td>
+            <td class="account__title">항목</td>
+            <td class="account__method">수단</td>
+            <td class="account__modify">수정</td>
+            <td class="account__delete">삭제</td>
           </tr>
         </table>
       </div>  
@@ -66,3 +62,9 @@
   
   </body>
 </html>
+
+<!-- 
+  <div class="account__">
+              <button type="button">카드</button>
+              <button type="button">현금</button>
+            </div> -->

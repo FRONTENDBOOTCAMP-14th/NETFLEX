@@ -19,8 +19,11 @@ body {
 
 }
 
+/* -------------------------------------- */
+/*             총 금액 표시 영역             */
+/* -------------------------------------- */
+
 .account__show-total--Container {
-  width: 90%;
   border-radius: 10px;
   background-color: var(--blue-200);
   color: var(--white-fa);
@@ -42,6 +45,7 @@ body {
   }
 }
 
+/* 통화 단위 */
 .account__change-units--list {
   display: flex;
   position: absolute;
@@ -70,6 +74,7 @@ body {
   }
 }
 
+/* 총 금액 */
 .account__total-cost--wrapper {
   display: flex;
   
@@ -84,4 +89,70 @@ body {
       transform: translateY(5px);
   }
   }
+}
+
+
+/* -------------------------------------- */
+/*            항목과 금액 등록 영역            */
+/* -------------------------------------- */
+
+.account__register--container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  width: 100%;
+  margin-top: 1.3rem;
+}
+
+.account__register--costRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: inherit;
+
+  & label {
+    width: 60px;
+    text-align: center;
+    font-size: var(--fontSize16);
+    font-weight: var(--semiBold);
+    color: var(--black-200);    
+  }
+
+  & input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--gray-400);
+    border-radius: 5px;
+    color: var(--balck-200);
+
+    &::placeholder {
+      color: var(--gray-300);
+    }
+  }
+}
+
+.account__register--button {
+  background-color: var(--blue-200);
+  padding: 10px 0;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-fa);
+  font-weight: var(--bold);
+  cursor: pointer;
+}
+
+/* -------------------------------------- */
+/*             금액 항목 테이블               */
+/* -------------------------------------- */
+
+.account__output-table {
+  background-color: violet;
+  margin-top: 1.3rem;
+  /* 모바일 테이블 항목 생략*/
+  & .account__method,
+    .account__modify,
+    .account__delete {
+      display: none;
+    }
 }
