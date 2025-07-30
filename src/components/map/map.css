@@ -219,14 +219,16 @@ body {
     }
     .map__search-list--saved-button {
       padding-inline: 10px;
+      border-radius: 10px;
       &.is-saved {
         path {
           fill: var(--blue-200);
         }
       }
     }
-    a {
+    .place-result {
       width: 100%;
+      border-radius: 10px;
     }
     figure {
       display: flex;
