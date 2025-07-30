@@ -242,6 +242,6 @@ window.addEventListener('DOMContentLoaded', () => {
         </nav>
       </div>`;
 
-  body.innerHTML += headerComponents;
+  body.insertAdjacentHTML('afterbegin', headerComponents);
   initNavigation();
 });
