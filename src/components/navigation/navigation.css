@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--white-fa);
-  border-radius: 20px 0 0 20px;
+  border-radius: 0 0 0 20px;
 }
 
 /* 로고 헤더 부분 */
@@ -135,7 +135,7 @@
   .nav__wrapper.is-open {
     max-width: 346px;
     margin: 0px;
-    border-radius: 20px 0 0 20px;
+    border-radius: 0 20px 20px 0;
   }
 
   .nav__wrapper.is-open .logo__header .nav__close {
