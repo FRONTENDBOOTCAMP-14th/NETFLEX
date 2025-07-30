@@ -166,7 +166,7 @@
 }
 
 /* 테블릿 */
-@media (max-width: 1279px) {
+@media (768px <= width <= 1280px) {
   .schedule {
     max-inline-size: 450px;
   }
