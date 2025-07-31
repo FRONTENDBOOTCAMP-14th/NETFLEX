@@ -5,3 +5,20 @@ body {
     padding-inline: 15px;
   }
 }
+
+.main-layout {
+  /* display: grid; */
+
+  .total-schedule-section {
+    display: flex;
+    flex-flow: column wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-layout {
+    .total-schedule-section {
+      flex-flow: row wrap;
+    }
+  }
+}

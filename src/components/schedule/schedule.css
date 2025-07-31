@@ -6,7 +6,7 @@
 /* 전체 섹션 */
 .schedule {
   inline-size: 100%;
-  max-inline-size: 514px;
+  /* max-inline-size: 514px; */
 }
 
 .schedule__header {
