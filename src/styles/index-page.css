@@ -92,3 +92,29 @@ body {
     font-size: var(--fontSize26);
   }
 }
+
+@media (min-width: 1280px) {
+  :root {
+    background: #ccdde8;
+  }
+  body {
+    display: flex;
+    align-content: center;
+    align-items: start;
+    justify-content: center;
+
+    .page-layout {
+      background: var(--white);
+      border-radius: 0 15px 15px 15px;
+      max-width: 980px;
+      translate: 50px 100px;
+    }
+    .main-layout {
+      padding-inline: 40px;
+    }
+    .nav__wrapper {
+      position: fixed;
+      translate: -540px 100px;
+    }
+  }
+}
