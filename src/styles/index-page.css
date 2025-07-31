@@ -1,0 +1,7 @@
+body {
+  min-inline-size: 375px;
+
+  .safety-area {
+    padding-inline: 15px;
+  }
+}

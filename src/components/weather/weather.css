@@ -37,8 +37,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 11px;
-	align-items: center;
-	margin-top: 38px;
+  align-items: center;
+  margin-top: 38px;
 }
 
 .forecast-day {
