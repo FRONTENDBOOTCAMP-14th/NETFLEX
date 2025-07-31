@@ -130,6 +130,7 @@ summary::-webkit-details-marker {
 
 /* 개별 카드 이미지 삽입
 .etiquette-img.card-01 {
+
   background-image: url('/images/etiquette/UK/etiquette-london-1_1x.avif');
 }
 .etiquette-img.card-02 {
@@ -141,6 +142,7 @@ summary::-webkit-details-marker {
 .etiquette-img.card-04 {
   background-image: url('/images/etiquette/UK/etiquette-london-4_1x.avif');
 } */
+
 
 .etiquette__cardTxt {
   text-align: start;
@@ -204,11 +206,13 @@ summary::-webkit-details-marker {
 
     h4 {
       font-size: var(--fontSize24);
+
     }
 
     p {
       font-size: var(--fontSize14);
     }
+
   }
 }
 
@@ -224,4 +228,6 @@ summary::-webkit-details-marker {
   .next {
     right: 20px;
   }
+
 }
+
