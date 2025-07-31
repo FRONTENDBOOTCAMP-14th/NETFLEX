@@ -23,7 +23,6 @@ export function closeModal(dialog) {
  */
 export function initModal(openButton, dialog) {
   const closeButton = dialog.querySelector('.location-dialog__close'); // 닫기 버튼
-  const formArea = dialog.querySelector('.location-dialog__form'); // 바깥 클릭 방지용
 
   // 모달 열기
   openButton?.addEventListener('click', () => openModal(dialog));

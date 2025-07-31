@@ -193,7 +193,7 @@ dialog.location-dialog {
 .calendar-dialog {
   inline-size: 100%;
   max-inline-size: 900px;
-  block-size: 603px;
+  block-size: 790px;
   border: none;
   border-radius: 24px;
   padding: 70px 40px;
@@ -250,7 +250,9 @@ dialog.location-dialog {
 
 .calendar-dialog__date {
   font-size: var(--fontSize11);
+  padding: 5px;
 }
+/* ------------------------------- */
 
 /* 지난 날짜 회색으로 처리 */
 .calendar-dialog__date.past {
@@ -259,14 +261,13 @@ dialog.location-dialog {
 }
 
 /* 선택된 날짜 파란색으로 표시 */
-.calendar-dialog__date.start-date,
-.calendar-dialog__date.end-date {
+.calendar-dialog__date.selected {
   background-color: var(--blue-200);
-  border-radius: 100%;
-  aspect-ratio: 1;
-  padding: 5px;
   color: var(--white-fa);
   font-weight: var(--semiBold);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 5px;
   z-index: 1;
 }
 
@@ -277,16 +278,6 @@ dialog.location-dialog {
   border-radius: 0;
 }
 
-.calendar-dialog__date.in-range.left-rounded {
-  border-top-left-radius: 999px;
-  border-bottom-left-radius: 999px;
-}
-
-.calendar-dialog__date.in-range.right-rounded {
-  border-top-right-radius: 999px;
-  border-bottom-right-radius: 999px;
-}
-
 .calendar-dialog__buttons {
   display: flex;
   margin: 0 auto;
@@ -295,12 +286,12 @@ dialog.location-dialog {
 }
 
 .calendar-dialog__next:focus-within,
-.calendar-dialog__close:focus-within {
+.calendar-dialog__prev:focus-within {
   outline: 2px solid black;
 }
 
 .calendar-dialog__next,
-.calendar-dialog__close {
+.calendar-dialog__prev {
   padding: 16px 48px;
   background-color: var(--blue-200);
   color: var(--white-fa);
@@ -309,7 +300,16 @@ dialog.location-dialog {
 }
 
 .calendar-dialog__next:hover,
-.calendar-dialog__close:hover {
+.calendar-dialog__prev:hover {
   background-color: var(--blue-100);
   transition: background-color 0.2s ease-out;
+}
+
+.calendar-dialog__prev-button svg {
+  fill: var(--black); /* 기본 상태 색상 */
+}
+
+.calendar-dialog__prev-button.past svg {
+  fill: var(--gray-500); /* 비활성 상태일 때 색상 */
+  cursor: not-allowed;
 }
