@@ -151,9 +151,9 @@
     padding: 6px 0 0px 10px;
   }
 
-  .schedule__day-list {
+  /* .schedule__day-list {
     block-size: 304px;
-  }
+  } */
 
   .schedule__day {
     font-size: var(--fontSize18);
@@ -167,7 +167,8 @@
 /* 테블릿 */
 @media (768px <= width <= 1280px) {
   .schedule {
-    max-inline-size: 450px;
+    inline-size: 100%;
+    /* max-width: 400px; */
   }
 
   .schedule__title {
