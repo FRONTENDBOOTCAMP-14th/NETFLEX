@@ -8,9 +8,9 @@ function getWeatherImage(weatherMain) {
     Clouds: 'cloudy.svg',
     ScatteredClouds: 'cloudy-01.svg',
     FewClouds: 'cloudy-03.svg',
-    Rain: 'rainy-01.svg',
-    ThunderstormWithRain: 'rainy-02.svg',
-    DrizzleRain: 'rainy-03.svg',
+    Rain: 'rain-01.svg',
+    ThunderstormWithRain: 'rain-02.svg',
+    DrizzleRain: 'rain-03.svg',
     Snow: 'snow.svg',
     Thunderstorm: 'thunder.svg',
   };
