@@ -178,11 +178,12 @@ body {
       font-size: var(--fontSize14);
       box-sizing: border-box;
       max-height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .map__search-label {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex: 1;
       }
 
       .map__search-input {
