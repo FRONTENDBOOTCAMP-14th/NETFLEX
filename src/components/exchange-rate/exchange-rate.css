@@ -1,0 +1,181 @@
+@import './../../styles/main.css';
+
+:root {
+  --fontSize11: 11px;
+  --fontSize15: 15px;
+  --gray668: #f6f6f8;
+  --boldRegular: 800px;
+}
+
+/* 국기 아이콘 */
+.exchange-form__flag-icon {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* 국기 배경 이미지 */
+.flag-us {
+  background-image: url('./../../assets/svg/us.svg');
+}
+.flag-uk {
+  background-image: url('./../../assets/svg/uk.svg');
+}
+.flag-eu {
+  background-image: url('./../../assets/svg/eu.svg');
+}
+.flag-jp {
+  background-image: url('./../../assets/svg/jp.svg');
+}
+
+/* 컨테이너 */
+.exchange-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  border: 1px solid var(--gray-200);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.exchange-form__title {
+  padding-bottom: 15px;
+  font-size: var(--fontSize22);
+}
+
+.exchange-form__input-box,
+.exchange-form__currency-box {
+  display: flex;
+  max-height: 50px;
+  border: 1px solid var(--gray-200);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.exchange-form__currency-select {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  background-color: var(--gray668);
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+  width: 150px;
+  padding: 6px;
+  align-items: center;
+  position: relative;
+}
+
+.exchange-form__currency-select--custom {
+  width: 150px;
+}
+
+.exchange-form__select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.exchange-form__currency-labels {
+  display: flex;
+  flex-direction: column;
+  padding-inline-end: 5px;
+}
+
+.exchange-form__country-name,
+.exchange-form__currency-code {
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+}
+
+.exchange-form__currency-code {
+  color: var(--black-100);
+}
+
+.exchange-form__custom-select-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--fontSize11);
+  font-weight: var(--semiBold);
+}
+
+.exchange-form__custom-select-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exchange-form__dropdown-arrow {
+  margin-left: 18px;
+  pointer-events: none;
+}
+
+.exchange-form__currency-amount {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white-fa);
+  border-left: 1px solid var(--gray-200);
+  text-align: right;
+}
+
+.exchange-form__input {
+  padding-block-start: 3px;
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);
+  background: transparent;
+  text-align: right;
+  outline: none;
+  width: 100%;
+}
+
+.exchange-form__unit-text {
+  color: var(--gray-500);
+  font-size: var(--fontSize12);
+  margin-inline-end: 14px;
+}
+
+.exchange-form__currency-box--result .exchange-form__currency-select {
+  cursor: default;
+}
+
+.exchange-form__converted-amount {
+  color: var(--black-200);
+  font-size: var(--fontSize15);
+  font-weight: var(--semiBold);
+  margin-inline-end: 14px;
+}
+
+@media (min-width: 576px) {
+  .exchange-form__currency-select,
+  .exchange-form__currency-select--custom {
+    width: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+  .exchange-form__title {
+    font-size: var(--fontSize26);
+  }
+}
+
+@media (min-width: 1280px) {
+  .exchange-form__title {
+    font-size: var(--fontSize32);
+  }
+}

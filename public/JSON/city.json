@@ -1,0 +1,18 @@
+{
+  "london": {
+    "cityKo": "런던",
+    "country": "영국"
+  },
+  "paris": {
+    "cityKo": "파리",
+    "country": "프랑스"
+  },
+  "newyork": {
+    "cityKo": "뉴욕",
+    "country": "미국"
+  },
+  "tokyo": {
+    "cityKo": "도쿄",
+    "country": "일본"
+  }
+}

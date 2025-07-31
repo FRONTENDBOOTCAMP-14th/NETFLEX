@@ -1,0 +1,19 @@
+footer {
+  text-align: center;
+  background-color: var(--white-fa);
+  font-size: var(--fontSize12);
+  line-height: 1.6;
+  padding-block: 30px 83px;
+  margin-top: auto;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--black-100);
+  margin: 0 4px;
+}
+
+.footer .divider {
+  margin: 0 4px;
+  color: var(--black-100);
+}

@@ -1,0 +1,118 @@
+.account {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+
+  h3 {
+    padding: 15px 0 15px 30px;
+    font-size: var(--fontSize22);
+  }
+}
+
+.account__show-total--Container {
+  display: flex;
+  width: 90%;
+  height: 23dvh;
+  border-radius: 10px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+}
+
+.account__show--wrapper {
+  width: 100%;
+  font-size: var(--fontSize18);
+
+  h4 {
+    display: inline-block;
+    margin: 1rem;
+  }
+
+  button {
+    width: 20px;
+    margin-top: 1.5rem;
+  }
+}
+
+.account__total--wrapper {
+  display: flex;
+  position: relative;
+  align-items: end;
+  background-color: green;
+}
+
+.account__total-cost {
+  position: absolute;
+  top: 80px;
+  left: -120px;
+  background-color: red;
+}
+
+details summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.account__change-units--list {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  top: 1rem;
+
+  li {
+    list-style: none;
+  }
+
+  button {
+    padding: 4px 10px;
+    border: 1px solid var(--gray-100);
+
+    &:hover,
+    &:focus {
+      background-color: var(--blue-200);
+      color: var(--white-fa);
+      font-weight: var(--bold);
+    }
+  }
+}
+
+/* }
+
+.account__show-total--Container {
+  width: 100%;
+  max-height: 120px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  padding: 1rem 1.9rem;
+}
+
+.account__show-total--Container {
+  font-size: var(--fontSize28);
+}
+
+.account__currency-exchange--btn {
+  border: none;
+  padding: 0;
+}
+
+.account__total--wrapper {
+  display: flex;
+  justify-content: end;
+
+}
+
+.account__total-cost {
+  
+  font-size: var(--fontSize28);
+  font-weight: var(--semiBold);
+}
+
+.account__output-table table {
+  border: 1px solid green;
+}
+.account__output-table td {
+  border: 1px solid blue;
+} */

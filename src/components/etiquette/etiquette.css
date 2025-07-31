@@ -1,0 +1,233 @@
+/* 
+body {
+  margin: 50px;
+} */
+
+/* 에티켓 시작 */
+
+.etiquette {
+  width: 100%;
+}
+
+.etiquette__title {
+  display: inline-flex;
+
+  h3 {
+    padding: 15px 0 15px 30px;
+    font-size: var(--fontSize22);
+  }
+}
+
+/* ------------------------------------------------ */
+/*                 나라 선별 라벨 선택                  */
+/* ------------------------------------------------ */
+
+.etiquette__dropdown-horizontal {
+  display: inline-block;
+  position: relative;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.etiquette__label {
+  display: flex;
+  align-items: center;
+  margin: 17px 10px;
+  padding: 5px 12px;
+  border-radius: 10px;
+  background-color: var(--blue-200);
+  font-size: var(--fontSize12);
+  font-weight: var(--bold);
+  color: var(--white-fa);
+}
+
+.etiquette__options {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  transform: translateY(-50%);
+  gap: 6px;
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  background: var(--white-fa);
+  z-index: 1000;
+  white-space: nowrap;
+
+  li {
+    list-style: none;
+  }
+
+  button {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    font-size: var(--fontSize14);
+    font-weight: var(--bold);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: var(--blue-200);
+      color: var(--white-fa);
+      font-weight: var(--bold);
+    }
+  }
+}
+
+/* ------------------------------------------------ */
+/*                 캐러셀 카드 영역                   */
+/* ------------------------------------------------ */
+
+.etiquette__contents {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.etiquette__cards {
+  display: flex;
+  width: calc(100% * 4);
+  max-height: 300px;
+  transition: transform 0.4s ease;
+  transform: 0;
+  gap: 2rem;
+}
+
+.etiquette__card {
+  display: flex;
+  overflow: hidden;
+  flex: 0 0 25%;
+  padding: 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.etiquette-img {
+  display: flex;
+  width: 30%;
+  height: 80%;
+  min-width: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid #000;
+}
+
+/* 개별 카드 이미지 삽입
+.etiquette-img.card-01 {
+
+  background-image: url('/images/etiquette/UK/etiquette-london-1_1x.avif');
+}
+.etiquette-img.card-02 {
+  background-image: url('/images/etiquette/UK/etiquette-london-2_1x.avif');
+}
+.etiquette-img.card-03 {
+  background-image: url('/images/etiquette/UK/etiquette-london-3_1x.avif');
+}
+.etiquette-img.card-04 {
+  background-image: url('/images/etiquette/UK/etiquette-london-4_1x.avif');
+} */
+
+
+.etiquette__cardTxt {
+  text-align: start;
+
+  h4 {
+    font-size: var(--fontSize26);
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: var(--fontSize12);
+    white-space: pre-line;
+    line-height: 1;
+  }
+}
+
+/* 카드 nav 버튼 */
+
+.etiquette__nav {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  top: 35%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  .etiquette__cards {
+    justify-content: center;
+    width: calc(25% * 4);
+    height: 30dvh;
+  }
+  .etiquette__card {
+    flex: 0 0 47%;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .etiquette__cardTxt {
+    text-align: center;
+
+    h4 {
+      font-size: var(--fontSize24);
+
+    }
+
+    p {
+      font-size: var(--fontSize14);
+    }
+
+  }
+}
+
+@media (min-width: 1280px) {
+  .etiquette__card {
+    flex: 0 0 50%;
+  }
+
+  .prev {
+    left: 20px;
+  }
+
+  .next {
+    right: 20px;
+  }
+
+}
+

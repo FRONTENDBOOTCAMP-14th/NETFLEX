@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./schedule-page.css" />
+    <script type="module" src="./schedule-page.js"></script>
+    <title>P4T : 일정</title>
+  </head>
+  <body>
+    <!-- navigation -->
+    <main class="schedule">
+      <h2 class="schedule__title">My 일정</h2>
+
+      <div class="schedule__header">
+        <button type="button" class="schedule__add-button">
+          <span>일정 추가</span>
+          <span aria-hidden="true">
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M11 0H13V24H11V0Z" fill="currentColor" />
+              <path
+                d="M24 11V13L0 13L8.74229e-08 11L24 11Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- 지역 선택 모달 -->
+      <dialog id="locationDialog" class="location-dialog">
+        <form method="dialog" class="location-dialog__form">
+          <h2 class="location-dialog__title">어디를 여행하실 계획이신가요?</h2>
+          <p class="location-dialog__description">
+            장소를 선택하여 시작해 보세요
+          </p>
+          <label for="cityInput" class="location-dialog__input-wrapper">
+            <input
+              type="text"
+              id="cityInput"
+              name="city"
+              placeholder="도시를 입력하세요"
+              autocomplete="off"
+              required
+            />
+            <svg
+              aria-hidden="true"
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.3898 21.444L19.1012 16.1554C20.194 14.5085 20.8335 12.5366 20.8335 10.4168C20.8335 4.67297 16.1606 0 10.4168 0C4.67297 0 0 4.67297 0 10.4168C0 16.1606 4.67297 20.8335 10.4168 20.8335C12.5366 20.8335 14.5085 20.194 16.1554 19.1012L21.444 24.3898C22.2565 25.2034 23.5773 25.2034 24.3898 24.3898C25.2034 23.5763 25.2034 22.2575 24.3898 21.444ZM3.12503 10.4168C3.12503 6.3959 6.3959 3.12503 10.4168 3.12503C14.4376 3.12503 17.7085 6.3959 17.7085 10.4168C17.7085 14.4376 14.4376 17.7085 10.4168 17.7085C6.3959 17.7085 3.12503 14.4376 3.12503 10.4168Z"
+                fill="#4A4A4A"
+              />
+            </svg>
+          </label>
+          <!-- 매칭된 도시 + 국가 출력 -->
+          <div class="location-dialog__result" id="matchedResult">
+            <p class="location-dialog__result-city">
+              <strong>도시</strong>
+            </p>
+            <p class="location-dialog__result-country">나라</p>
+          </div>
+          <div class="location-dialog__buttons">
+            <button type="submit" class="location-dialog__next">다음</button>
+            <button type="button" class="location-dialog__close">닫기</button>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- 캘린더 모달 -->
+      <dialog id="calendarDialog" class="calendar-dialog">
+        <form method="dialog" class="calendar-dialog__form">
+          <h2 class="calendar-dialog__title">여행 일정 등록</h2>
+          <p class="calendar-dialog__description">
+            일정에 따른 날씨 예보 및 여행 정보를 알려드려요!
+          </p>
+
+          <div class="calendar-dialog__calendar-wrapper">
+            <!-- 7월 -->
+            <div class="calendar-dialog__each-month">
+              <div class="calendar-dialog__month-header">
+                <button
+                  tabindex="1"
+                  type="button"
+                  class="calendar-dialog__prev-button"
+                  data-action="prev"
+                  aria-label="이전 달로 이동"
+                >
+                  <svg
+                    aria-hidden="true"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 13 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.9375 2.93008L8.41191 2.4375L4.0625 6.5L8.41191 10.5625L8.9375 10.0725L5.11621 6.5L8.9375 2.93008Z"
+                    />
+                  </svg>
+                </button>
+                <span class="calendar-dialog__current-month-year"
+                  >2025년 7월</span
+                >
+              </div>
+              <!-- 요일 헤더 -->
+              <div class="calendar-dialog__days">
+                <span>일</span>
+                <span>월</span>
+                <span>화</span>
+                <span>수</span>
+                <span>목</span>
+                <span>금</span>
+                <span>토</span>
+              </div>
+              <!-- 날짜 -->
+              <div class="calendar-dialog__dates" id="calendarDates-1"></div>
+            </div>
+            <!-- 8월 -->
+            <div class="calendar-dialog__each-month">
+              <div class="calendar-dialog__month-header">
+                <span class="calendar-dialog__current-month-year"
+                  >2025년 8월</span
+                >
+                <button
+                  tabindex="2"
+                  type="button"
+                  class="calendar-dialog__next-button"
+                  data-action="next"
+                  aria-label="다음 달로 이동"
+                >
+                  <svg
+                    aria-hidden="true"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 13 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.0625 2.93008L4.58809 2.4375L8.9375 6.5L4.58809 10.5625L4.0625 10.0725L7.88379 6.5L4.0625 2.93008Z"
+                      fill="#181818"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <!-- 요일 헤더 -->
+              <div class="calendar-dialog__days">
+                <span>일</span>
+                <span>월</span>
+                <span>화</span>
+                <span>수</span>
+                <span>목</span>
+                <span>금</span>
+                <span>토</span>
+              </div>
+              <!-- 날짜 -->
+              <div class="calendar-dialog__dates" id="calendarDates-2">
+                <button type="button" class="calendar-dialog__date">1</button>
+              </div>
+            </div>
+          </div>
+          <div class="calendar-dialog__buttons">
+            <button type="submit" class="calendar-dialog__next">다음</button>
+            <button type="button" class="calendar-dialog__prev">이전</button>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- 일정이 있을 경우 렌더링될 리스트 -->
+      <ul class="schedule__list" id="scheduleList">
+        <!-- JS로 아래 구조가 반복 삽입될 예정 -->
+        <li class="schedule-card">
+          <a href="#" class="schedule-card__link">
+            <div class="schedule-card__text">
+              <h3 class="schedule-card__location" data-location>지역명</h3>
+              <p class="schedule-card__date">
+                <time datetime="2025-08-01" data-start-date>8.1 (금)</time>
+                <span class="dash">-</span>
+                <time datetime="2025-08-08" data-end-date>8.8 (금)</time>
+              </p>
+            </div>
+            <div class="schedule-card__thumbnail">
+              <picture>
+                <!-- avif -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.avif 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <!-- webp -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.webp 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <!-- png -->
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  width="190"
+                  height="96"
+                  src="./../../assets/images/schedule-page/1x/london-thumbnail-1x.png"
+                  srcset="
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.png 2x
+                  "
+                  alt="런던 타워 브릿지"
+                />
+              </picture>
+            </div>
+          </a>
+        </li>
+        <li class="schedule-card">
+          <a href="#" class="schedule-card__link">
+            <div class="schedule-card__text">
+              <h3 class="schedule-card__location" data-location>지역명</h3>
+              <p class="schedule-card__date">
+                <time datetime="2025-08-01" data-start-date>8.1 (금)</time>
+                <span class="dash">-</span>
+                <time datetime="2025-08-08" data-end-date>8.8 (금)</time>
+              </p>
+            </div>
+            <div class="schedule-card__thumbnail">
+              <picture>
+                <!-- avif -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.avif 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <!-- webp -->
+                <source
+                  srcset="
+                    ./../../assets/images/schedule-page/1x/london-thumbnail-1x.webp 1x,
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <!-- png -->
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  width="190"
+                  height="96"
+                  src="./../../assets/images/schedule-page/1x/london-thumbnail-1x.png"
+                  srcset="
+                    ./../../assets/images/schedule-page/2x/london-thumbnail-2x.png 2x
+                  "
+                  alt="런던 타워 브릿지"
+                />
+              </picture>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

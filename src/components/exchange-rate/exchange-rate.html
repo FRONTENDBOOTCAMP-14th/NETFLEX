@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./exchange-rate.css" />
+    <script type="module" src="./exchange-rate.js"></script>
+    <title>환율 컴포넌트</title>
+  </head>
+  <body>
+    <article class="exchange-form">
+      <h3 id="exchange-title" class="exchange-form__title">환율</h3>
+
+      <div
+        class="exchange-form__input-box"
+        role="group"
+        aria-labelledby="currency-label"
+      >
+        <div
+          class="exchange-form__currency-select exchange-form__currency-select--custom"
+        >
+          <select
+            class="exchange-form__select"
+            id="base-currency"
+            aria-label="통화 단위 선택"
+          >
+            <option value="USD" selected>미국</option>
+            <option value="GBP">영국</option>
+            <option value="EUR">유로</option>
+            <option value="JPY">일본</option>
+          </select>
+          <button
+            class="exchange-form__custom-select-btn"
+            id="currency-dropdown-trigger"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <span class="exchange-form__custom-select-content">
+              <span id="selected-flag" class="exchange-form__flag-icon"></span>
+              <span
+                id="selected-country"
+                class="exchange-form__selected-country"
+              ></span>
+            </span>
+            <svg
+              class="exchange-form__dropdown-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="7"
+              height="4"
+              viewBox="0 0 7 4"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6.57562 0L7 0.43125L3.5 4L0 0.43125L0.422188 0L3.5 3.13542L6.57562 0Z"
+                fill="#C7C7C7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="exchange-form__currency-amount">
+          <label for="base-amount" class="sr-only">금액 입력</label>
+          <input
+            type="number"
+            id="base-amount"
+            class="exchange-form__input"
+            value="0"
+            min="0"
+            aria-label="금액 입력"
+          />
+          <span class="exchange-form__unit-text">단위</span>
+        </div>
+      </div>
+
+      <div
+        class="exchange-form__currency-box exchange-form__currency-box--result"
+        role="region"
+        aria-label="환전 대상 금액"
+      >
+        <div class="exchange-form__currency-select">
+          <span id="target-label" class="sr-only">환전 대상</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="16"
+            viewBox="0 0 20 16"
+            fill="none"
+          >
+            <path
+              d="M17.3333 0H2.66667C1.19391 0 0 1.19391 0 2.66667V13.3333C0 14.8061 1.19391 16 2.66667 16H17.3333C18.8061 16 20 14.8061 20 13.3333V2.66667C20 1.19391 18.8061 0 17.3333 0Z"
+              fill="white"
+            />
+            <path
+              d="M17.3333 0H2.66667C1.19391 0 0 1.19391 0 2.66667V13.3333C0 14.8061 1.19391 16 2.66667 16H17.3333C18.8061 16 20 14.8061 20 13.3333V2.66667C20 1.19391 18.8061 0 17.3333 0ZM19.3333 13.3333C19.3333 14.436 18.436 15.3333 17.3333 15.3333H2.66667C1.564 15.3333 0.666667 14.436 0.666667 13.3333V2.66667C0.666667 1.564 1.564 0.666667 2.66667 0.666667H17.3333C18.436 0.666667 19.3333 1.564 19.3333 2.66667V13.3333Z"
+              fill="black"
+              fill-opacity="0.15"
+            />
+            <path
+              d="M3.71436 5.62517L5.39066 3.11071L5.80946 3.38991L4.13316 5.90437L3.71436 5.62517Z"
+              fill="black"
+            />
+            <path
+              d="M4.34321 6.04476L6.01951 3.5303L6.43831 3.8095L4.76201 6.32396L4.34321 6.04476Z"
+              fill="black"
+            />
+            <path
+              d="M4.97047 6.46346L6.64677 3.94901L7.06557 4.22821L5.38927 6.74266L4.97047 6.46346Z"
+              fill="black"
+            />
+            <path
+              d="M15.0987 11.2476L15.8667 10.0955L16.2855 10.3747L15.5175 11.5268L15.0987 11.2476Z"
+              fill="black"
+            />
+            <path
+              d="M14.1901 12.6099L14.9585 11.4572L15.3773 11.7364L14.6089 12.8891L14.1901 12.6099Z"
+              fill="black"
+            />
+            <path
+              d="M14.4694 10.8286L15.2375 9.67644L15.6563 9.95564L14.8882 11.1077L14.4694 10.8286Z"
+              fill="black"
+            />
+            <path
+              d="M13.5615 12.1908L14.3296 11.0387L14.7484 11.3179L13.9803 12.47L13.5615 12.1908Z"
+              fill="black"
+            />
+            <path
+              d="M13.8414 10.4099L14.6095 9.25777L15.0283 9.53697L14.2602 10.6891L13.8414 10.4099Z"
+              fill="black"
+            />
+            <path
+              d="M12.9337 11.771L13.7018 10.6189L14.1206 10.8981L13.3525 12.0502L12.9337 11.771Z"
+              fill="black"
+            />
+            <path
+              d="M7.486 6.324C8.412 4.93533 10.288 4.56 11.6767 5.486C13.0653 6.412 13.4407 8.288 12.5147 9.67667L7.486 6.324Z"
+              fill="#BE3B3E"
+            />
+            <path
+              d="M7.486 6.324C6.56 7.71267 6.93533 9.58867 8.324 10.5147C9.71267 11.4407 11.5887 11.0653 12.5147 9.67667C12.9773 8.98267 12.79 8.044 12.0953 7.58133C11.4007 7.11867 10.4627 7.306 10 8.00067L7.486 6.32467V6.324Z"
+              fill="#1C449C"
+            />
+            <path
+              d="M8.74267 8.67267C9.57699 8.67267 10.2533 7.99632 10.2533 7.162C10.2533 6.32768 9.57699 5.65133 8.74267 5.65133C7.90835 5.65133 7.232 6.32768 7.232 7.162C7.232 7.99632 7.90835 8.67267 8.74267 8.67267Z"
+              fill="#BE3B3E"
+            />
+            <path
+              d="M3.71436 10.3748L4.13316 10.0956L5.80946 12.6101L5.39066 12.8893L3.71436 10.3748Z"
+              fill="black"
+            />
+            <path
+              d="M4.97217 9.53709L5.39097 9.25789L7.06727 11.7723L6.64847 12.0515L4.97217 9.53709Z"
+              fill="black"
+            />
+            <path
+              d="M13.5624 3.8095L13.9812 3.5303L15.6575 6.04476L15.2387 6.32396L13.5624 3.8095Z"
+              fill="black"
+            />
+            <path
+              d="M4.34277 9.95545L4.76157 9.67625L5.52964 10.8284L5.11084 11.1076L4.34277 9.95545Z"
+              fill="black"
+            />
+            <path
+              d="M5.25039 11.3176L5.66918 11.0384L6.43728 12.1905L6.01849 12.4697L5.25039 11.3176Z"
+              fill="black"
+            />
+            <path
+              d="M12.9333 4.22841L13.3521 3.94921L14.1202 5.10133L13.7014 5.38053L12.9333 4.22841Z"
+              fill="black"
+            />
+            <path
+              d="M13.8417 5.5903L14.2605 5.3111L15.0286 6.46322L14.6098 6.74242L13.8417 5.5903Z"
+              fill="black"
+            />
+            <path
+              d="M14.1901 3.39078L14.6089 3.11159L15.377 4.2637L14.9582 4.5429L14.1901 3.39078Z"
+              fill="black"
+            />
+            <path
+              d="M15.0986 4.75305L15.5174 4.47385L16.2855 5.62595L15.8667 5.90515L15.0986 4.75305Z"
+              fill="black"
+            />
+            <path
+              d="M17.3333 0.666667H2.66667C1.562 0.666667 0.666667 1.562 0.666667 2.66667V3.33333C0.666667 2.22867 1.562 1.33333 2.66667 1.33333H17.3333C18.438 1.33333 19.3333 2.22867 19.3333 3.33333V2.66667C19.3333 1.562 18.438 0.666667 17.3333 0.666667Z"
+              fill="white"
+              fill-opacity="0.2"
+            />
+          </svg>
+          <div class="exchange-form__currency-labels">
+            <span class="exchange-form__country-name">대한민국</span>
+            <span class="exchange-form__currency-code">KRW</span>
+          </div>
+        </div>
+
+        <div class="exchange-form__currency-amount">
+          <strong id="converted-amount" class="exchange-form__converted-amount">
+          </strong>
+          <span class="exchange-form__unit-text"></span>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
