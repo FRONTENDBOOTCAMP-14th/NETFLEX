@@ -1,4 +1,4 @@
-@import "./../../styles/main.css";
+@import './../../styles/main.css';
 
 :root {
   --fontSize11: 11px;
@@ -21,22 +21,23 @@
 
 /* 국기 배경 이미지 */
 .flag-us {
-  background-image: url("./../../assets/svg/us.svg");
+  background-image: url('./../../assets/svg/us.svg');
 }
 .flag-uk {
-  background-image: url("./../../assets/svg/uk.svg");
+  background-image: url('./../../assets/svg/uk.svg');
 }
 .flag-eu {
-  background-image: url("./../../assets/svg/eu.svg");
+  background-image: url('./../../assets/svg/eu.svg');
 }
 .flag-jp {
-  background-image: url("./../../assets/svg/jp.svg");
+  background-image: url('./../../assets/svg/jp.svg');
 }
 
 /* 컨테이너 */
 .exchange-form {
   display: flex;
   flex-direction: column;
+  min-width: 250px;
   border: 1px solid var(--gray-200);
   border-radius: 15px;
   padding: 20px;
@@ -44,12 +45,12 @@
 
 .exchange-form__title {
   padding-bottom: 15px;
+  font-size: var(--fontSize22);
 }
 
 .exchange-form__input-box,
 .exchange-form__currency-box {
   display: flex;
-  min-width: 309px;
   max-height: 50px;
   border: 1px solid var(--gray-200);
   border-radius: 5px;
@@ -59,18 +60,19 @@
 
 .exchange-form__currency-select {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 10px;
   background-color: var(--gray668);
   font-size: var(--fontSize11);
   font-weight: var(--semiBold);
-  width: 100px;
-  padding: 12px;
+  width: 150px;
+  padding: 6px;
   align-items: center;
   position: relative;
 }
 
 .exchange-form__currency-select--custom {
-  width: auto;
+  width: 150px;
 }
 
 .exchange-form__select {
@@ -119,7 +121,6 @@
 .exchange-form__dropdown-arrow {
   margin-left: 18px;
   pointer-events: none;
-
 }
 
 .exchange-form__currency-amount {
@@ -129,11 +130,11 @@
   justify-content: center;
   background: var(--white-fa);
   border-left: 1px solid var(--gray-200);
-  padding: 12px;
   text-align: right;
 }
 
 .exchange-form__input {
+  padding-block-start: 3px;
   color: var(--black-200);
   font-size: var(--fontSize15);
   font-weight: var(--semiBold);
@@ -158,4 +159,23 @@
   font-size: var(--fontSize15);
   font-weight: var(--semiBold);
   margin-inline-end: 14px;
+}
+
+@media (min-width: 576px) {
+  .exchange-form__currency-select,
+  .exchange-form__currency-select--custom {
+    width: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+  .exchange-form__title {
+    font-size: var(--fontSize26);
+  }
+}
+
+@media (min-width: 1280px) {
+  .exchange-form__title {
+    font-size: var(--fontSize32);
+  }
 }

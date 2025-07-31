@@ -1,12 +1,10 @@
 @import url(../../styles/common/theme.css);
-body {
-  background: var(--gray-200);
-}
 
 .map-section {
+  overflow: hidden;
   color: var(--black-200);
   h3 {
-    padding: 15px 0 15px 30px;
+    padding: 15px 0 15px 15px;
     font-size: var(--fontSize22);
   }
   .map-layout {
@@ -178,11 +176,12 @@ body {
       font-size: var(--fontSize14);
       box-sizing: border-box;
       max-height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .map__search-label {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex: 1;
       }
 
       .map__search-input {
@@ -287,8 +286,7 @@ body {
   .map-section {
     --fontSize32: 32px;
     h3 {
-      padding: 10px 0;
-      font-size: var(--fontSize32);
+      font-size: var(--fontSize26);
     }
   }
 
@@ -354,7 +352,11 @@ body {
   .map-section {
     overflow: hidden;
     max-width: 900px;
+    h3 {
+      font-size: var(--fontSize32);
+    }
   }
+
   .map {
     #map {
       max-height: 550px;

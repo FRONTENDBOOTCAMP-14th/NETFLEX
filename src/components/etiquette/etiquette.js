@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+import './etiquette.css';
+document.addEventListener('DOMContentLoaded', () => {
   //  변수 선언
-  const etiquette = document.querySelector(".etiquette");
-  const cardContainer = document.querySelector(".etiquette__cards");
-  const prevButton = etiquette.querySelector(".etiquette__nav.prev");
-  const nextButton = etiquette.querySelector(".etiquette__nav.next");
-  const summary = document.querySelector(".etiquette__label");
-  const buttons = document.querySelectorAll(".etiquette__options button");
+  const etiquette = document.querySelector('.etiquette');
+  const cardContainer = document.querySelector('.etiquette__cards');
+  const prevButton = etiquette.querySelector('.etiquette__nav.prev');
+  const nextButton = etiquette.querySelector('.etiquette__nav.next');
+  const summary = document.querySelector('.etiquette__label');
+  const buttons = document.querySelectorAll('.etiquette__options button');
 
   let cardData = {};
   let cards = [];
@@ -37,13 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cardContainer.style.transform = `translateX(${moveX}px)`;
 
     // 버튼 표시 조건
-    prevButton.style.visibility = currentIndex === 0 ? "hidden" : "visible";
-    nextButton.style.visibility = currentIndex >= maxIndex ? "hidden" : "visible";
+    prevButton.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+    nextButton.style.visibility =
+      currentIndex >= maxIndex ? 'hidden' : 'visible';
   }
 
   // 캐러셀 상태 갱신
   function updateCarouselState() {
-    cards = cardContainer.querySelectorAll(".etiquette__card");
+    cards = cardContainer.querySelectorAll('.etiquette__card');
     cardsPerView = showCard();
     maxIndex = Math.max(0, cards.length - cardsPerView);
     currentIndex = 0;
@@ -51,14 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 버튼 클릭 이동 이벤트
-  prevButton.addEventListener("click", () => {
+  prevButton.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex--;
       moveSlide();
     }
   });
 
-  nextButton.addEventListener("click", () => {
+  nextButton.addEventListener('click', () => {
     if (currentIndex < maxIndex) {
       currentIndex++;
       moveSlide();
@@ -66,33 +67,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 리사이즈 대응
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     updateCarouselState();
   });
 
-  // 나라 선택 드롭다운 핸들러 
+  // 나라 선택 드롭다운 핸들러
   function renderCards(country) {
-    const cardList = document.querySelector(".etiquette__cards");
-    cardList.innerHTML = "";
+    const cardList = document.querySelector('.etiquette__cards');
+    cardList.innerHTML = '';
 
     cardData[country].forEach(card => {
-      const li = document.createElement("li");
-      li.className = "etiquette__card";
+      const li = document.createElement('li');
+      li.className = 'etiquette__card';
 
-      const imgSpan = document.createElement("span");
-      imgSpan.className = "etiquette-img";
+      const imgSpan = document.createElement('span');
+      imgSpan.className = 'etiquette-img';
       imgSpan.style.backgroundImage = `url(../../assets/images/${card.image})`;
 
-      const textContainer = document.createElement("div");
-      textContainer.className = "etiquette__cardTxt";
+      const textContainer = document.createElement('div');
+      textContainer.className = 'etiquette__cardTxt';
 
-      const h4 = document.createElement("h4");
+      const h4 = document.createElement('h4');
       h4.textContent = card.title;
       textContainer.appendChild(h4);
 
       if (Array.isArray(card.desc)) {
         card.desc.forEach(line => {
-          const p = document.createElement("p");
+          const p = document.createElement('p');
           p.textContent = line;
           textContainer.appendChild(p);
         });
@@ -107,19 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // JSON 불러오기 + 버튼 이벤트 연결
-  fetch("./etiquette-data.json")
+  fetch('/JSON/etiquette-data.json')
     .then(response => response.json())
     .then(data => {
       cardData = data;
 
       buttons.forEach(button => {
-        button.addEventListener("click", () => {
+        button.addEventListener('click', () => {
           const selected = button.textContent.trim();
           summary.textContent = selected;
           renderCards(selected);
 
-          const details = button.closest("details");
-          if (details) details.removeAttribute("open");
+          const details = button.closest('details');
+          if (details) details.removeAttribute('open');
         });
       });
 

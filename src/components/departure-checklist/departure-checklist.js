@@ -1,9 +1,10 @@
+import './departure-checklist.css';
 document.addEventListener('DOMContentLoaded', async () => {
   const listEl = document.querySelector('.checklist__list');
   const savedStates = JSON.parse(localStorage.getItem('checklistState')) || {};
 
   try {
-    const response = await fetch('./checklist.json');
+    const response = await fetch('/JSON/checklist.json');
     const checklistItems = await response.json();
 
     checklistItems.forEach(item => {

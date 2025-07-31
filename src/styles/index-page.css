@@ -1,0 +1,94 @@
+body {
+  min-inline-size: 375px;
+}
+
+.main-layout {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 30px;
+  .schedule,
+  .weather-section,
+  .exchange-section,
+  .checklist,
+  .account {
+    padding-inline: 15px;
+  }
+}
+
+@media (min-width: 576px) {
+  .main-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      'schedule schedule '
+      'weather exchange '
+      'checklist checklist'
+      'map map'
+      'etiquette etiquette'
+      'account account';
+    gap: 30px;
+
+    .weather-section {
+      padding-inline: 15px 0;
+    }
+    .exchange-section {
+      padding-inline: 0 15px;
+    }
+  }
+
+  .schedule {
+    grid-area: schedule;
+  }
+  .weather-section {
+    grid-area: weather;
+  }
+  .exchange-section {
+    grid-area: exchange;
+  }
+  .checklist {
+    grid-area: checklist;
+  }
+  .map-section {
+    grid-area: map;
+  }
+  .etiquette {
+    grid-area: etiquette;
+  }
+  .account {
+    grid-area: account;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-layout {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      'schedule schedule weather'
+      'schedule schedule exchange'
+      'checklist checklist checklist'
+      'map map map'
+      'etiquette etiquette etiquette'
+      'account account account';
+
+    .schedule {
+      padding-inline: 15px 0;
+    }
+
+    .exchange-section,
+    .weather-section {
+      padding-inline: 0 15px;
+    }
+  }
+  .weather-section {
+    align-self: end;
+    translate: 0 35px;
+  }
+  .exchange-section {
+    align-self: end;
+  }
+  h3 {
+    font-size: var(--fontSize26);
+  }
+}
