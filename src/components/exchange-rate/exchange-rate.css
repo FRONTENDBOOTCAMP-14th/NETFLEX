@@ -45,6 +45,7 @@
 
 .exchange-form__title {
   padding-bottom: 15px;
+  font-size: var(--fontSize22);
 }
 
 .exchange-form__input-box,
@@ -164,5 +165,17 @@
   .exchange-form__currency-select,
   .exchange-form__currency-select--custom {
     width: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+  .exchange-form__title {
+    font-size: var(--fontSize26);
+  }
+}
+
+@media (min-width: 1280px) {
+  .exchange-form__title {
+    font-size: var(--fontSize32);
   }
 }

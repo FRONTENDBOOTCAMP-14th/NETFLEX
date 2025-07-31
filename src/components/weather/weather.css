@@ -10,7 +10,7 @@
   border: 1px solid var(--gray-300);
   padding: 20px;
   display: flex;
-  min-width: 258px;
+  min-width: 290px;
   align-items: center;
   justify-content: space-between;
 }
@@ -35,7 +35,7 @@
 
 .forecast {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 11px;
   align-items: center;
   margin-top: 38px;

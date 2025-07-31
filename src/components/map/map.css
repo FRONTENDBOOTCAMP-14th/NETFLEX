@@ -4,7 +4,7 @@
   overflow: hidden;
   color: var(--black-200);
   h3 {
-    padding: 15px 0 15px 30px;
+    padding: 15px 0 15px 15px;
     font-size: var(--fontSize22);
   }
   .map-layout {
@@ -286,8 +286,7 @@
   .map-section {
     --fontSize32: 32px;
     h3 {
-      padding: 10px 0;
-      font-size: var(--fontSize32);
+      font-size: var(--fontSize26);
     }
   }
 
@@ -353,7 +352,11 @@
   .map-section {
     overflow: hidden;
     max-width: 900px;
+    h3 {
+      font-size: var(--fontSize32);
+    }
   }
+
   .map {
     #map {
       max-height: 550px;
