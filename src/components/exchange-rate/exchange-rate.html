@@ -10,22 +10,38 @@
   <body>
     <article class="exchange__form">
       <h3 id="exchange-title" class="exchange-form__title">환율</h3>
-      <div class="exchange-form__input-box" role="group" aria-labelledby="currency-label">
-        <div class="exchange-form__currency-select exchange-form__currency-select--custom">
+      <div
+        class="exchange-form__input-box"
+        role="group"
+      >
+        <div
+          class="exchange-form__currency-select exchange-form__currency-select--custom"
+        >
           <!-- 나라별 환율 입력 요소 -->
           <select
-          class="exchange-form__select"
-          id="base-currency"
-          aria-label="통화 단위 선택"
+            class="exchange-form__select"
+            id="base-currency"
+            aria-label="통화 단위 선택"
           >
-          <option value="USD" data-flag="flag-us" data-country="미국">미국</option>
-          <option value="GBP" data-flag="flag-uk" data-country="영국">영국</option>
-          <option value="EUR" data-flag="flag-eu" data-country="유로">유로</option>
-          <option value="JPY" data-flag="flag-jp" data-country="일본">일본</option>
-        </select>
-        <div class="exchange-form__custom-select-content">
-          <span id="selected-flag" class="exchange-form__flag-icon flag-us"></span>
-          <p id="currency-unit" class="exchange-form__currency-unit"></p>
+            <option value="USD" data-flag="flag-us" data-country="미국">
+              미국
+            </option>
+            <option value="GBP" data-flag="flag-uk" data-country="영국">
+              영국
+            </option>
+            <option value="EUR" data-flag="flag-eu" data-country="유로">
+              유로
+            </option>
+            <option value="JPY" data-flag="flag-jp" data-coutry="일본">
+              일본
+            </option>
+          </select>
+          <div class="exchange-form__custom-select-content">
+            <span
+              id="selected-flag"
+              class="exchange-form__flag-icon flag-us"
+            ></span>
+            <p id="currency-unit" class="exchange-form__currency-unit"></p>
           </div>
         </div>
         <div class="exchange-form__currency-amount">
@@ -38,7 +54,6 @@
             min="0"
           />
           <span class="exchange-form__unit-text">단위</span>
-        </div>        
         </div>
       </div>
 
