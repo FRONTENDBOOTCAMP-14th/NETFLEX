@@ -102,32 +102,39 @@ summary::-webkit-details-marker {
 
 .etiquette__cards {
   display: flex;
-  width: calc(100% * 4 );
-  max-height: 300px;
-  transition: transform 0.4s ease;
-  transform: 0;
+  align-items: stretch;
+  width: 100%;
+  max-height: 250px;
+  min-height: 200px;
   gap: 2rem;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 .etiquette__card {
-  display: flex;
-  overflow: hidden;
-  flex: 0 0 25%;
+  display: grid;
+  grid-template-columns: 4.5fr 5.5fr;
+  grid-template-rows: 3fr 7fr;
+  
+  flex: 0 0 100%; /* 유지할것! */
   padding: 1rem;
+  height: auto;
   border: 1px solid var(--gray-300);
   border-radius: 10px;
-  justify-content:space-around;
-  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .etiquette-img {
-  display: flex;
-  width: 30%;
-  height: 80%;
+  grid-row: 1 / span 2;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
   min-width: 80px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  word-break: keep-all;
 }
 
 /* 개별 카드 이미지 삽입 */
@@ -145,18 +152,32 @@ summary::-webkit-details-marker {
 }
 
 .etiquette__cardTxt {
-  text-align: start;
+  grid-column: 2 / 3;
+  display: contents;
+  height: 100%;
 
-  h4 {
-    font-size: var(--fontSize26);
+  & h4 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: var(--fontSize16);
+    word-break: keep-all;
   }
+}
 
-  p {
-    margin-top: 1rem;
-    font-size: var(--fontSize12);
-    white-space: pre-line;
-    line-height: 1;
-  }
+.etiquette__card-desc {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  padding-top: 1em;;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  line-height: 1.5;
+  max-width: 120px;
+  font-size: var(--fontSize12);
+
 }
 
 /* 카드 nav 버튼 */
@@ -184,63 +205,24 @@ summary::-webkit-details-marker {
 }
 
 @media (min-width: 768px) {
-  .etiquette__cards {
-    justify-content: center;
-    width: calc(25% * 4 );
-    height: 31.25dvh;
-  }
+
   .etiquette__card {
-    flex: 0 0 47%;
+    flex: 0 0 calc((100% - 2rem) / 2); /* 꼭 유지! */
   }
-
-  .prev {
-    left:10px;
+  
+  .etiquette-img {
+    min-width: 100px;
   }
-
-  .next {
-    right: 10px;
+  
+  .etiquette__cardTxt  h4 {
+    font-size: var(--fontSize24);
   }
+  .etiquette__card-desc {
+    max-width: 200px;
+    font-size: var(--fontSize14);
+    
 
-  .etiquette__cardTxt {
-    text-align: center;
-
-    h4 {
-      font-size: var(--fontSize24);
-      }
-
-    p {
-      font-size: var(--fontSize14);
-      } 
-  }
+  .prev { left: 20px; }
+  .next { right: 20px; }
 }
-
-@media (min-width: 1280px) {
-  .etiquette__cards {
-    justify-content: center;
-    width: calc(25% * 4 );
-    height: 31.25dvh;
-  }
-   .etiquette__card {
-    flex: 0 0 50%;
-  }
-
-  .prev {
-    left: 20px;
-  }
-
-  .next {
-    right: 20px;
-  }
-
-  .etiquette__cardTxt {
-    text-align: center;
-
-    h4 {
-      font-size: var(--fontSize24);
-    }
-
-    p {
-      font-size: var(--fontSize14);
-    }
-  }
 }
