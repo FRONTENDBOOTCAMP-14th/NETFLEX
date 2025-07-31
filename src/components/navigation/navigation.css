@@ -1,3 +1,5 @@
+@import './../../../src/styles/main.css';
+
 :root {
   --gray111: #cdcdcd;
   --medium: 400;
@@ -77,7 +79,7 @@
 /* 모바일 */
 @media (max-width: 1279px) {
   .nav__wrapper {
-    margin-block: 10px;
+    margin: 10px 15px;
     border: 1px solid var(--gray111);
     border-radius: 10px;
   }
@@ -85,13 +87,15 @@
   /* 오버레이: 네비 열릴 때만 활성화 */
   .nav__overlay {
     display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(55, 55, 55, 0.4);
+    position: absolute;
     z-index: -998;
   }
   .nav__overlay.active {
     display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(55, 55, 55, 0.2);
+    z-index: 10;
   }
 
   .nav__wrapper {
@@ -133,9 +137,12 @@
   }
 
   .nav__wrapper.is-open {
+    max-width: 346px;
+    position: fixed;
     margin: 0px;
     border-radius: 0 20px 20px 0;
     height: 100dvh;
+    z-index: 1000;
   }
 
   .nav__wrapper.is-open .logo__header .nav__close {

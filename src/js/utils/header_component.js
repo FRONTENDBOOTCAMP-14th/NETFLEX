@@ -5,7 +5,6 @@ const body = document.body;
 
 window.addEventListener('DOMContentLoaded', () => {
   const headerComponents = `
-      <div class="nav__overlay"></div>
       <div class="nav__wrapper">
         <header class="logo__header">
           <button type="button" class="nav__open" aria-label="메뉴 열기">
@@ -240,7 +239,8 @@ window.addEventListener('DOMContentLoaded', () => {
             </li>
           </ul>
         </nav>
-      </div>`;
+      </div>
+      <div class="nav__overlay"></div>`;
 
   body.insertAdjacentHTML('afterbegin', headerComponents);
   initNavigation();
