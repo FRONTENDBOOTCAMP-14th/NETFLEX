@@ -132,16 +132,16 @@ summary::-webkit-details-marker {
 
 /* 개별 카드 이미지 삽입 */
 .etiquette-img.card-01 {
-  background-image: url(../../assets/images/etiquette-london-1_1x.webp); 
+  background-image: url(../../assets/images/etiquette/etiquette-london-1_1x.webp); 
 }
 .etiquette-img.card-02 {
-  background-image: url(../../assets/images/etiquette-london-2_1x.webp); 
+  background-image: url(../../assets/images/etiquette/etiquette-london-2_1x.webp); 
 }
 .etiquette-img.card-03 {
-  background-image: url(../../assets/images/etiquette-london-3_1x.webp); 
+  background-image: url(../../assets/images/etiquette/etiquette-london-3_1x.webp); 
 }
 .etiquette-img.card-04 {
-  background-image: url(../../assets/images/etiquette-london-4_1x.webp); 
+  background-image: url(../../assets/images/etiquette/etiquette-london-4_1x.webp); 
 }
 
 .etiquette__cardTxt {
@@ -202,16 +202,16 @@ summary::-webkit-details-marker {
   }
 
   .etiquette__cardTxt {
-  text-align: center;
+    text-align: center;
 
-  h4 {
-    font-size: var(--fontSize24);
+    h4 {
+      font-size: var(--fontSize24);
+      }
+
+    p {
+      font-size: var(--fontSize14);
+      } 
   }
-
-  p {
-    font-size: var(--fontSize14);
-}
-  
 }
 
 @media (min-width: 1280px) {
@@ -233,14 +233,14 @@ summary::-webkit-details-marker {
   }
 
   .etiquette__cardTxt {
-  text-align: center;
+    text-align: center;
 
-  h4 {
-    font-size: var(--fontSize24);
+    h4 {
+      font-size: var(--fontSize24);
+    }
+
+    p {
+      font-size: var(--fontSize14);
+    }
   }
-
-  p {
-    font-size: var(--fontSize14);
-}
-  
 }
