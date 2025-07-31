@@ -4,16 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가계부</title>
-    <link rel="stylesheet" href="./account.css" />
-    <script type="module" src="./account.js"></script>
+    <link rel="stylesheet" href="./account-page.css" />
+    <script type="module" src="./account-page.js"></script>
   </head>
   <body>
 
     <section class="account">
       <h3>가계부</h3>
       <div class="account__show-total--Container">
+        <!-- 총지출 표시 -->
         <div class="account__show--wrapper">
           <h4>총 지출</h4>
+          <!-- 통화단위 선택 버튼 -->
           <details >
             <summary>
               <span class="sr-only" >통화단위 선택</span>
@@ -29,42 +31,58 @@
             </ul>
           </details>
        </div>
+        <!-- 총 금액 표시 -->
         <div class="account__total-cost--wrapper">
            <h4>1,289,045 <span>원</span></h4>
         </div>
       </div>
+      
+      <!-- 입력폼 -->
+      <form class="account__register--form">
+        <div>
+          <label for="accountDate">날짜</label>
+          <input type="date" id="accountDate" value="2025-07-31">
+        </div>
+        <div>
+          <label for="accountItems">항목</label>
+          <input type="text" id="accountItems" placeholder="예시 교통비 🚌">
+        </div>
+        <div>
+          <label for="accountCost">금액</label>
+          <input type="number" id="accountCost" placeholder="1000" min="0">
+        </div>
 
-      <div class="account__register--container">
-          <div class="account__register--costRow">
-            <label for="accountItems">항목</label>
-            <input type="text" id="accountItems" placeholder="예시 교통비 🚌"/>
-          </div>
-          <div class="account__register--costRow">
-            <label for="accountCost" >금액</label>
-            <input type="number" id="accountCost" placeholder="1000" min="0"/>
-          </div>
-        <button class="account__register--button">등록</button>
-      </div>
+        <fieldset class="account__payment-form">
+          <legend class="sr-only">결제 수단</legend>
+          <input type="radio" id="card" name="payment" value="카드" checked>
+          <label for="card">카드</label>
+          <input type="radio" id="cash" name="payment" value="현금">
+          <label for="cash">현금</label>
+        </fieldset>
 
+        <!-- 등록버튼 -->
+        <button type="submit" class="account__register--button">등록</button>
+      </form>
+
+      <!-- 내역확인 테이블 -->
       <div class="account__output-table">
         <table>
-          <tr>
-            <td class="account__date">날짜</td>
-            <td class="account__cost">금액</td>
-            <td class="account__title">항목</td>
-            <td class="account__method">수단</td>
-            <td class="account__modify">수정</td>
-            <td class="account__delete">삭제</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>금액</th>
+              <th>항목</th>
+              <th>수단</th>
+              <th>수정</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody class="account__output-body">
+          <!-- JS로 항목 삽입 -->
+          </tbody>
         </table>
       </div>  
     </section>
   
   </body>
 </html>
-
-<!-- 
-  <div class="account__">
-              <button type="button">카드</button>
-              <button type="button">현금</button>
-            </div> -->
