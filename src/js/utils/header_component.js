@@ -1,7 +1,7 @@
 import '../../components/navigation/navigation.css';
 import { initNavigation } from '../../components/navigation/navigation';
 
-const body = document.body;
+const pageLayout = document.querySelector('.page-layout');
 
 window.addEventListener('DOMContentLoaded', () => {
   const headerComponents = `
@@ -242,6 +242,6 @@ window.addEventListener('DOMContentLoaded', () => {
       </div>
       <div class="nav__overlay"></div>`;
 
-  body.insertAdjacentHTML('afterbegin', headerComponents);
+  pageLayout.insertAdjacentHTML('beforebegin', headerComponents);
   initNavigation();
 });

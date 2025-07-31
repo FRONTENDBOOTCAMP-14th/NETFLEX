@@ -1,6 +1,6 @@
 import '../../components/footer/footer.css';
 
-const body = document.body;
+const pageLayout = document.querySelector('.page-layout');
 
 window.addEventListener('DOMContentLoaded', () => {
   const footerComponents = `
@@ -26,5 +26,5 @@ window.addEventListener('DOMContentLoaded', () => {
         </p>
       </footer>`;
 
-  body.insertAdjacentHTML('beforeend', footerComponents);
+  pageLayout.insertAdjacentHTML('beforeend', footerComponents);
 });
