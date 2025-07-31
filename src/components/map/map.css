@@ -1,9 +1,7 @@
 @import url(../../styles/common/theme.css);
-body {
-  background: var(--gray-200);
-}
 
 .map-section {
+  overflow: hidden;
   color: var(--black-200);
   h3 {
     padding: 15px 0 15px 30px;
