@@ -11,7 +11,7 @@
   flex-direction: column;
   max-width: 300px;
   background-color: var(--white-fa);
-  border-radius: 0 0 0 20px;
+  border-radius: 20px 0 0 20px;
 }
 
 /* 로고 헤더 부분 */
