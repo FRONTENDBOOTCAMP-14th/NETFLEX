@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
     <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/components/account/account.css" />
     <script type="module" src="./src/js/main.js"></script>
     <title>넷플렉스</title>
   </head>
@@ -59,82 +60,68 @@
           </article>
         </div>
         <div class="exchange-section">
-          <article class="exchange-form">
+          <article class="exchange__form">
             <h3 id="exchange-title" class="exchange-form__title">환율</h3>
             <div class="exchange-form__input-box" role="group">
               <div
                 class="exchange-form__currency-select exchange-form__currency-select--custom"
               >
+                <!-- 나라별 환율 입력 요소 -->
                 <select
                   class="exchange-form__select"
                   id="base-currency"
                   aria-label="통화 단위 선택"
                 >
-                  <option value="USD" selected>미국</option>
-                  <option value="GBP">영국</option>
-                  <option value="EUR">유로</option>
-                  <option value="JPY">일본</option>
+                  <option value="USD" data-flag="flag-us" data-country="미국">
+                    미국
+                  </option>
+                  <option value="GBP" data-flag="flag-uk" data-country="영국">
+                    영국
+                  </option>
+                  <option value="EUR" data-flag="flag-eu" data-country="유로">
+                    유로
+                  </option>
+                  <option value="JPY" data-flag="flag-jp" data-coutry="일본">
+                    일본
+                  </option>
                 </select>
-                <button
-                  class="exchange-form__custom-select-btn"
-                  id="currency-dropdown-trigger"
-                  type="button"
-                  aria-haspopup="listbox"
-                  aria-expanded="false"
-                >
-                  <span class="exchange-form__custom-select-content">
-                    <span
-                      id="selected-flag"
-                      class="exchange-form__flag-icon"
-                    ></span>
-                    <span
-                      id="selected-country"
-                      class="exchange-form__selected-country"
-                    ></span>
-                  </span>
-                  <svg
-                    class="exchange-form__dropdown-arrow"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="7"
-                    height="4"
-                    viewBox="0 0 7 4"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M6.57562 0L7 0.43125L3.5 4L0 0.43125L0.422188 0L3.5 3.13542L6.57562 0Z"
-                      fill="#C7C7C7"
-                    />
-                  </svg>
-                </button>
+                <div class="exchange-form__custom-select-content">
+                  <span
+                    id="selected-flag"
+                    class="exchange-form__flag-icon flag-us"
+                  ></span>
+                  <p
+                    id="currency-unit"
+                    class="exchange-form__currency-unit"
+                  ></p>
+                </div>
               </div>
-
               <div class="exchange-form__currency-amount">
-                <label for="base-amount" class="sr-only">금액 입력</label>
+                <label for="base-amount"></label>
                 <input
-                  type="number"
                   id="base-amount"
+                  type="number"
                   class="exchange-form__input"
                   value="0"
                   min="0"
-                  aria-label="금액 입력"
                 />
                 <span class="exchange-form__unit-text">단위</span>
               </div>
             </div>
 
+            <!-- 한국 환율 출력 요소 -->
             <div
               class="exchange-form__currency-box exchange-form__currency-box--result"
               role="region"
               aria-label="환전 대상 금액"
             >
-              <div class="exchange-form__currency-select">
-                <span id="target-label" class="sr-only">환전 대상</span>
+              <div class="exchange-form__currency-output">
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
-                  height="16"
-                  viewBox="0 0 20 16"
+                  height="20"
+                  viewBox="0 0 20 20"
                   fill="none"
                 >
                   <path
@@ -246,7 +233,8 @@
                 <strong
                   id="converted-amount"
                   class="exchange-form__converted-amount"
-                ></strong>
+                >
+                </strong>
                 <span class="exchange-form__unit-text"></span>
               </div>
             </div>
@@ -568,7 +556,7 @@
               <details>
                 <summary>
                   <span class="account__change-units--svg-button">
-                    <span class="sr-only">통화 단위 변경</span>
+                    <p class="sr-only">통화 단위 변경</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"

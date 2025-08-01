@@ -111,6 +111,7 @@
 }
 
 .checklist__label {
+  position: relative;
   display: flex;
   align-items: center;
   margin-inline-end: 12px;
@@ -118,10 +119,8 @@
 
 .checklist__checkbox {
   appearance: none;
-  position: absolute;
-}
-
-.checklist__custom-box {
+  /* border: 1px solid red; */
+  /* position: absolute; */
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -133,11 +132,27 @@
   cursor: pointer;
 }
 
-.checklist__item.is-checked .checklist__custom-box {
+.checklist__custom-box {
+  /* display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 5px;
+  background-color: var(--gray-200);
+  transition: background-color 0.2s ease;
+  cursor: pointer; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.checklist__item.is-checked .checklist__checkbox {
   background-color: var(--blue-200);
 }
 
-.checklist__custom-box.is-checked .checklist__check-icon {
+.checklist__checkbox.is-checked .checklist__check-icon {
   display: block;
 }
 
