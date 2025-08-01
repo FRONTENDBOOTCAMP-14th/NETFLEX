@@ -21,16 +21,16 @@
 
 /* 국기 배경 이미지 */
 .flag-us {
-  background-image: url('./../../assets/svg/us.svg');
+  background-image: url('/svg/us.svg');
 }
 .flag-uk {
-  background-image: url('./../../assets/svg/uk.svg');
+  background-image: url('/svg/uk.svg');
 }
 .flag-eu {
-  background-image: url('./../../assets/svg/eu.svg');
+  background-image: url('/svg/eu.svg');
 }
 .flag-jp {
-  background-image: url('./../../assets/svg/jp.svg');
+  background-image: url('/svg/jp.svg');
 }
 
 /* 컨테이너 */
