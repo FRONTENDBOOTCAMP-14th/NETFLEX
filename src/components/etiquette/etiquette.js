@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const imgSpan = document.createElement('span');
       imgSpan.className = 'etiquette-img';
-      imgSpan.style.backgroundImage = `url(../../assets/images/${card.image})`;
+      imgSpan.style.backgroundImage = `url('src/assets/images/etiquette/${card.image}')`;
 
       const textContainer = document.createElement('div');
       textContainer.className = 'etiquette__cardTxt';
