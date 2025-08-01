@@ -43,10 +43,11 @@
   --fontSize24: 1.5rem;
   --fontSize26: 1.625rem;
   --fontSize28: 1.75rem;
+  --fontSize32: 2rem;
 
   /* font-weight */
   --light: 200;
-  --regular: 200;
+  --regular: 400;
   --semiBold: 500;
   --bold: 700;
   --black: 900;

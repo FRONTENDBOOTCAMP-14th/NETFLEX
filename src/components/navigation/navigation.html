@@ -8,19 +8,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-    <link rel="stylesheet" href="../../../src/styles/main.css" />
     <link rel="stylesheet" href="./navigation.css" />
     <script type="module" src="./navigation.js"></script>
     <title>네비게이션 컴포넌트</title>
   </head>
   <body>
+    <div class="nav__overlay"></div>
     <div class="nav__wrapper">
       <header class="logo__header">
         <button type="button" class="nav__open" aria-label="메뉴 열기">
           <svg
             aria-hidden="true"
-            width="40"
-            height="40"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +33,7 @@
         </button>
         <button type="button" class="nav__close" aria-label="메뉴 닫기">
           <svg
+            aria-hidden="true"
             width="16"
             height="16"
             viewBox="0 0 16 16"

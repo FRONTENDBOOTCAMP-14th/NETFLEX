@@ -1,0 +1,315 @@
+@import './../../styles/main.css';
+
+:root {
+  --fontSize11: 11px;
+  --fontSize32: 32px;
+  --fontSize36: 36px;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-inline-size: 980px;
+  block-size: 800px;
+  /* padding-block은 figma에서 확인할 수가 없어서 대략적으로 넣은 수치임 */
+  padding: 130px 80px;
+}
+
+.schedule__title {
+  font-size: var(--fontSize32);
+}
+
+.schedule__add-button {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--blue-200);
+  inline-size: 100%;
+  padding: 33px 47px 33px 40px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-out;
+}
+
+.schedule__add-button:focus-visible {
+  outline: 2px solid black;
+}
+
+.schedule__add-button:hover {
+  background-color: var(--blue-100);
+}
+
+.schedule__add-button span {
+  font-size: var(--fontSize28);
+  font-weight: var(--bold);
+  color: var(--white-fa);
+}
+
+/* 일정 리스트 */
+.schedule__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.schedule-card {
+  transition: background-color 0.2s ease-in;
+  border-radius: 15px;
+}
+
+.schedule-card__link {
+  border: 1px solid var(--gray-100);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding: 37px;
+}
+
+.schedule-card__link:hover {
+  transition: border-color 0.2s ease-in;
+  border-color: var(--blue-300);
+}
+
+.schedule-card__link:focus-visible {
+  outline: 2px solid black;
+}
+
+.schedule-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.schedule-card__location {
+  font-size: var(--fontSize32);
+  font-weight: var(--semiBold);
+}
+
+.schedule-card__date {
+  font-size: var(--fontSize18);
+}
+
+.schedule-card__thumbnail {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------- */
+/* Location Modal */
+
+body.modal-is-open {
+  overflow: hidden;
+}
+
+dialog.location-dialog {
+  border: none;
+  border-radius: 24px;
+  padding: 70px;
+  inline-size: 100%;
+  max-inline-size: 620px;
+  block-size: 550px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.location-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-dialog__title {
+  font-size: var(--fontSize36);
+}
+
+.location-dialog__description {
+  margin-block-end: 6px;
+  font-size: var(--fontSize28);
+}
+
+.location-dialog__input-wrapper {
+  display: flex;
+  gap: 10px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.location-dialog__input-wrapper:focus-within {
+  outline: 2px solid black;
+}
+
+.location-dialog__input-wrapper input {
+  translate: 0 2px;
+  padding: 18px 0 20px 0px;
+  border-radius: 10px;
+  outline: 0;
+}
+
+.location-dialog__input-wrapper input::placeholder {
+  font-size: var(--fontSize20);
+}
+
+.location-dialog__input-wrapper svg {
+  order: -1;
+  translate: 0 17px;
+  margin-inline-start: 23px;
+}
+
+.location-dialog__result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 14px 0 14px 23px;
+  font-size: var(--fontSize20);
+}
+
+.location-dialog__buttons {
+  display: flex;
+  margin: 0 auto;
+  gap: 24px;
+  margin-block-start: 8px;
+}
+
+.location-dialog__next:focus-within,
+.location-dialog__close:focus-within {
+  outline: 2px solid black;
+}
+
+.location-dialog__next,
+.location-dialog__close {
+  padding: 16px 48px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  font-weight: var(--bold);
+}
+
+/* ---------------------------------------------------- */
+/* Calendar Modal */
+
+.calendar-dialog {
+  inline-size: 100%;
+  max-inline-size: 900px;
+  block-size: 790px;
+  border: none;
+  border-radius: 24px;
+  padding: 70px 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: auto;
+}
+
+.calendar-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.calendar-dialog__title {
+  font-size: var(--fontSize36);
+}
+
+.calendar-dialog__description {
+  font-size: var(--fontSize20);
+}
+
+.calendar-dialog__calendar-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-block-start: 42px;
+  justify-content: center;
+}
+
+.calendar-dialog__each-month:nth-child(1) {
+  margin-inline-end: 70px;
+}
+
+.calendar-dialog__month-header {
+  display: flex;
+}
+
+.calendar-dialog__current-month-year {
+  margin: 0 auto;
+  margin-block-end: 15px;
+}
+
+.calendar-dialog__days,
+.calendar-dialog__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 33px;
+}
+
+.calendar-dialog__days {
+  font-size: var(--fontSize12);
+  margin-block-end: 12px;
+}
+
+.calendar-dialog__date {
+  font-size: var(--fontSize11);
+  padding: 5px;
+}
+/* ------------------------------- */
+
+/* 지난 날짜 회색으로 처리 */
+.calendar-dialog__date.past {
+  color: var(--gray-300);
+  cursor: not-allowed;
+}
+
+/* 선택된 날짜 파란색으로 표시 */
+.calendar-dialog__date.selected {
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  font-weight: var(--semiBold);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 5px;
+  z-index: 1;
+}
+
+/* 기간 - 연한 파란색으로 배경 설정 */
+.calendar-dialog__date.in-range {
+  background-color: var(--blue-600);
+  color: var(--black);
+  border-radius: 0;
+}
+
+.calendar-dialog__buttons {
+  display: flex;
+  margin: 0 auto;
+  gap: 24px;
+  margin-block-start: 20px;
+}
+
+.calendar-dialog__next:focus-within,
+.calendar-dialog__prev:focus-within {
+  outline: 2px solid black;
+}
+
+.calendar-dialog__next,
+.calendar-dialog__prev {
+  padding: 16px 48px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+  border-radius: 10px;
+  font-weight: var(--bold);
+}
+
+.calendar-dialog__next:hover,
+.calendar-dialog__prev:hover {
+  background-color: var(--blue-100);
+  transition: background-color 0.2s ease-out;
+}
+
+.calendar-dialog__prev-button svg {
+  fill: var(--black); /* 기본 상태 색상 */
+}
+
+.calendar-dialog__prev-button.past svg {
+  fill: var(--gray-500); /* 비활성 상태일 때 색상 */
+  cursor: not-allowed;
+}

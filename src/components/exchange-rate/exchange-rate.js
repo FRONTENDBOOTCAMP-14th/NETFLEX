@@ -7,7 +7,7 @@ const currencyMap = {
   GBP: { country: "영국", symbol: "파운드", flag: "flag-uk" },
   EUR: { country: "유로", symbol: "유로", flag: "flag-eu" },
   JPY: { country: "일본", symbol: "엔", flag: "flag-jp" },
-  KRW: { country: "대한민국", symbol: "원" }, // 결과 고정
+  KRW: { country: "대한민국", symbol: "원" },
 };
 
 // DOM 요소

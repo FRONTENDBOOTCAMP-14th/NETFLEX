@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./schedule-register.css" />
+    <script type="module" src="./schedule-register.js"></script>
+    <title>P4T : 일정 등록</title>
+  </head>
+  <body>
+    <section class="schedule-register">
+      <div class="schedule-register__header">
+        <h2 class="schedule-register__location" id="selectedLocation">
+          런던, 영국
+        </h2>
+        <p class="schedule-register__period" id="selectedPeriod">
+          August 1 - August 29, 2025
+        </p>
+      </div>
+
+      <ul class="schedule-register__list">
+        <li class="schedule-register__item">
+          <div class="schedule-register__day-header">
+            <h2 class="schedule-register__day-title">Day 1</h2>
+            <time datetime="2025-08-01" class="schedule-register__date"
+              >Fri, August 1</time
+            >
+          </div>
+          <div class="schedule-register__form-wrapper">
+            <form class="schedule-register__form">
+              <div class="form-group">
+                <label for="timeSelect" class="schedule-register__label"
+                  >시간</label
+                >
+                <select
+                  name="time"
+                  id="timeSelect"
+                  class="schedule-register__time"
+                >
+                  <option value="23:40">23:40</option>
+                  <option value="23:50">23:50</option>
+                  <option value="00:00">00:00</option>
+                  <option value="00:10">00:10</option>
+                  <option value="00:20">00:20</option>
+                  <option value="00:30">00:30</option>
+                  <option value="00:40">00:40</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="titleInput" class="schedule-register__label"
+                  >제목</label
+                >
+                <input
+                  type="text"
+                  id="titleInput"
+                  name="title"
+                  class="schedule-register__input"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="descriptionInput" class="schedule-register__label"
+                  >설명</label
+                >
+                <textarea
+                  name="description"
+                  id="descriptionInput"
+                  class="schedule-register__textarea"
+                ></textarea>
+              </div>
+
+              <div class="schedule-register__buttons">
+                <button type="submit" class="schedule-register__save">
+                  저장
+                </button>
+                <button type="button" class="schedule-register__cancel">
+                  취소
+                </button>
+              </div>
+            </form>
+          </div>
+        </li>
+        <!-- Day 2 등 반복될 항목 -->
+      </ul>
+
+      <button type="button" class="schedule-register__add-button">
+        일정 추가하기
+      </button>
+    </section>
+  </body>
+</html>

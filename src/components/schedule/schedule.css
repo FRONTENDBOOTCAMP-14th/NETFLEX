@@ -1,13 +1,12 @@
-@import './../../styles/main.css';
-
 :root {
-  --radius: .9375rem;
+  --radius: 0.9375rem;
 }
 
 /* --------------------------------------------------------- */
 /* 전체 섹션 */
 .schedule {
-  max-inline-size: 514px;
+  inline-size: 100%;
+  /* max-inline-size: 514px; */
 }
 
 .schedule__header {
@@ -54,7 +53,7 @@
 /* DAY 섹션 */
 
 .schedule__day-list {
-  border: .0625rem solid var(--gray-300);
+  border: 0.0625rem solid var(--gray-300);
   border-radius: var(--radius);
   padding: 25px;
   margin: 0;
@@ -119,7 +118,7 @@
 }
 
 /* 포커싱 */
-.schedule__checkbox:focus-visible+.schedule__custom-box {
+.schedule__checkbox:focus-visible + .schedule__custom-box {
   outline: 2px solid var(--black-100);
   outline-offset: 2px;
 }
@@ -152,9 +151,9 @@
     padding: 6px 0 0px 10px;
   }
 
-  .schedule__day-list {
+  /* .schedule__day-list {
     block-size: 304px;
-  }
+  } */
 
   .schedule__day {
     font-size: var(--fontSize18);
@@ -166,9 +165,10 @@
 }
 
 /* 테블릿 */
-@media (max-width: 1279px) {
+@media (768px <= width <= 1280px) {
   .schedule {
-    max-inline-size: 450px;
+    inline-size: 100%;
+    /* max-width: 400px; */
   }
 
   .schedule__title {

@@ -1,4 +1,4 @@
-@import "./../../styles/main.css";
+@import './../../styles/main.css';
 
 :root {
   --fontSize11: 11px;
@@ -23,27 +23,22 @@ input[type="number"] {
 
 /* 국기 배경 이미지 */
 .flag-us {
-  background-image: url("./../../assets/svg/us.svg");
+  background-image: url('./../../assets/svg/us.svg');
 }
 .flag-uk {
-  background-image: url("./../../assets/svg/uk.svg");
+  background-image: url('./../../assets/svg/uk.svg');
 }
 .flag-eu {
-  background-image: url("./../../assets/svg/eu.svg");
+  background-image: url('./../../assets/svg/eu.svg');
 }
 .flag-jp {
-  background-image: url("./../../assets/svg/jp.svg");
+  background-image: url('./../../assets/svg/jp.svg');
 }
 
 /* 환율 폼 요소 */
 .exchange__form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  min-width: 309px;
-  padding: 20px;
-  border: 1px solid var(--gray-200);
-  border-radius: 15px;
 
   /* 환율 입력 폼 요소 */
   .exchange-form__input-box,
@@ -159,5 +154,24 @@ input[type="number"] {
       font-size: var(--fontSize15);
       font-weight: var(--boldRegular);
     }
+  }
+}
+
+@media (min-width: 576px) {
+  .exchange-form__currency-select,
+  .exchange-form__currency-select--custom {
+    width: 90px;
+  }
+}
+
+@media (min-width: 768px) {
+  .exchange-form__title {
+    font-size: var(--fontSize26);
+  }
+}
+
+@media (min-width: 1280px) {
+  .exchange-form__title {
+    font-size: var(--fontSize32);
   }
 }
