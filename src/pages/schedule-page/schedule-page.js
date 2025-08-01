@@ -286,7 +286,7 @@ nextScheduleButton.addEventListener('click', () => {
   if (selectedStart && selectedEnd) {
     // 여기에 일정 추가 로직 또는 페이지 이동
     console.log('일정 등록: ', selectedStart, selectedEnd);
-    window.location.href = '/pages/schedule/schedule.html';
+    window.location.href = '../schedule-register/schedule-register.html';
   } else {
     alert('시작일과 종료일을 선택해주세요!');
   }
