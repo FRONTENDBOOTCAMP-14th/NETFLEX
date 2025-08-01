@@ -1,0 +1,162 @@
+@import url(../../styles/main.css);
+
+body {
+  padding: 50px;
+}
+
+/* ----------------------------------------- */
+
+.account {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  h3 {
+    padding: 15px 0 15px 30px;
+    font-size: var(--fontSize22);
+  }
+
+}
+/* -------------------------------------- */
+/*             총 금액 표시 영역             */
+/* -------------------------------------- */
+
+.account__show-total--Container {
+  border-radius: 10px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+}
+
+.account__show--wrapper {
+  display: flex;
+  position: relative;
+  font-size: var(--fontSize18);
+
+  & h4 {
+    margin: 1rem;
+  }
+
+  & summary {
+    margin-top: 1.1rem;
+    list-style: none;
+    transform: scale(80%);
+  }
+}
+
+
+/* 통화 단위 */
+.account__change-units--list {
+  display: flex;
+  position: absolute;
+  top:1rem;
+  left: 8rem;
+  background-color: var(--white-fa);
+  z-index: 9999;
+
+  & li {
+    border: 1px solid var(--gray-400);
+    color: var(--black-200);
+    
+    &:hover,
+    &:focus {
+      background-color : var(--blue-200);
+      color: var(--white-fa);
+      font-weight: var(--bold);  
+    }
+  }
+  
+  & button {
+    padding: 5px 10px;
+    transform: translateY(-2px); /* 버튼내 텍스트 미세 조절 */
+    font-size: var(--fontSize12);
+    font-weight: var(--bold);
+  }
+}
+
+
+/* 총 금액 */
+.account__total-cost--wrapper {
+  display: flex;
+  
+  & h4 {
+    display: flex;
+    margin: 0 1rem 1rem auto;
+    font-size: var(--fontSize28);
+
+    & span {
+      padding: 0 10px;
+      font-size: var(--fontSize22);
+      transform: translateY(5px);
+  }
+  }
+}
+
+
+/* -------------------------------------- */
+/*            항목과 금액 등록 영역            */
+/* -------------------------------------- */
+.account__register--form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  width: 100%;
+  margin-top: 1.3rem;
+}
+
+.account__register-cost {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: inherit;
+
+  & label {
+    width: 60px;
+    text-align: center;
+    font-size: var(--fontSize16);
+    font-weight: var(--semiBold);
+    color: var(--black-200);    
+  }
+
+  & input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--gray-400);
+    border-radius: 5px;
+    color: var(--balck-200);
+
+    &::placeholder {
+      color: var(--gray-300);
+    }
+  }
+}
+
+.account__payment-form {
+
+  & input {
+  style:none;
+  }
+
+}
+
+.account__register--button {
+  background-color: var(--blue-200);
+  padding: 10px 0;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-fa);
+  font-weight: var(--bold);
+  cursor: pointer;
+}
+
+
+/* -------------------------------------- */
+/*             금액 항목 테이블               */
+/* -------------------------------------- */
+
+.account__output-table {
+  background-color: violet;
+  margin-top: 1.3rem;
+
+}
