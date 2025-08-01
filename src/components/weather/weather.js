@@ -14,7 +14,7 @@ function getWeatherImage(weatherMain) {
     Snow: 'snow.svg',
     Thunderstorm: 'thunder.svg',
   };
-  return `../../../src/assets/svg/${weatherIconMap[weatherMain] || 'default.svg'}`;
+  return `/svg/${weatherIconMap[weatherMain] || 'default.svg'}`;
 }
 
 function getWeather(lat, lon) {
