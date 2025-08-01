@@ -1,0 +1,140 @@
+@import './../../styles/main.css';
+
+:root {
+  --fontSize32: 32px;
+  --fontSize48: 48px;
+}
+
+.schedule-register {
+  max-width: 984px;
+  margin: 40px 55px;
+}
+
+.schedule-register__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-block-end: 1px solid var(--gray-100);
+}
+
+.schedule-register__location {
+  font-size: var(--fontSize48);
+}
+
+.schedule-register__period {
+  font-size: var(--fontSize20);
+  color: var(--blue-200);
+  margin-block-end: 25px;
+}
+
+/* ---------------------------- */
+
+#dayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.schedule-register__day {
+  padding-block-start: 24px;
+  display: flex;
+}
+
+.schedule-register__heading-wrapper {
+  padding-inline-end: 64px;
+  border-inline-end: 1px solid var(--gray-100);
+}
+
+/* Day 1 */
+.schedule-register__heading {
+  font-size: var(--fontSize32);
+  margin-block-end: 18px;
+}
+
+.schedule-register__paragraph {
+  color: var(--gray-600);
+}
+
+/* form */
+.schedule-register__form {
+  display: flex;
+  gap: 1rem;
+}
+
+.schedule-register__fieldset {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.schedule-register__fieldset .form-group:nth-of-type(3),
+.schedule-register__buttons {
+  flex: 1 1 100%;
+}
+
+.schedule-register__fieldset .form-group:nth-of-type(2) {
+  width: 100%;
+  max-width: 410px;
+}
+
+.schedule-register__time {
+  height: 45px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border-color: var(--gray-100);
+}
+
+.schedule-register__input {
+  translate: 0 -1%;
+}
+
+.schedule-register__input,
+.schedule-register__textarea {
+  border: 1px solid var(--gray-300);
+  padding: 10px 0 10px 12px;
+  border-radius: 5px;
+}
+
+.schedule-register__textarea {
+  resize: none;
+  height: 150px;
+  max-width: 413px;
+  margin-inline-start: 97px;
+}
+
+/* Buttons */
+.schedule-register__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  translate: -34% 0;
+}
+
+.schedule-register__save {
+  padding: 10px 24px;
+  background-color: var(--blue-200);
+  border-radius: 5px;
+  color: var(--white-fa);
+  font-weight: var(--bold);
+}
+
+.schedule-register__save:hover {
+  background-color: var(--blue-100);
+  transition: background-color 0.2s ease-out;
+}
+
+.schedule-register__cancel {
+  padding: 9px 24px;
+  border: 1px solid var(--gray-500);
+  border-radius: 5px;
+  color: var(--gray-500);
+  font-weight: var(--bold);
+}
+
+.schedule-register__cancel:hover {
+  background-color: var(--gray-500);
+  color: var(--white-fa);
+  transition: background-color 0.2s ease-out;
+}

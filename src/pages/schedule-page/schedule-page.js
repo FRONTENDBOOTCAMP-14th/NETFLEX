@@ -73,17 +73,15 @@ const prevMonthButton = calendarDialog.querySelector(
 const nextScheduleButton = calendarDialog.querySelector(
   '.calendar-dialog__next',
 );
-const monthYearLabel = calendarDialog.querySelector(
-  '.calendar-dialog__current-month-year',
-);
-const calendarDates1 = calendarDialog.querySelector('#calendarDates-1');
+// const monthYearLabel = calendarDialog.querySelector('.calendar-dialog__current-month-year');
+// const calendarDates1 = calendarDialog.querySelector('#calendarDates-1');
 
 // 오늘 날짜 (시, 분, 초는 제거함)
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-let currentYear = today.getFullYear();
-let currentMonth = today.getMonth(); // 0 = Jan, 6 = July
+const currentYear = today.getFullYear();
+const currentMonth = today.getMonth(); // 0 = Jan, 6 = July
 let currentYearState = currentYear;
 let currentMonthState = currentMonth;
 
@@ -284,8 +282,25 @@ function highlightRange(start, end) {
 // 5. 다음 버튼 -> 일정 페이지로 이동
 nextScheduleButton.addEventListener('click', () => {
   if (selectedStart && selectedEnd) {
-    // 여기에 일정 추가 로직 또는 페이지 이동
-    console.log('일정 등록: ', selectedStart, selectedEnd);
+    // 지역 정보 가져오기
+    const cityText = matchedCityEl.textContent;
+    const countryText = matchedCountryEl.textContent;
+
+    // 날짜 포맷 함수
+    function formatDate(date) {
+      return date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+    }
+
+    // localStorage에 저장
+    localStorage.setItem('selectedCity', cityText); // 예 : 런던
+    localStorage.setItem('selectedCountry', countryText); // 예 : 영국
+    localStorage.setItem('selectedStart', formatDate(selectedStart)); // 예 : August 1, 2025
+    localStorage.setItem('selectedEnd', formatDate(selectedEnd)); // 예 : August 5, 2025
+
     window.location.href = '../schedule-register/schedule-register.html';
   } else {
     alert('시작일과 종료일을 선택해주세요!');
