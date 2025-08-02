@@ -199,8 +199,6 @@
   }
 
   .map__search-list {
-    /* padding-inline: 10px; */
-    /* .is-activate */
     .map__search-list--around,
     .map__search-list--saved {
       display: none;
@@ -352,7 +350,7 @@
 @media (min-width: 1280px) {
   .map-section {
     overflow: hidden;
-    max-width: 900px;
+
     h3 {
       font-size: var(--fontSize32);
     }
