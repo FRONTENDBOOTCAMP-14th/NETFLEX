@@ -137,22 +137,31 @@ body {
       color: var(--gray-300);
     }
   }
+
+  /* Date */
+  &:nth-child(1) {
+    width: 40%;
+  }
 }
 
 .account__register--btns-container{
+  display: grid;
+  grid-template-rows: 1.4fr 1fr;
   align-content: space-around;
   flex-basis: 40%;
-  height: inherit;
   padding-left: 3rem;
+  
 }
 
 .account__payment-form {
   display: flex;
+  justify-content: space-between;
+  align-items: start; 
   border: none;
+  gap:1.8rem;
   margin: 0;
   padding: 0;
   width: 100%;
-  gap: 2rem;
   word-break: keep-all;
 
   & input[type="radio"] {
@@ -161,12 +170,14 @@ body {
   & label{
     display: inline-flex;
     flex-direction: row;
-    gap: 2rem;
+    justify-content: center;
+    width: 100%;
     border: 1px solid var(--gray-300);
     border-radius: 10px;
     padding: 12px 40px;
     cursor: pointer;
-    
+    word-break: keep-all;
+
     &:hover,
     &:focus {
       background-color: var(--blue-200);
@@ -259,95 +270,68 @@ body {
 /* 반응형 */
 /* -------------------------------- */
 
-/* 기본 (모바일, min-width: 375px 기준) */
-@media (max-width: 767px) {
+/* 모바일: 최대 767px */
+@media (min-width: 375px) and (max-width: 767px) {
   .account__register--form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 1.3rem;
+    margin-top: 18px; /* 잘못된 shorthand 수정 */
   }
 
-  .account__register--btns-container{
+  .account__register--inputs-container,
+  .account__register-cost:nth-child(1) {
+    width: 100%;
+  }
+
+  .account__register-cost {
+    word-break: keep-all;
+  }
+
+  .account__register--btns-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
     padding-left: 0;
+    flex-basis: 100%;
   }
 
   .account__payment-form {
+    margin-top: 1rem;
+  }
+
+  .account__register--button {
+    height: 100%;
+  }
+
+  .account__output-table {
+    display: flex;
+    margin-top: 1.3rem;
+    padding: 1.3rem 10px;
+    word-break: keep-all;
+  }
+
+  .account__output-body {
+    word-break: keep-all;
+  }
+
+  .account__output-body svg {
     display: none;
   }
-
-  .account__register--button{
-    margin-top: 1.8rem;
-  }
-  .account__register-cost {
-    &:nth-child(1) {
-      display: none;
-    }
-  }
-
-  .account__output-table {
-    /*  테이블 숨김 */
-    & th:nth-child(5),
-    & td:nth-child(5),
-    & th:nth-child(6),
-    & td:nth-child(6) {
-      display: none;
-    }
-
-     /* 테이블 열간격 비율 변경 */
-    & th:nth-child(1),
-    & td:nth-child(1),
-    & th:nth-child(4),
-    & td:nth-child(4) {
-    width: 15%
-    }
-    & th:nth-child(2),
-    & td:nth-child(2) {
-      width: 20%;
-    }
-    /* 항목 (가장 긴 열 간격) */
-    & th:nth-child(3),
-    & td:nth-child(3) {
-      padding-left: 1em;
-      width: 50%;
-    }
-  }
-
 }
 
-/* 태블릿 (768px ~ 1027.98px) */
+/* 태블릿: 768px ~ 1027.98px */
 @media (min-width: 768px) and (max-width: 1027.98px) {
-   .account__register-cost {
-    &:nth-child(1) {
-      display: none;
-    }
+  .account__register-cost:nth-child(1) {
+    width: 50%;
   }
 
-  .account__output-table {
-    /*  테이블 숨김 */
-    & th:nth-child(5),
-    & td:nth-child(5),
-    & th:nth-child(6),
-    & td:nth-child(6) {
-      display: none;
-    }
+  .account__register--btns-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
 
-     /* 테이블 열간격 비율 변경 */
-    & th:nth-child(1),
-    & td:nth-child(1),
-    & th:nth-child(4),
-    & td:nth-child(4) {
-    width: 15%
-    }
-    & th:nth-child(2),
-    & td:nth-child(2) {
-      width: 20%;
-    }
-    /* 항목 (가장 긴 열 간격) */
-    & th:nth-child(3),
-    & td:nth-child(3) {
-      padding-left: 1em;
-      width: 50%;
-    }
+  .account__register--button {
+    font-size: var(--fontSize22);
   }
 }
