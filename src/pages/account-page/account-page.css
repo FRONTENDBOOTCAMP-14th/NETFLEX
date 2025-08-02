@@ -98,10 +98,18 @@ body {
 /* -------------------------------------- */
 .account__register--form {
   display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   margin-top: 1.3rem;
+}
+
+.account__register--inputs-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  gap: 1rem;
+  width: 100%;
 }
 
 .account__register-cost {
@@ -123,7 +131,7 @@ body {
     padding: 0.5rem;
     border: 1px solid var(--gray-400);
     border-radius: 5px;
-    color: var(--balck-200);
+    color: var(--black-200);
 
     &::placeholder {
       color: var(--gray-300);
@@ -131,20 +139,50 @@ body {
   }
 }
 
-.account__payment-form {
-
-  & input {
-  style:none;
-  }
-
+.account__register--btns-container{
+  background-color: pink;
+  align-content: space-around;
+  flex-basis: 40%;
+  height: inherit;
+  padding-left: 3rem;
 }
 
+.account__payment-form {
+  background-color: greenyellow;
+  display: flex;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  gap: 2rem;
+  word-break: keep-all;
+
+  & input[type="radio"] {
+    display: none;
+  }
+  & label{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 2rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    padding: 12px 40px;
+    cursor: pointer;
+    
+    &:hover,
+    &:focus {
+      background-color: var(--blue-200);
+      color: var(--white-fa);
+    }
+  }  
+}
+ 
 .account__register--button {
   background-color: var(--blue-200);
   padding: 10px 0;
   width: 100%;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   color: var(--white-fa);
   font-weight: var(--bold);
   cursor: pointer;
@@ -156,7 +194,76 @@ body {
 /* -------------------------------------- */
 
 .account__output-table {
-  background-color: violet;
+  width: 100%;
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
   margin-top: 1.3rem;
+  padding: 18px 40px;
+  text-align: center;
+  table-layout: fixed;
 
+  & th {
+    padding-bottom:1rem;
+  }
+
+  /* 테이블 열간격 비율 */
+  & th:nth-child(2),
+  & td:nth-child(2), {
+    width: 15%;
+  }
+  & th:nth-child(1),
+  & td:nth-child(1),
+  & th:nth-child(n+4):nth-child(-n+6),  /* 4~6번 열 th */
+  & td:nth-child(n+4):nth-child(-n+6) { /* 4~6번 열 td */
+    width: 10%;}
+  
+  /* 항목 (가장 긴 열 간격) */
+  & th:nth-child(3),
+  & td:nth-child(3) {
+    width: 40%;
+    padding-left: 1em;
+  }
+
+  & td:nth-child(2) {
+    color: var(--blue-200);
+  }
+  & td:nth-child(3) {
+    text-align: start;
+  }
+
+} 
+.account__output-body {
+  font-weight: var(--semiBold);
+  
+  & tr{
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  & input[type="date"] {
+    background-color: yellow;
+  }
+
+  & input[type="number"] {
+    background-color: green;
+    color: var(--blue-200);
+  }
+
+  & input[type="text"] {
+    background-color: orange;
+    text-align: center;
+  }
+
+  & select {
+    padding: 0;
+    text-align: center;
+    border: 0;
+  }
+
+  & button {
+    display: inline-flex;
+    gap: 0.8rem;
+  }
 }
+
+/* 반응형 미디어쿼리 */

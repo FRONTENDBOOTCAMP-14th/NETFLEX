@@ -39,29 +39,32 @@
       
       <!-- 입력폼 -->
       <form class="account__register--form">
-        <div class="account__register-cost">
-          <label for="accountDate">날짜</label>
-          <input type="date" id="accountDate" value="2025-07-31">
-        </div>
-        <div class="account__register-cost">
-          <label for="accountItems">항목</label>
-          <input type="text" id="accountItems" placeholder="예시 교통비 🚌">
-        </div>
-        <div class="account__register-cost">
-          <label for="accountCost">금액</label>
-          <input type="number" id="accountCost" placeholder="1000" min="0">
+        <div class="account__register--inputs-container">
+          <div class="account__register-cost">
+            <label for="accountDate">날짜</label>
+            <input type="date" id="accountDate" value="2025-07-31">
+          </div>
+          <div class="account__register-cost">
+            <label for="accountItems">항목</label>
+            <input type="text" id="accountItems" placeholder="예시 교통비 🚌">
+          </div>
+          <div class="account__register-cost">
+            <label for="accountCost">금액</label>
+            <input type="number" id="accountCost" placeholder="1000" min="0">
+          </div>
         </div>
 
-        <fieldset class="account__payment-form">
-          <legend class="sr-only">결제 수단</legend>
-          <input type="radio" id="card" name="payment" value="카드" checked>
-          <label for="card">카드</label>
-          <input type="radio" id="cash" name="payment" value="현금">
-          <label for="cash">현금</label>
-        </fieldset>
-
-        <!-- 등록버튼 -->
-        <button type="submit" class="account__register--button">등록</button>
+        <div class="account__register--btns-container">
+          <fieldset class="account__payment-form">
+            <legend class="sr-only">결제 수단</legend>
+            <input type="radio" id="card" name="payment" value="카드" checked>
+            <label for="card">카드</label>
+            <input type="radio" id="cash" name="payment" value="현금">
+            <label for="cash">현금</label>
+          </fieldset>
+          <!-- 등록버튼 -->
+          <button type="submit" class="account__register--button">등록</button>
+        </div>
       </form>
 
       <!-- 내역확인 테이블 -->

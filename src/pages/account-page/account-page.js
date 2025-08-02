@@ -1,5 +1,3 @@
-// 리팩토링된 가계부 코드
-
 document.addEventListener('DOMContentLoaded', () => {
   // 상수 선언
   const form = document.querySelector('.account__register--form');
@@ -17,34 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 공통 SVG 아이콘 상수
   const icons = {
-    modify: `<svg xmlns="http://www.w3.org/2000/svg" 
-              width="18" 
-              height="18" 
-              viewBox="0 0 18 18" fill="none">
-                <path d="M14.8984 1.87139..." 
-                fill="#666C70"/>
+    modify: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M14.8984 1.87139C14.7565 1.72953 14.5061 1.5447 14.241 1.46189C13.998 1.38598 13.7209 1.38694 13.4685 1.63935L1.96708 13.1408L1.55971 16.318L4.73697 15.9106L16.2384 4.40924C16.3384 4.30922 16.4505 4.10998 16.4519 3.86142C16.453 3.63319 16.3624 3.33541 16.0063 2.97935L14.8984 1.87139ZM13.1004 2.56142L15.3163 4.77733L14.9016 5.192L12.6857 2.97609L13.1004 2.56142ZM16.421 2.56468C16.9512 3.09489 17.1461 3.61994 17.1437 4.06004C17.1415 4.47971 16.9611 4.79445 16.7924 4.96322L5.23547 16.5201C5.19901 16.5566 5.15002 16.5797 5.09407 16.5868L1.28225 17.0748C1.16868 17.0893 1.03779 17.0377 0.938924 16.9388C0.840056 16.8399 0.788386 16.709 0.802931 16.5955L1.29088 12.7837C1.29804 12.7277 1.32116 12.6787 1.35762 12.6423L12.9145 1.08537C13.307 0.692906 13.8023 0.660291 14.2627 0.804028C14.7011 0.940983 15.0856 1.22928 15.313 1.45672L16.421 2.56468Z" fill="#666C70"/>
+            </svg>` ,
+    delete: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M15.5564 14.1424L14.1422 15.5566L7.79918e-05 1.41449L1.41429 0.000272024L15.5564 14.1424Z" fill="#666C70"/>
+              <path d="M1.41421 15.5565L0 14.1423L14.1421 0.00012207L15.5564 1.41434L1.41421 15.5565Z" fill="#666C70"/>
               </svg>` ,
-    delete: `<svg xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 16 16" fill="none">
-                <path d="M15.5564 14.1424..." 
-                fill="#666C70"/>
-              </svg>` ,
-    confirm: `<svg xmlns="http://www.w3.org/2000/svg" 
-              width="14" 
-              height="16" 
-              viewBox="0 0 14 16" fill="none">
-                <path d="M12.8468 5.61496..." 
-                fill="#666C70"/>
+    confirm: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+              <path d="M12.8468 5.61496H13.835V16H0V1.80032H8.29406V2.81458H0.988212V14.9857H12.8468V5.61496ZM3.80857 8.03398L3.10892 8.75208L6.50244 12.2351L14 0.558859L13.1748 0L6.34432 10.6376L3.80857 8.03398Z" fill="#666C70"/>
               </svg>`
+  };
+
+  // MM.DD 형식으로 날짜 표시
+  const formatDateToMMDD = (dateStr) => {
+  if (!dateStr) return '';
+  const [_, mm, dd] = dateStr.split('-');
+  return `${mm} . ${dd}`;
   };
 
   const renderTable = (expense) => {
     const tr = document.createElement('tr');
     tr.dataset.id = expense.id;
     tr.innerHTML = `
-      <td>${expense.date}</td>
+      <td>${formatDateToMMDD(expense.date)}</td>
       <td>${expense.cost}</td>
       <td>${expense.item}</td>
       <td>${expense.method}</td>
@@ -55,10 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     attachRowEventListeners(tr);
   };
 
+
   const attachRowEventListeners = (tr) => {
     tr.querySelector('.account__table-edit---modify-btn')
       .addEventListener('click', () => enterModify(tr));
 
+    // 삭제전 알람
     tr.querySelector('.account__table-edit---delete-btn')
       .addEventListener('click', () => {
         if (!confirm('정말 삭제하시겠습니까?')) return;
@@ -71,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
+  // 수정 입력
   const enterModify = (tr) => {
     const tds = tr.querySelectorAll('td');
     const [date, cost, item, method] = [...tds].slice(0, 4).map(td => td.textContent);
@@ -87,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .addEventListener('click', () => saveEdit(tr));
   };
 
+  // 수정->확인
   const saveEdit = (tr) => {
     const id = Number(tr.dataset.id);
     const inputs = tr.querySelectorAll('input, select');
@@ -106,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderTableUpdate = (tr, expense) => {
     tr.innerHTML = `
-      <td>${expense.date}</td>
+      <td>${formatDateToMMDD(expense.date)}</td>
       <td>${expense.cost}</td>
       <td>${expense.item}</td>
       <td>${expense.method}</td>
@@ -115,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     attachRowEventListeners(tr);
   };
+
 
   const totalCost = () => {
     let sum = 0;
