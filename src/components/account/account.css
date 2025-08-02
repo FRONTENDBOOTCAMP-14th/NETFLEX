@@ -6,10 +6,10 @@ body {
 
 /* ----------------------------------------- */
 
- h3 {
-    padding: 15px 0 15px 30px;
-    font-size: var(--fontSize22);
-  }
+h3 {
+  padding: 15px 0 15px 30px;
+  font-size: var(--fontSize22);
+}
   
 .account {
   display: inline-flex;
@@ -253,101 +253,74 @@ body {
 /* -------------------------------- */
 
 /* 기본 (모바일, min-width: 375px 기준) */
-@media (max-width: 767px) {
-  .account__register--form {
-    display: flex;
+@media (max-width: 1027.98px) {
+  .account {
     flex-direction: column;
     width: 100%;
-    margin-top: 1.3rem;
+    }
+
+  /* 총액 표시 */
+  .account__show-total--Container {
+    order: 1;
+    width: 100%;
+    min-height: 150px;
+    }
+
+  .account__show--wrapper {
+    & h4 {
+      margin: 1rem 0 0 1rem;
+    }
+
+    & summary {
+      margin: 1.5rem 0 0 0.5rem;
+      transform: scale(80%);
+      }
+  }
+
+    /* 통화 단위 */
+  .account__change-units--list {
+    top:3.6rem;
+    left: 5rem;
+  }
+
+  /* 총 금액 */
+  .account__total-cost--wrapper {
+    & h4 {
+      margin: 0 1rem 1rem auto;
+      font-size: 2.2em;
+
+      & span {
+        transform: translateY(12px);
+      }
+    }
+  }
+  /* 금액 등록 */
+  .account__register--form {
+    display: flex;
+    order: 2;
+    flex-direction: row;
+    padding: 0;
+    width: inherit;
+  }
+
+  .account__register--inputs-container {
+    width: 100%;
   }
 
   .account__register--btns-container{
-    display: grid;
-    grid-template-rows: 1fr 1.5fr;
-    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 55%;
+    padding-left: 1rem;
+    margin: 0;
   }
- 
+
   .account__payment-form {
     display: none;
   }
-
-  .account__register--button{
-    margin-top: 1.8rem;
-  }
-  .account__register-cost {
-    &:nth-child(1) {
-      display: none;
-    }
-  }
-
-  .account__output-table {
-    /*  테이블 숨김 */
-    & th:nth-child(5),
-    & td:nth-child(5),
-    & th:nth-child(6),
-    & td:nth-child(6) {
-      display: none;
-    }
-
-     /* 테이블 열간격 비율 변경 */
-    & th:nth-child(1),
-    & td:nth-child(1),
-    & th:nth-child(4),
-    & td:nth-child(4) {
-    width: 15%
-    }
-    & th:nth-child(2),
-    & td:nth-child(2) {
-      width: 20%;
-    }
-    /* 항목 (가장 긴 열 간격) */
-    & th:nth-child(3),
-    & td:nth-child(3) {
-      padding-left: 1em;
-      width: 50%;
-    }
-  }
-
-}
-
-/* 태블릿 (768px ~ 1027.98px) */
-@media (min-width: 768px) and (max-width: 1027.98px) {
-   .account__register-cost {
-    &:nth-child(1) {
-      display: none;
-    }
-  }
-
-  .account__register--btns-container{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-  }
-
-  .account__output-table {
-    /*  테이블 숨김 */
-    & th:nth-child(5),
-    & td:nth-child(5),
-    & th:nth-child(6),                                                               n
-    & td:nth-child(6) {
-      display: none;
-    }
-
-     /* 테이블 열간격 비율 변경 */
-    & th:nth-child(1),
-    & td:nth-child(1),
-    & th:nth-child(4),
-    & td:nth-child(4) {
-    width: 15%
-    }
-    & th:nth-child(2),
-    & td:nth-child(2) {
-      width: 20%;
-    }
-    /* 항목 (가장 긴 열 간격) */
-    & th:nth-child(3),
-    & td:nth-child(3) {
-      padding-left: 1em;
-      width: 50%;
-    }
+  
+  .account__register--button {
+    height: 100%;
+    width: 100%;
   }
 }
