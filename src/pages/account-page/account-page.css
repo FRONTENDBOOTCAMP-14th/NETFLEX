@@ -16,7 +16,6 @@ body {
     padding: 15px 0 15px 30px;
     font-size: var(--fontSize22);
   }
-
 }
 /* -------------------------------------- */
 /*             총 금액 표시 영역             */
@@ -44,12 +43,11 @@ body {
   }
 }
 
-
 /* 통화 단위 */
 .account__change-units--list {
   display: flex;
   position: absolute;
-  top:1rem;
+  top: 1rem;
   left: 8rem;
   background-color: var(--white-fa);
   z-index: 9999;
@@ -57,15 +55,15 @@ body {
   & li {
     border: 1px solid var(--gray-400);
     color: var(--black-200);
-    
+
     &:hover,
     &:focus {
-      background-color : var(--blue-200);
+      background-color: var(--blue-200);
       color: var(--white-fa);
-      font-weight: var(--bold);  
+      font-weight: var(--bold);
     }
   }
-  
+
   & button {
     padding: 5px 10px;
     transform: translateY(-2px); /* 버튼내 텍스트 미세 조절 */
@@ -74,11 +72,10 @@ body {
   }
 }
 
-
 /* 총 금액 */
 .account__total-cost--wrapper {
   display: flex;
-  
+
   & h4 {
     display: flex;
     margin: 0 1rem 1rem auto;
@@ -88,10 +85,9 @@ body {
       padding: 0 10px;
       font-size: var(--fontSize22);
       transform: translateY(5px);
-  }
+    }
   }
 }
-
 
 /* -------------------------------------- */
 /*            항목과 금액 등록 영역            */
@@ -123,7 +119,7 @@ body {
     text-align: center;
     font-size: var(--fontSize16);
     font-weight: var(--semiBold);
-    color: var(--black-200);    
+    color: var(--black-200);
   }
 
   & input {
@@ -139,8 +135,7 @@ body {
   }
 }
 
-.account__register--btns-container{
-  background-color: pink;
+.account__register--btns-container {
   align-content: space-around;
   flex-basis: 40%;
   height: inherit;
@@ -148,7 +143,6 @@ body {
 }
 
 .account__payment-form {
-  background-color: greenyellow;
   display: flex;
   border: none;
   margin: 0;
@@ -157,10 +151,10 @@ body {
   gap: 2rem;
   word-break: keep-all;
 
-  & input[type="radio"] {
+  & input[type='radio'] {
     display: none;
   }
-  & label{
+  & label {
     display: inline-flex;
     flex-direction: row;
     gap: 2rem;
@@ -168,15 +162,15 @@ body {
     border-radius: 10px;
     padding: 12px 40px;
     cursor: pointer;
-    
+
     &:hover,
     &:focus {
       background-color: var(--blue-200);
       color: var(--white-fa);
     }
-  }  
+  }
 }
- 
+
 .account__register--button {
   background-color: var(--blue-200);
   padding: 10px 0;
@@ -187,7 +181,6 @@ body {
   font-weight: var(--bold);
   cursor: pointer;
 }
-
 
 /* -------------------------------------- */
 /*             금액 항목 테이블               */
@@ -203,20 +196,22 @@ body {
   table-layout: fixed;
 
   & th {
-    padding-bottom:1rem;
+    padding-bottom: 1rem;
   }
 
   /* 테이블 열간격 비율 */
   & th:nth-child(2),
-  & td:nth-child(2), {
+  & td:nth-child(2) {
     width: 15%;
   }
   & th:nth-child(1),
   & td:nth-child(1),
   & th:nth-child(n+4):nth-child(-n+6),  /* 4~6번 열 th */
-  & td:nth-child(n+4):nth-child(-n+6) { /* 4~6번 열 td */
-    width: 10%;}
-  
+  & td:nth-child(n+4):nth-child(-n+6) {
+    /* 4~6번 열 td */
+    width: 10%;
+  }
+
   /* 항목 (가장 긴 열 간격) */
   & th:nth-child(3),
   & td:nth-child(3) {
@@ -230,26 +225,25 @@ body {
   & td:nth-child(3) {
     text-align: start;
   }
-
-} 
+}
 .account__output-body {
   font-weight: var(--semiBold);
-  
-  & tr{
+
+  & tr {
     padding: 16px 0;
     text-align: center;
   }
 
-  & input[type="date"] {
+  & input[type='date'] {
     background-color: yellow;
   }
 
-  & input[type="number"] {
+  & input[type='number'] {
     background-color: green;
     color: var(--blue-200);
   }
 
-  & input[type="text"] {
+  & input[type='text'] {
     background-color: orange;
     text-align: center;
   }
