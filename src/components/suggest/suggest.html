@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="./suggest.css" />
+    <script type="module" src="./suggest.js"></script>
+    <title>추천 컴포넌트</title>
+  </head>
+  <body>
+    <section class="suggest-section">
+      <h3 class="sr-only">추천 배너</h3>
+      <div class="suggest__banner">
+        <ul class="suggest__list">
+          <li class="suggest__list--item">
+            <figure>
+              <picture class="suggest__images">
+                <source
+                  srcset="
+                    ../../assets/images/suggest/london_1x.avif 1x,
+                    ../../assets/images/suggest/london_2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../../assets/images/suggest/london_1x.webp 1x,
+                    ../../assets/images/suggest/london_2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../../assets/images/suggest/london_1x.jpg"
+                  srcset="../../assets/images/suggest/london_2x.jpg"
+                  alt="런던"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption class="suggest__info">
+                <strong class="suggest__title">LONDON</strong>
+                <div class="suggest__button--wrapper">
+                  <a href="/" class="suggest__button--show">보기</a>
+                  <button type="button" class="suggest__button--add">
+                    추가
+                  </button>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="suggest__list--item">
+            <figure>
+              <picture class="suggest__images">
+                <source
+                  srcset="
+                    ../../assets/images/suggest/tokyo_1x.avif 1x,
+                    ../../assets/images/suggest/tokyo_2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../../assets/images/suggest/tokyo_1x.webp 1x,
+                    ../../assets/images/suggest/tokyo_2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../../assets/images/suggest/tokyo_1x.jpg"
+                  srcset="../../assets/images/suggest/tokyo_2x.jpg"
+                  alt="도쿄"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption class="suggest__info">
+                <strong class="suggest__title">TOKYO</strong>
+                <div class="suggest__button--wrapper">
+                  <a href="/" class="suggest__button--show">보기</a>
+                  <button type="button" class="suggest__button--add">
+                    추가
+                  </button>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="suggest__list--item">
+            <figure>
+              <picture class="suggest__images">
+                <source
+                  srcset="
+                    ../../assets/images/suggest/ny_1x.avif 1x,
+                    ../../assets/images/suggest/ny_2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../../assets/images/suggest/ny_1x.webp 1x,
+                    ../../assets/images/suggest/ny_2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../../assets/images/suggest/ny_1x.jpg"
+                  srcset="../../assets/images/suggest/ny_2x.jpg"
+                  alt="뉴욕"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption class="suggest__info">
+                <strong class="suggest__title">NEW YORK</strong>
+                <div class="suggest__button--wrapper">
+                  <a href="/" class="suggest__button--show">보기</a>
+                  <button type="button" class="suggest__button--add">
+                    추가
+                  </button>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="suggest__list--item">
+            <figure>
+              <picture class="suggest__images">
+                <source
+                  srcset="
+                    ../../assets/images/suggest/paris_1x.avif 1x,
+                    ../../assets/images/suggest/paris_2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../../assets/images/suggest/paris_1x.webp 1x,
+                    ../../assets/images/suggest/paris_2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../../assets/images/suggest/paris_1x.jpg"
+                  srcset="../../assets/images/suggest/paris_2x.jpg"
+                  alt="파리"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption class="suggest__info">
+                <strong class="suggest__title">PARIS</strong>
+                <div class="suggest__button--wrapper">
+                  <a href="/" class="suggest__button--show">보기</a>
+                  <button type="button" class="suggest__button--add">
+                    추가
+                  </button>
+                </div>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
