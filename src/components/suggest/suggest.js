@@ -1,3 +1,4 @@
+import './suggest.css';
 document.addEventListener('DOMContentLoaded', () => {
   const suggestSection = document.querySelector('.suggest-section');
   const suggestList = suggestSection.querySelector('.suggest__list');
@@ -18,6 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSlide() {
     const itemWidth = getItemWidth();
     suggestList.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+    updateAccessibility();
+  }
+
+  function updateAccessibility() {
+    items.forEach((item, index) => {
+      const isVisible = index === currentIndex;
+      const focusables = item.querySelectorAll('a, button');
+
+      focusables.forEach(el => {
+        el.setAttribute('tabindex', isVisible ? '0' : '-1');
+        el.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+      });
+    });
   }
 
   prevButton.addEventListener('click', () => {
@@ -31,4 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('resize', updateSlide);
+  updateAccessibility();
 });

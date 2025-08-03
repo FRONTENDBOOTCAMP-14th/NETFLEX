@@ -1,14 +1,19 @@
 @import url(../../styles/common/theme.css);
+
+:root {
+  --fontSize40: 2.5rem;
+  --fontSize50: 3.125rem;
+}
 .suggest-section {
   position: relative;
 
   .slide__button--wrapper {
     .slide__button {
       position: absolute;
-      translate: 0 -50%;
-      top: 50%;
+      top: 0;
+      bottom: 0;
       z-index: 999;
-      padding: 200px 15px;
+      padding: 0 15px;
       border-radius: 10px;
       opacity: 0;
       transition: opacity 0.2s ease-in-out;
@@ -43,12 +48,13 @@
   .suggest__list--item {
     overflow: hidden;
     flex-shrink: 0;
-    width: 100%;
     position: relative;
+    width: 100%;
+    border-radius: 15px;
 
     source,
     img {
-      aspect-ratio: 5 / 2;
+      aspect-ratio: 5 / 3;
       transition: scale 0.5s ease-in-out;
 
       &:hover {
@@ -59,12 +65,12 @@
   .suggest__info {
     position: absolute;
     top: 50%;
-    left: 5%;
+    left: 0;
     translate: 20px -50%;
 
     .suggest__title {
       color: var(--white-fa);
-      font-size: 2.5rem;
+      font-size: var(--fontSize40);
       font-weight: var(--black);
     }
 
@@ -97,14 +103,8 @@
     .suggest__list--item {
       source,
       img {
-        aspect-ratio: 6 / 3;
+        aspect-ratio: 6 / 2;
       }
-    }
-    .suggest__info {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      translate: 0px -50%;
     }
   }
 }
@@ -119,7 +119,11 @@
     }
     .suggest__info {
       .suggest__title {
-        font-size: 3.125rem;
+        font-size: var(--fontSize50);
+      }
+
+      .suggest__button--wrapper {
+        translate: 0 40px;
       }
     }
   }
