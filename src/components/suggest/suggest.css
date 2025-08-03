@@ -54,7 +54,7 @@
 
     source,
     img {
-      aspect-ratio: 5 / 2;
+      aspect-ratio: 5 / 3;
       transition: scale 0.5s ease-in-out;
 
       &:hover {
@@ -65,7 +65,7 @@
   .suggest__info {
     position: absolute;
     top: 50%;
-    left: 5%;
+    left: 0;
     translate: 20px -50%;
 
     .suggest__title {
@@ -103,11 +103,8 @@
     .suggest__list--item {
       source,
       img {
-        aspect-ratio: 6 / 3;
+        aspect-ratio: 6 / 2;
       }
-    }
-    .suggest__info {
-      translate: 0px -50%;
     }
   }
 }
@@ -123,6 +120,10 @@
     .suggest__info {
       .suggest__title {
         font-size: var(--fontSize50);
+      }
+
+      .suggest__button--wrapper {
+        translate: 0 40px;
       }
     }
   }
