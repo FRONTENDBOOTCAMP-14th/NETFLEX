@@ -6,7 +6,7 @@
   display: inline-flex;
 
   h3 {
-    padding: 15px 0 15px 30px;
+    padding: 15px 0 15px 15px;
     font-size: var(--fontSize22);
   }
 }
@@ -174,6 +174,12 @@ summary::-webkit-details-marker {
 }
 
 @media (min-width: 768px) {
+  .etiquette__title {
+    h3 {
+      font-size: var(--fontSize26);
+      padding: 15px 0 15px 45px;
+    }
+  }
   .etiquette__cards {
     justify-content: center;
     width: calc(25% * 4);
@@ -205,8 +211,13 @@ summary::-webkit-details-marker {
 }
 
 @media (min-width: 1280px) {
+  .etiquette__title {
+    h3 {
+      font-size: var(--fontSize32);
+    }
+  }
   .etiquette__card {
-    flex: 0 0 50%;
+    flex: 0 0 45%;
   }
 
   .prev {
