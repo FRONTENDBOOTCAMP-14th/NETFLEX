@@ -1,5 +1,6 @@
 # 🍿 Welcome to Netflex
 
+> 두둥~! 영화 같은 여행이 시작됩니다.
 > "협업이 가장 중요한 팀 프로젝트.  
 > 정렬되고 유연한 팀워크를 위해, 저희는 Netflex가 되었습니다."
 
@@ -14,17 +15,29 @@
 
 ---
 
+![](./src/assets/images/demo/webView.png)
+
+> [넷플렉스 바로가기](https://netflex-14th.vercel.app/)
+
+---
+
 ## 🚀 프로젝트 소개
 
 **Netflex**는 여행을 앞둔 사람들을 위한 **정보 큐레이션 웹앱**입니다.
 
-- ✈️ 나라별 체크리스트와 여행 정보
+- ✈️ 일정 별 체크리스트와 출국 전 체크리스트
 - 🌤️ 실시간 날씨 표시
+- 💸 실시간 환율 반영 및 환율 계산기
 - 📍 지도 기반 여행지 탐색 기능
-- (추가 예정)
+- 🙇 나라별 에티켓 모음
+- 👛 가계부
 
 이 모든 요소를 **영화처럼 직관적이고 감각적인 UI**에 담아,  
 마치 넷플릭스를 켜듯, 여행 준비도 쉽게 시작할 수 있도록 만들었습니다.
+
+## 📅 프로젝트 기간
+
+2025년 7월 18일 ~ 2025년 8월 4일
 
 ## ✨ 요약
 
@@ -33,30 +46,87 @@
 | 🎯 팀명 `Netflex` | Net(넷 = 팀원 4명) + flex(CSS 속성, 유연한 협업)    |
 | 🧠 핵심 컨셉      | 정렬된 팀워크 + 콘텐츠 큐레이션 느낌의 여행 정보 앱 |
 | 🎨 UI 컨셉        | 넷플릭스나 스포티파이처럼 몰입감 있는 웹앱 형식     |
-| 🔧 기술 스택      | 순수 HTML / CSS / JavaScript (Vanilla) 기반         |
 
-## 🧑🏻‍💻 팀원 소개 (추후 수정 예정)
+---
 
-| 이름   | 역할      | GitHub                                      | 주요 담당                         |
-| ------ | --------- | ------------------------------------------- | --------------------------------- |
-| 정우진 | PL / FE   | []()                                        | 코드 구조 설계, 체크리스트 페이지 |
-| 장효정 | 발표 / FE | [@wjjhhj0914](https://github.com/wjhhj0914) | UI 기획, 랜딩 페이지 마크업       |
-| 허시온 | FE        | []()                                        | 날씨/지도 기능 구현               |
-| 홍민영 | FE        | []()                                        | UI 기획                           |
+## 🧑🏻‍💻 팀원 소개
+
+| 이름   | 역할    | GitHub                                      | 주요 담당                                           |
+| ------ | ------- | ------------------------------------------- | --------------------------------------------------- |
+| 정우진 | PL / FE | [@wjinss](https://github.com/wjinss)        | UI 기획, 지도 컴포넌트, 메인 페이지 통합, 문서 작성 |
+| 장효정 | PM / FE | [@wjjhhj0914](https://github.com/wjhhj0914) | UI 기획, 일정 및 체크리스트 컴포넌트, 문서 작성     |
+| 허시온 | FE      | [@HeoSion](https://github.com/HeoSion)      | UI 기획, 환율 및 날씨 컴포넌트, 문서 작성           |
+| 홍민영 | FE      | [@min830-a](https://github.com/min830-a)    | UI 기획, 에티켓 및 가계부 컴포넌트, 발표            |
+
+---
 
 ## 🛠 기술 스택
 
-| 구분                | 내용                           |
-| ------------------- | ------------------------------ |
-| **언어**            | HTML5, CSS3, JavaScript (ES6+) |
-| **프레임워크/환경** | Vite                           |
-| **형상관리**        | Git / GitHub (PR 기반 협업)    |
-| **디자인 툴**       | Figma                          |
-| **커뮤니케이션**    | Discord, Notion, GitHub Wiki   |
+| 구분                  | 내용                                                                                                                                                                                                                                                                                                                                          |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **언어**              | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) |
+| **개발 환경**         | ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)                                                                                      |
+| **형상관리**          | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)                                                                                                                              |
+| **디자인**            | ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)                                                                                                                                                                                                                                     |
+| **커뮤니케이션**      | ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)                                                                                                                  |
+| **배포**              | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)                                                                                                                                                                                                                                  |
+| **패키지/라이브러리** | ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![Prettier](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=black) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)                  |
+
+## 📌 API
+
+| API 이름                       | 내용                                           | 문서                                                                                                     |
+| ------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Google Maps JavaScript API** | 기본 지도 생성 및 사용자 위치 기반 렌더링      | [공식문서](https://developers.google.com/maps/documentation/javascript/overview?hl=ko)                   |
+| **Advanced Marker Element**    | 지도 위에 마커 표시                            | [공식문서](https://developers.google.com/maps/documentation/javascript/reference/advanced-markers?hl=ko) |
+| **Geolocation API**            | 사용자의 현재 위치 가져오기                    | [공식문서](https://developers.google.com/maps/documentation/geolocation/overview?hl=ko)                  |
+| **Places Photo Object**        | 검색된 장소의 사진 URL 추출                    | [공식문서](https://developers.google.com/maps/documentation/places/android-sdk/place-photos?hl=ko)       |
+| **Places API**                 | 키워드 기반 장소 검색, 장소 상세 정보 가져오기 | [공식문서](https://developers.google.com/maps/documentation/places/web-service/overview?hl=ko)           |
+| **Exchange Rates API**         | 실시간 환율 정보 제공                          | [공식문서](https://exchangeratesapi.io/documentation)                                                    |
+| **OpenWeatherMap API**         | 실시간 날씨 정보 제공                          | [공식문서](https://openweathermap.org/guide)                                                             |
+
+---
+
+## 🏗️ 설치 방법
+
+```
+git clone https://github.com/FRONTENDBOOTCAMP-14th/NETFLEX.git
+cd NETFLEX
+npm install
+npm run dev
+```
+
+---
+
+## 📁 프로젝트 폴더 구조
+
+```
+📦 Netflex (프로젝트 루트)
+├── 📁 public
+│   └── assets                     # 정적 이미지 및 SVG 파일
+├── 📁 src                         # 소스 코드 디렉토리
+│   ├── 📁 components              # 각종 UI 컴포넌트 (지도, 날씨, 일정 등)
+│   ├── 📁 pages                   # 서브 페이지 구성 (지도 페이지 등)
+│   ├── 📁 styles                  # 전체 공통 스타일과 모듈 스타일
+│   ├── 📁 utils
+│   └── main.js
+├── .env                           # 환경 변수 설정 파일
+├── .gitignore
+├── .prettierrc
+├── eslint.config.js
+├── index.html                     # 메인 페이지
+├── package.json
+├── package-lock.json
+├── README.md
+└── vite.config.js                 # Vite 빌드 도구 설정 파일
+
+```
+
+---
 
 ## 📖 문서 보기
 
-- 📚 [GitHub Wiki 바로가기](https://github.com/FRONTENDBOOTCAMP-14th/js-project-team-2/wiki)  
-  → 프로젝트 구조, 역할 분담, 컴포넌트 구조, 데일리 스크럼 등
+- 📚 [GitHub Wiki 바로가기](https://github.com/FRONTENDBOOTCAMP-14th/js-project-team-2/wiki)
 
-- 🎨 [Figma 시안 보기](https://figma.com/...) _(추후 추가 예정)_
+- 📘 [넷플렉스 노션 바로가기](https://www.notion.so/Netflex-23473873401a803d8e2fe9b300e2bafe)
+
+- 🎨 [Figma 시안 보기](https://www.figma.com/design/HXGNDMW4UHR7FoK3R1mt2Q/%EB%B0%94%EB%8B%90%EB%9D%BC-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8--2%EC%A1%B0?node-id=114-354&p=f&t=MEFCvQYAGngGbl5Y-0)
