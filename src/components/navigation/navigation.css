@@ -5,7 +5,6 @@
   --medium: 400;
 }
 
-/* 네비게이션 바 */
 .nav__wrapper {
   display: flex;
   flex-direction: column;
@@ -15,20 +14,17 @@
   border-radius: 20px 0 0 20px;
 }
 
-/* 로고 헤더 부분 */
 .logo__header {
   display: flex;
   justify-content: center;
   padding-block: 36px;
 }
 
-/* 네비게이션 리스트  */
 .nav__list {
   margin-bottom: 108px;
   display: block;
 }
 
-/* 네비게이션 리스트 아이템 */
 .nav__item {
   display: flex;
   position: relative;
@@ -72,12 +68,10 @@
   z-index: 20;
 }
 
-/* 모바일 상태 아닐 때, 네비게이션 열기 버튼 숨김 */
 .nav__open {
   display: none;
 }
 
-/* 모바일 */
 @media (max-width: 1279px) {
   .nav__wrapper {
     margin: 10px 15px;
@@ -87,7 +81,6 @@
     min-height: 0;
   }
 
-  /* 오버레이: 네비 열릴 때만 활성화 */
   .nav__overlay {
     display: none;
     position: absolute;
@@ -104,7 +97,7 @@
   .nav__wrapper {
     background: var(--white-fa);
     max-width: none;
-    z-index: 1; /* 오버레이 위에 위치 */
+    z-index: 1;
   }
 
   .logo__header {
@@ -166,7 +159,6 @@
 
   .nav__list {
     display: none;
-    /* margin-bottom: 20px; */
   }
 
   .nav__wrapper.is-open .nav__list {

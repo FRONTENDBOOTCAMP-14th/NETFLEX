@@ -6,16 +6,14 @@ const matchedCountryEl = document.querySelector(
   '.location-dialog__result-country',
 );
 
-let cityData = {}; // JSON 데이터 저장용
+let cityData = {};
 
-// JSON 불러오기
 fetch('/JSON/city.json')
   .then(res => res.json())
   .then(data => {
     cityData = data;
   });
 
-// 한글 -> 영문 매핑용
 const koreanToEnglishMap = {
   런던: 'london',
   파리: 'paris',
@@ -23,14 +21,11 @@ const koreanToEnglishMap = {
   도쿄: 'tokyo',
 };
 
-// 입력 시 매칭된 도시/나라 렌더링
 cityInput.addEventListener('input', e => {
   const inputValue = e.target.value.trim().toLowerCase();
 
-  // 1. 먼저 영문으로 찾기
   let cityKey = inputValue;
 
-  // 2. 그래도 없으면 한글 입력인지 확인
   if (!cityData[cityKey]) {
     const keyFromKorean = koreanToEnglishMap[e.target.value.trim()];
     if (keyFromKorean) {
@@ -38,7 +33,6 @@ cityInput.addEventListener('input', e => {
     }
   }
 
-  // 영어 또는 한글로 매칭
   const matched = cityData[cityKey];
 
   if (matched) {
@@ -50,38 +44,30 @@ cityInput.addEventListener('input', e => {
   }
 });
 
-// ------------------------------------------------------------------------------
-
 const openModalButton = document.querySelector('.schedule__add-button');
 const locationDialog = document.querySelector('#locationDialog');
 const calendarDialog = document.querySelector('#calendarDialog');
-
 const nextToCalendarButton = locationDialog.querySelector(
   '.location-dialog__next',
 );
 const backToLocationButton = calendarDialog.querySelector(
   '.calendar-dialog__prev',
 );
-
 const nextMonthButton = calendarDialog.querySelector(
   '.calendar-dialog__next-button',
 );
 const prevMonthButton = calendarDialog.querySelector(
   '.calendar-dialog__prev-button',
 );
-
 const nextScheduleButton = calendarDialog.querySelector(
   '.calendar-dialog__next',
 );
-// const monthYearLabel = calendarDialog.querySelector('.calendar-dialog__current-month-year');
-// const calendarDates1 = calendarDialog.querySelector('#calendarDates-1');
 
-// 오늘 날짜 (시, 분, 초는 제거함)
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
 const currentYear = today.getFullYear();
-const currentMonth = today.getMonth(); // 0 = Jan, 6 = July
+const currentMonth = today.getMonth();
 let currentYearState = currentYear;
 let currentMonthState = currentMonth;
 
@@ -90,7 +76,6 @@ let selectedEnd = null;
 
 initModal(openModalButton, locationDialog);
 
-// 1. 지역 선택 모달에서 다음 버튼을 클릭하면 캘린더 모달로 이동
 nextToCalendarButton.addEventListener('click', e => {
   e.preventDefault();
   closeModal(locationDialog);
@@ -98,7 +83,6 @@ nextToCalendarButton.addEventListener('click', e => {
   renderCalendar(currentYearState, currentMonthState);
 });
 
-// 이전 달 버튼 클릭
 prevMonthButton.addEventListener('click', () => {
   const isCurrentMonth =
     currentYearState === today.getFullYear() &&
@@ -116,7 +100,6 @@ prevMonthButton.addEventListener('click', () => {
   renderCalendar(currentYearState, currentMonthState);
 });
 
-// 다음 달 버튼 클릭
 nextMonthButton.addEventListener('click', () => {
   if (currentMonthState === 11) {
     currentMonthState = 0;
@@ -128,7 +111,6 @@ nextMonthButton.addEventListener('click', () => {
   renderCalendar(currentYearState, currentMonthState);
 });
 
-// 2. 달 렌더링 함수
 function renderCalendar(year, month) {
   const calendarContainers = [
     { datesEl: calendarDialog.querySelector('#calendarDates-1'), offset: 0 },
@@ -146,12 +128,10 @@ function renderCalendar(year, month) {
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    // 월/년 텍스트 업데이트
     if (monthLabels[index]) {
       monthLabels[index].textContent = `${currentYear}년 ${currentMonth + 1}월`;
     }
 
-    // 이전 달 비활성화 처리 (첫 번째 월만)
     if (container.offset === 0) {
       const isCurrentMonth =
         year === today.getFullYear() && month === today.getMonth();
@@ -166,17 +146,14 @@ function renderCalendar(year, month) {
       }
     }
 
-    // 날짜 초기화
     container.datesEl.innerHTML = '';
 
-    // 빈칸 삽입 (월 시작 요일)
     for (let i = 0; i < firstDay; i++) {
       const empty = document.createElement('div');
       empty.classList.add('calendar-dialog__date', 'empty');
       container.datesEl.appendChild(empty);
     }
 
-    // 날짜 버튼 생성 (실제 날짜)
     for (let date = 1; date <= lastDate; date++) {
       const button = document.createElement('button');
       button.type = 'button';
@@ -191,14 +168,12 @@ function renderCalendar(year, month) {
         button.disabled = true;
       }
 
-      // 4. 선택 범위 표시
       button.addEventListener('click', () => handleDateClick(dateObj, button));
 
       container.datesEl.appendChild(button);
     }
   });
 
-  // 선택 범위 반영
   if (selectedStart && selectedEnd) {
     highlightRange(selectedStart, selectedEnd);
   } else if (selectedStart && !selectedEnd) {
@@ -206,7 +181,6 @@ function renderCalendar(year, month) {
   }
 }
 
-// 4. 날짜 선택 처리 함수
 function handleDateClick(dateObj, button) {
   if (!selectedStart || (selectedStart && selectedEnd)) {
     selectedStart = dateObj;
@@ -225,7 +199,6 @@ function handleDateClick(dateObj, button) {
   }
 }
 
-// 선택 초기화
 function clearSelectedDates() {
   document
     .querySelectorAll(
@@ -234,7 +207,6 @@ function clearSelectedDates() {
     .forEach(button => button.classList.remove('selected', 'in-range'));
 }
 
-// 단일 선택 강조 처리 함수
 function highlightSingleDate(date) {
   const containers = [
     calendarDialog.querySelector('#calendarDates-1'),
@@ -254,7 +226,6 @@ function highlightSingleDate(date) {
   });
 }
 
-// 범위 강조 처리 함수
 function highlightRange(start, end) {
   const containers = [
     calendarDialog.querySelector('#calendarDates-1'),
@@ -279,14 +250,11 @@ function highlightRange(start, end) {
   });
 }
 
-// 5. 다음 버튼 -> 일정 페이지로 이동
 nextScheduleButton.addEventListener('click', () => {
   if (selectedStart && selectedEnd) {
-    // 지역 정보 가져오기
     const cityText = matchedCityEl.textContent;
     const countryText = matchedCountryEl.textContent;
 
-    // 날짜 포맷 함수
     function formatDate(date) {
       return date.toLocaleDateString('en-US', {
         month: 'long',
@@ -295,11 +263,10 @@ nextScheduleButton.addEventListener('click', () => {
       });
     }
 
-    // localStorage에 저장
-    localStorage.setItem('selectedCity', cityText); // 예 : 런던
-    localStorage.setItem('selectedCountry', countryText); // 예 : 영국
-    localStorage.setItem('selectedStart', formatDate(selectedStart)); // 예 : August 1, 2025
-    localStorage.setItem('selectedEnd', formatDate(selectedEnd)); // 예 : August 5, 2025
+    localStorage.setItem('selectedCity', cityText);
+    localStorage.setItem('selectedCountry', countryText);
+    localStorage.setItem('selectedStart', formatDate(selectedStart));
+    localStorage.setItem('selectedEnd', formatDate(selectedEnd));
 
     window.location.href = '../schedule-register/schedule-register.html';
   } else {
@@ -307,7 +274,6 @@ nextScheduleButton.addEventListener('click', () => {
   }
 });
 
-// 지역 선택 모달로 돌아가기
 backToLocationButton.addEventListener('click', () => {
   closeModal(calendarDialog);
   openModal(locationDialog);

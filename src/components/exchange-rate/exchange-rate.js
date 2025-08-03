@@ -1,8 +1,6 @@
 import './exchange-rate.css';
-// 환경 변수에서 API 키 가져오기 (Vite 프로젝트 기준)
 const API_KEY = import.meta.env.VITE_EXCHANGE_RATE_API_KEY;
 
-// 통화 데이터 매핑
 const currencyMap = {
   USD: { country: '미국', symbol: '달러', flag: 'flag-us' },
   GBP: { country: '영국', symbol: '파운드', flag: 'flag-uk' },
@@ -24,22 +22,14 @@ const unitText = document.querySelector('.exchange-form__unit-text');
 const baseCurrencyCode = 'EUR';
 let exchangeRates = {};
 
-// ---------------------- UI 업데이트 ----------------------
-
 function updateSelectedUI() {
   const selectedValue = select.value;
   const currency = currencyMap[selectedValue];
 
-  // 국기 업데이트
   selectedFlag.className = 'exchange-form__flag-icon ' + (currency?.flag || '');
-
-  // 국가명 / 통화코드 업데이트
   currencyUnit.textContent = selectedValue;
-
   handleUpdate();
 }
-
-// ---------------------- 숫자 포맷 ----------------------
 
 function formatNumber(num) {
   return Number(num).toLocaleString(undefined, {
@@ -47,18 +37,12 @@ function formatNumber(num) {
   });
 }
 
-// ---------------------- 입력 값에 따라 단위 표시 ----------------------
-
 function updateLabels() {
   const code = select.value;
   const amount = baseAmount.value || 0;
   const { symbol } = currencyMap[code] || {};
-
-  // 입력 박스 아래 단위
   unitText.textContent = `${amount} ${symbol || ''}`;
 }
-
-// ---------------------- 환율 계산 ----------------------
 
 function fetchExchangeRate() {
   const from = select.value;
@@ -79,7 +63,6 @@ function fetchExchangeRate() {
     return;
   }
 
-  // 환율 계산 (외화 → 원화)
   const converted = (amount / fromRate) * krwRate;
   const formatted = formatNumber(converted);
 
@@ -87,13 +70,10 @@ function fetchExchangeRate() {
   resultUnitText.textContent = `${formatted}원`;
 }
 
-// ---------------------- 통합 처리 함수 ----------------------
 function handleUpdate() {
   updateLabels();
   fetchExchangeRate();
 }
-
-// ---------------------- API 호출 ----------------------
 
 async function fetchExchangeRates() {
   try {
@@ -111,7 +91,7 @@ async function fetchExchangeRates() {
     if (!data.rates) throw new Error('환율 데이터 형식 오류');
 
     exchangeRates = data.rates;
-    exchangeRates[baseCurrencyCode] = 1; // 기준 통화 포함
+    exchangeRates[baseCurrencyCode] = 1;
 
     if (!exchangeRates['KRW']) {
       console.warn('KRW 환율 누락: 원화 변환 불가');
@@ -126,10 +106,8 @@ async function fetchExchangeRates() {
   }
 }
 
-// ---------------------- 초기화 ----------------------
-
 select.addEventListener('change', updateSelectedUI);
 baseAmount.addEventListener('input', handleUpdate);
 
-updateSelectedUI(); // 초기 UI 세팅
-fetchExchangeRates(); // API 데이터 요청
+updateSelectedUI();
+fetchExchangeRates();

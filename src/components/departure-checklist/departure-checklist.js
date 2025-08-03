@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const li = document.createElement('li');
       li.className = 'checklist__item';
 
-      // id 값이 있으면 그 값을 쓰고, 없으면 false를 기본값으로 사용
       const isChecked = savedStates[item.id] || false;
 
       li.innerHTML = `
@@ -52,7 +51,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       listEl.appendChild(li);
     });
 
-    // 사용자가 체크했을 때
     listEl.addEventListener('change', e => {
       if (!e.target.matches('.checklist__checkbox')) return;
 
