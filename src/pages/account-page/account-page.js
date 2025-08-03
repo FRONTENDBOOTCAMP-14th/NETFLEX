@@ -1,6 +1,5 @@
 import './account-page.css';
 document.addEventListener('DOMContentLoaded', () => {
-  // 상수 선언
   const form = document.querySelector('.account__register--form');
   const tbody = document.querySelector('.account__output-body');
   const totalCostEl = document.querySelector(
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     JPY: '¥',
   };
 
-  // 공통 SVG 아이콘 상수
   const icons = {
     modify: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M14.8984 1.87139C14.7565 1.72953 14.5061 1.5447 14.241 1.46189C13.998 1.38598 13.7209 1.38694 13.4685 1.63935L1.96708 13.1408L1.55971 16.318L4.73697 15.9106L16.2384 4.40924C16.3384 4.30922 16.4505 4.10998 16.4519 3.86142C16.453 3.63319 16.3624 3.33541 16.0063 2.97935L14.8984 1.87139ZM13.1004 2.56142L15.3163 4.77733L14.9016 5.192L12.6857 2.97609L13.1004 2.56142ZM16.421 2.56468C16.9512 3.09489 17.1461 3.61994 17.1437 4.06004C17.1415 4.47971 16.9611 4.79445 16.7924 4.96322L5.23547 16.5201C5.19901 16.5566 5.15002 16.5797 5.09407 16.5868L1.28225 17.0748C1.16868 17.0893 1.03779 17.0377 0.938924 16.9388C0.840056 16.8399 0.788386 16.709 0.802931 16.5955L1.29088 12.7837C1.29804 12.7277 1.32116 12.6787 1.35762 12.6423L12.9145 1.08537C13.307 0.692906 13.8023 0.660291 14.2627 0.804028C14.7011 0.940983 15.0856 1.22928 15.313 1.45672L16.421 2.56468Z" fill="#666C70"/>
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
               </svg>`,
   };
 
-  // MM.DD 형식으로 날짜 표시
   const formatDateToMMDD = dateStr => {
     if (!dateStr) return '';
     const [mm, dd] = dateStr.split('-');
@@ -60,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       () => enterModify(tr),
     );
 
-    // 삭제전 알람
     tr.querySelector('.account__table-edit---delete-btn').addEventListener(
       'click',
       () => {
@@ -75,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   };
 
-  // 수정 입력
   const enterModify = tr => {
     const tds = tr.querySelectorAll('td');
     const [date, cost, item, method] = [...tds]
@@ -95,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .addEventListener('click', () => saveEdit(tr));
   };
 
-  // 수정->확인
   const saveEdit = tr => {
     const id = Number(tr.dataset.id);
     const inputs = tr.querySelectorAll('input, select');

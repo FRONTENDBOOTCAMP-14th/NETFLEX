@@ -12,7 +12,6 @@
   gap: 32px;
   max-inline-size: 980px;
   block-size: 800px;
-  /* padding-block은 figma에서 확인할 수가 없어서 대략적으로 넣은 수치임 */
   padding: 130px 80px;
 }
 
@@ -44,7 +43,6 @@
   color: var(--white-fa);
 }
 
-/* 일정 리스트 */
 .schedule__list {
   display: flex;
   flex-direction: column;
@@ -92,9 +90,6 @@
   border-radius: 15px;
   overflow: hidden;
 }
-
-/* ---------------------------------------------------- */
-/* Location Modal */
 
 body.modal-is-open {
   overflow: hidden;
@@ -187,9 +182,6 @@ dialog.location-dialog {
   font-weight: var(--bold);
 }
 
-/* ---------------------------------------------------- */
-/* Calendar Modal */
-
 .calendar-dialog {
   inline-size: 100%;
   max-inline-size: 900px;
@@ -252,15 +244,12 @@ dialog.location-dialog {
   font-size: var(--fontSize11);
   padding: 5px;
 }
-/* ------------------------------- */
 
-/* 지난 날짜 회색으로 처리 */
 .calendar-dialog__date.past {
   color: var(--gray-300);
   cursor: not-allowed;
 }
 
-/* 선택된 날짜 파란색으로 표시 */
 .calendar-dialog__date.selected {
   background-color: var(--blue-200);
   color: var(--white-fa);
@@ -271,7 +260,6 @@ dialog.location-dialog {
   z-index: 1;
 }
 
-/* 기간 - 연한 파란색으로 배경 설정 */
 .calendar-dialog__date.in-range {
   background-color: var(--blue-600);
   color: var(--black);
@@ -306,10 +294,10 @@ dialog.location-dialog {
 }
 
 .calendar-dialog__prev-button svg {
-  fill: var(--black); /* 기본 상태 색상 */
+  fill: var(--black);
 }
 
 .calendar-dialog__prev-button.past svg {
-  fill: var(--gray-500); /* 비활성 상태일 때 색상 */
+  fill: var(--gray-500);
   cursor: not-allowed;
 }

@@ -11,10 +11,6 @@
   }
 }
 
-/* ------------------------------------------------ */
-/*                 나라 선별 라벨 선택                  */
-/* ------------------------------------------------ */
-
 .etiquette__dropdown-horizontal {
   display: inline-block;
   position: relative;
@@ -79,10 +75,6 @@ summary::-webkit-details-marker {
   }
 }
 
-/* ------------------------------------------------ */
-/*                 캐러셀 카드 영역                   */
-/* ------------------------------------------------ */
-
 .etiquette__contents {
   position: relative;
   width: 90%;
@@ -120,7 +112,6 @@ summary::-webkit-details-marker {
   background-size: contain;
 }
 
-/* 개별 카드 이미지 삽입  */
 .etiquette-img.card-01 {
   background-image: url('/images/etiquette/etiquette-london-1_1x.avif');
 }
@@ -148,8 +139,6 @@ summary::-webkit-details-marker {
     line-height: 1;
   }
 }
-
-/* 카드 nav 버튼 */
 
 .etiquette__nav {
   display: flex;

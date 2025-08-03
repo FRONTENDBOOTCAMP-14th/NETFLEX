@@ -1,7 +1,6 @@
 import './weather.css';
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
-// 날씨 이미지 받아오기
 function getWeatherImage(weatherMain) {
   const weatherIconMap = {
     Clear: 'sunny.svg',
@@ -28,13 +27,11 @@ function getWeather(lat, lon) {
         weekday: 'short',
       });
 
-      // 현재 도시와 온도 정보
       const city = data.city.name;
       const currentTemp = Math.round(data.list[0].main.temp);
       document.querySelector('.city').textContent = city;
       document.querySelector('.temp').textContent = `${currentTemp}°`;
 
-      // 현재 날씨 정보
       const currentWeatherMain = data.list[0].weather[0].main;
       const currentWeatherDesc = data.list[0].weather[0].description;
       const currentImgURL = getWeatherImage(currentWeatherMain);
@@ -48,7 +45,6 @@ function getWeather(lat, lon) {
         }
       });
 
-      // 현재 날씨 아이콘 출력
       const forecastEl = document.querySelector('.forecast');
       forecastEl.innerHTML = `
 			<div class="current-weather-image">
@@ -58,7 +54,6 @@ function getWeather(lat, lon) {
         </div>
       `;
 
-      // 날씨 다음 2~3일날 받아오기
       Object.entries(dailyForecast)
         .slice(1, 3)
         .forEach(([day, info]) => {
@@ -98,5 +93,4 @@ function getUserLocation() {
   );
 }
 
-// 실행
 getUserLocation();

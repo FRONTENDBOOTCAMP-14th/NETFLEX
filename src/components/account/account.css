@@ -172,7 +172,6 @@
     font-size: var(--fontSize16);
   }
 
-  /* 테이블 열간격 비율 */
   & th:nth-child(1),
   & td:nth-child(1),
   & th:nth-child(2),
@@ -180,7 +179,6 @@
     width: 15%;
   }
 
-  /* 항목 (가장 긴 열 간격) */
   & th:nth-child(3),
   & td:nth-child(3) {
     width: 40%;
@@ -194,7 +192,6 @@
     text-align: start;
   }
 
-  /*  테이블 숨김 */
   & th:nth-child(5),
   & td:nth-child(5),
   & th:nth-child(6),
@@ -226,18 +223,13 @@
     gap: 0.8rem;
   }
 }
-/* -------------------------------- */
-/* 반응형 */
-/* -------------------------------- */
 
-/* 기본 (모바일, min-width: 375px 기준) */
 @media (max-width: 1279px) {
   .account {
     flex-direction: column;
     width: 100%;
   }
 
-  /* 총액 표시 */
   .account__show-total--Container {
     order: 1;
     width: 100%;
@@ -255,13 +247,11 @@
     }
   }
 
-  /* 통화 단위 */
   .account__change-units--list {
     top: 3.6rem;
     left: 5rem;
   }
 
-  /* 총 금액 */
   .account__total-cost--wrapper {
     & h4 {
       margin: 0 1rem 1rem auto;
@@ -272,7 +262,7 @@
       }
     }
   }
-  /* 금액 등록 */
+
   .account__register--form {
     display: flex;
     order: 2;

@@ -1,6 +1,5 @@
 import './etiquette.css';
 document.addEventListener('DOMContentLoaded', () => {
-  //  변수 선언
   const etiquette = document.querySelector('.etiquette');
   const cardContainer = document.querySelector('.etiquette__cards');
   const prevButton = etiquette.querySelector('.etiquette__nav.prev');
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let cardsPerView = 1;
   let maxIndex = 0;
 
-  // 뷰포트에 따라 보여질 카드 수 (반응형)
   function showCard() {
     const width = window.innerWidth;
     if (width <= 375) return 1;
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return 2;
   }
 
-  // 카드 너비 + gap 계산
   function getCardWidthWithGap() {
     const card = cards[0];
     const style = window.getComputedStyle(cardContainer);
@@ -30,19 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return card.offsetWidth + gap;
   }
 
-  // 슬라이드 이동
   function moveSlide() {
     if (!cards.length) return;
     const moveX = getCardWidthWithGap() * currentIndex * -1;
     cardContainer.style.transform = `translateX(${moveX}px)`;
 
-    // 버튼 표시 조건
     prevButton.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
     nextButton.style.visibility =
       currentIndex >= maxIndex ? 'hidden' : 'visible';
   }
 
-  // 캐러셀 상태 갱신
   function updateCarouselState() {
     cards = cardContainer.querySelectorAll('.etiquette__card');
     cardsPerView = showCard();
@@ -51,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     moveSlide();
   }
 
-  // 버튼 클릭 이동 이벤트
   prevButton.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex--;
@@ -66,12 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 리사이즈 대응
   window.addEventListener('resize', () => {
     updateCarouselState();
   });
 
-  // 나라 선택 드롭다운 핸들러
   function renderCards(country) {
     const cardList = document.querySelector('.etiquette__cards');
     cardList.innerHTML = '';
@@ -107,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarouselState();
   }
 
-  // JSON 불러오기 + 버튼 이벤트 연결
   fetch('/JSON/etiquette-data.json')
     .then(response => response.json())
     .then(data => {
@@ -124,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // 초기 로딩 시 첫 국가 표시 (예: 첫 버튼 기준)
       const firstCountry = buttons[0].textContent.trim();
       summary.textContent = firstCountry;
       renderCards(firstCountry);

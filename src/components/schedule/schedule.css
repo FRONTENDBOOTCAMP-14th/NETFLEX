@@ -2,11 +2,8 @@
   --radius: 0.9375rem;
 }
 
-/* --------------------------------------------------------- */
-/* 전체 섹션 */
 .schedule {
   inline-size: 100%;
-  /* max-inline-size: 514px; */
 }
 
 .schedule__header {
@@ -49,9 +46,6 @@
   vertical-align: middle;
 }
 
-/* --------------------------------------------------------- */
-/* DAY 섹션 */
-
 .schedule__day-list {
   border: 0.0625rem solid var(--gray-300);
   border-radius: var(--radius);
@@ -72,9 +66,6 @@
   font-size: var(--fontSize22);
   font-weight: var(--semiBold);
 }
-
-/* --------------------------------------------------------- */
-/* 일정 리스트 스타일 */
 
 .schedule__task-list {
   display: flex;
@@ -109,15 +100,12 @@
   inline-size: 30px;
   border: none;
   opacity: 0;
-  /* 실질적인 기능만 맡고, 커스텀 박스랑 겹치지 않기 위해 */
 }
 
-/* 체크 상태일 때 배경색 변경 */
 .schedule__task-item.is-checked .schedule__custom-box {
   background-color: var(--blue-200);
 }
 
-/* 포커싱 */
 .schedule__checkbox:focus-visible + .schedule__custom-box {
   outline: 2px solid var(--black-100);
   outline-offset: 2px;
@@ -140,7 +128,6 @@
   transition: opacity 0.2s ease;
 }
 
-/* 모바일 */
 @media (max-width: 767px) {
   .schedule__title {
     font-size: var(--fontSize22);
@@ -164,7 +151,6 @@
   }
 }
 
-/* 테블릿 */
 @media (768px <= width <= 1280px) {
   .schedule {
     inline-size: 100%;
