@@ -1,0 +1,126 @@
+@import url(../../styles/common/theme.css);
+.suggest-section {
+  position: relative;
+
+  .slide__button--wrapper {
+    .slide__button {
+      position: absolute;
+      translate: 0 -50%;
+      top: 50%;
+      z-index: 999;
+      padding: 200px 15px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+
+      &:focus {
+        outline: 0;
+      }
+      &:focus-visible {
+        opacity: 1;
+        outline: 2px solid #000;
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+    .slide__button--prev {
+      left: 0;
+    }
+    .slide__button--next {
+      right: 0;
+    }
+  }
+  .suggest__banner {
+    overflow: hidden;
+  }
+  .suggest__list {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+  }
+  .suggest__list--item {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+
+    source,
+    img {
+      aspect-ratio: 5 / 2;
+      transition: scale 0.5s ease-in-out;
+
+      &:hover {
+        scale: 1.01;
+      }
+    }
+  }
+  .suggest__info {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    translate: 20px -50%;
+
+    .suggest__title {
+      color: var(--white-fa);
+      font-size: 2.5rem;
+      font-weight: var(--black);
+    }
+
+    .suggest__button--wrapper {
+      display: flex;
+      gap: 20px;
+      translate: 0 60px;
+    }
+
+    .suggest__button {
+      min-height: 40px;
+      padding: 8px 33px;
+      border-radius: 10px;
+      background: var(--white-fa);
+      color: var(--black-200);
+      font-size: var(--fontSize20);
+      font-weight: var(--bold);
+      transition: color 0.2s ease-in;
+
+      &:hover,
+      &:focus {
+        color: var(--blue-200);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .suggest-section {
+    .suggest__list--item {
+      source,
+      img {
+        aspect-ratio: 6 / 3;
+      }
+    }
+    .suggest__info {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      translate: 0px -50%;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .suggest-section {
+    .suggest__list--item {
+      source,
+      img {
+        aspect-ratio: 9 / 3;
+      }
+    }
+    .suggest__info {
+      .suggest__title {
+        font-size: 3.125rem;
+      }
+    }
+  }
+}
