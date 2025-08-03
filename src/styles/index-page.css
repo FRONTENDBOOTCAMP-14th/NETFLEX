@@ -6,12 +6,17 @@ body {
   display: flex;
   flex-flow: column nowrap;
   gap: 30px;
+  .suggest-section,
   .schedule,
   .weather-section,
   .exchange-section,
   .checklist,
   .account {
     padding-inline: 15px;
+  }
+
+  .main-title {
+    display: none;
   }
 }
 
@@ -21,6 +26,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
+      'title title'
+      'suggest suggest'
       'schedule schedule '
       'weather exchange '
       'checklist checklist'
@@ -35,6 +42,13 @@ body {
     .exchange-section {
       padding-inline: 0 15px;
     }
+  }
+  .main-title {
+    grid-area: title;
+  }
+
+  .suggest-section {
+    grid-area: suggest;
   }
 
   .schedule {
@@ -65,6 +79,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
+      'title . .'
+      'suggest suggest suggest'
       'schedule schedule weather'
       'schedule schedule exchange'
       'checklist checklist checklist'
@@ -95,7 +111,8 @@ body {
 
 @media (min-width: 1280px) {
   :root {
-    background: #ccdde8;
+    background: #302f2f;
+    --fontSize36: 2.25rem;
   }
   body {
     display: flex;
@@ -107,18 +124,24 @@ body {
       overflow: scroll;
       max-height: 70vh;
       background: var(--white);
-      border-radius: 0 15px 15px 15px;
+      border-radius: 0 15px 15px 0;
       max-width: 60vw;
-      translate: 0 10vw;
+      translate: 100px 5vw;
     }
     .main-layout {
       padding-inline: 40px;
+
+      .main-title {
+        display: block;
+        padding: 40px 0 0 15px;
+        font-size: var(--fontSize36);
+      }
     }
     .nav__wrapper {
       position: fixed;
-      top: 10vw;
+      top: 5vw;
       left: 20vw;
-      translate: -100% 0;
+      translate: calc(100% - 310px) 0;
     }
   }
 }
