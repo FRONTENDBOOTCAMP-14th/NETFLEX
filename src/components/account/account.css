@@ -1,5 +1,9 @@
 @import url(../../styles/main.css);
 
+:root {
+  --fontsize36:2.3em;
+}
+
 /* ----------------------------------------- */
 
 h3 {
@@ -157,7 +161,7 @@ h3 {
     flex-wrap: wrap;
     align-content: end;
     margin: 0 2rem 2rem auto;
-    font-size: 2.3em;
+    font-size: var(--fontsize36);
 
     & span {
       padding: 0 10px;
