@@ -1,16 +1,13 @@
-// 1. 로컬 스토리지에서 데이터를 불러온다.
 const selectedCity = localStorage.getItem('selectedCity');
 const selectedCountry = localStorage.getItem('selectedCountry');
 const selectedStart = localStorage.getItem('selectedStart');
 const selectedEnd = localStorage.getItem('selectedEnd');
 
-// 2. 사용자가 선택한 지역과 기간을 화면에 렌더링한다.
 document.querySelector('#selectedLocation').textContent =
   `${selectedCity}, ${selectedCountry}`;
 document.querySelector('#selectedPeriod').textContent =
   `${selectedStart} - ${selectedEnd}`;
 
-// 3. 날짜 → day 컨테이너에 자동으로 렌더링한다.
 const dayContainer = document.querySelector('#dayContainer');
 
 function getDateList(startDateStr, endDateStr) {
@@ -28,7 +25,7 @@ function getDateList(startDateStr, endDateStr) {
 
     result.push(`${year}-${month}-${date}`);
 
-    current.setDate(current.getDate() + 1); // 하루씩 증가
+    current.setDate(current.getDate() + 1);
   }
 
   return result;
@@ -56,7 +53,6 @@ dateList.forEach((dateStr, i) => {
   form.className = 'schedule-register__form';
   form.setAttribute('aria-labelledby', heading.id);
 
-  // 10분 단위로 시간 옵션 생성하는 함수
   function generateTimeOptions() {
     let options = '';
 
@@ -99,7 +95,6 @@ dateList.forEach((dateStr, i) => {
     </fieldset>
   `;
 
-  // 저장 버튼을 클릭하면 localStorage에 저장된다.
   form.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -114,7 +109,6 @@ dateList.forEach((dateStr, i) => {
       description,
     };
 
-    // 저장 로직
     const saved = JSON.parse(localStorage.getItem('schedules') || '[]');
     saved.push(schedule);
     localStorage.setItem('schedules', JSON.stringify(saved));
@@ -122,7 +116,6 @@ dateList.forEach((dateStr, i) => {
     alert(`${dateStr} 일정이 저장되었습니다! 😃`);
   });
 
-  // 취소 버튼을 클릭하면 입력 값을 초기화한다.
   form
     .querySelector('.schedule-register__cancel')
     .addEventListener('click', () => {

@@ -27,8 +27,6 @@
   margin-block-end: 25px;
 }
 
-/* ---------------------------- */
-
 #dayContainer {
   display: flex;
   flex-direction: column;
@@ -45,7 +43,6 @@
   border-inline-end: 1px solid var(--gray-100);
 }
 
-/* Day 1 */
 .schedule-register__heading {
   font-size: var(--fontSize32);
   margin-block-end: 18px;
@@ -55,7 +52,6 @@
   color: var(--gray-600);
 }
 
-/* form */
 .schedule-register__form {
   display: flex;
   gap: 1rem;
@@ -104,7 +100,6 @@
   margin-inline-start: 97px;
 }
 
-/* Buttons */
 .schedule-register__buttons {
   display: flex;
   gap: 16px;

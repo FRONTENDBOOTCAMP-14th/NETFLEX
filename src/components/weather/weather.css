@@ -48,7 +48,6 @@
   text-align: center;
 }
 
-/* 현재 날씨 디자인 */
 .current-weather-image {
   display: flex;
   flex-direction: column;

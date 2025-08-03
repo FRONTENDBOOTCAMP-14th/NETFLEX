@@ -8,20 +8,16 @@
   --semiLight: 600px;
 }
 
-/* input type="number"일 때, 크기 화살표 제거 */
-/* chrome, safari 환경 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox 환경 */
 input[type='number'] {
   -moz-appearance: textfield;
 }
 
-/* 국기 배경 이미지 */
 .flag-us {
   background-image: url('/svg/us.svg');
 }
@@ -35,7 +31,6 @@ input[type='number'] {
   background-image: url('/svg/jp.svg');
 }
 
-/* 환율 폼 요소 */
 .exchange__form {
   display: flex;
   flex-direction: column;
@@ -45,7 +40,6 @@ input[type='number'] {
   border: 1px solid var(--gray-200);
   border-radius: 15px;
 
-  /* 환율 입력 폼 요소 */
   .exchange-form__input-box,
   .exchange-form__currency-box {
     display: flex;
@@ -100,7 +94,6 @@ input[type='number'] {
     }
   }
 
-  /* 한국 환율 출력 요소 */
   .exchange-form__currency-output {
     display: flex;
     gap: 4px;

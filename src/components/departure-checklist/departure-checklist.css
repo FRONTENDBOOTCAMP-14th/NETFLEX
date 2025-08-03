@@ -4,10 +4,6 @@
   --fontSize32: 32px;
 }
 
-/* .checklist {
-  max-inline-size: 900px;
-} */
-
 .checklist__header {
   display: flex;
   justify-content: space-between;
@@ -42,9 +38,6 @@
   vertical-align: middle;
 }
 
-/* --------------------------------------------------------- */
-/* 체크리스트 항목 */
-
 .checklist__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -69,10 +62,6 @@
 }
 
 .checklist__text-box {
-  /* display: flex;
-  flex-wrap: wrap; */
-  /* align-items: center; */
-  /* align-content: center; */
   padding-block: 8px;
 }
 
@@ -119,8 +108,6 @@
 
 .checklist__checkbox {
   appearance: none;
-  /* border: 1px solid red; */
-  /* position: absolute; */
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -133,15 +120,6 @@
 }
 
 .checklist__custom-box {
-  /* display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  inline-size: 30px;
-  block-size: 30px;
-  border-radius: 5px;
-  background-color: var(--gray-200);
-  transition: background-color 0.2s ease;
-  cursor: pointer; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,11 +134,7 @@
   display: block;
 }
 
-/* 테블릿 */
 @media (max-width: 1279px) {
-  /* .checklist {
-    max-inline-size: 738px;
-  } */
   .checklist__title {
     font-size: var(--fontSize26);
   }
@@ -197,7 +171,6 @@
   }
 }
 
-/* 모바일 */
 @media (max-width: 575px) {
   .checklist__title {
     font-size: var(--fontSize22);
