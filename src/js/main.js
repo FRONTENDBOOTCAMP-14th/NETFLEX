@@ -8,6 +8,5 @@ import '../components/departure-checklist/departure-checklist.js';
 import '../components/map/map.js';
 import '../components/etiquette/etiquette.js';
 import '../components/suggest/suggest.js';
-import '../components/account/account.css';
 import '../pages/account-page/account-page.js';
 import '../styles/index-page.css';
