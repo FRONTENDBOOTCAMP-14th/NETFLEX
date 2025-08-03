@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoSlide();
   }
 
-  // 초기화
   window.addEventListener('resize', updateSlide);
   updateAccessibility();
   updateSlide();
