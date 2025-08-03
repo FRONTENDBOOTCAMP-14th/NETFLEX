@@ -1,3 +1,4 @@
+import './account-page.css';
 document.addEventListener('DOMContentLoaded', () => {
   // 상수 선언
   const form = document.querySelector('.account__register--form');
