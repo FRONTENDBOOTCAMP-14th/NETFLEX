@@ -57,6 +57,7 @@
       width: 100%;
       aspect-ratio: 5 / 3;
       transition: scale 0.5s ease-in-out;
+      object-fit: cover;
 
       &:hover {
         scale: 1.01;
