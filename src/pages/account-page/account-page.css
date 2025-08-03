@@ -1,11 +1,5 @@
 @import url(../../styles/main.css);
 
-body {
-  padding: 50px;
-}
-
-/* ----------------------------------------- */
-
 .account {
   display: inline-flex;
   flex-direction: column;
@@ -17,9 +11,6 @@ body {
     font-size: var(--fontSize22);
   }
 }
-/* -------------------------------------- */
-/*             총 금액 표시 영역             */
-/* -------------------------------------- */
 
 .account__show-total--Container {
   border-radius: 10px;
@@ -43,7 +34,6 @@ body {
   }
 }
 
-/* 통화 단위 */
 .account__change-units--list {
   display: flex;
   position: absolute;
@@ -66,13 +56,12 @@ body {
 
   & button {
     padding: 5px 10px;
-    transform: translateY(-2px); /* 버튼내 텍스트 미세 조절 */
+    transform: translateY(-2px);
     font-size: var(--fontSize12);
     font-weight: var(--bold);
   }
 }
 
-/* 총 금액 */
 .account__total-cost--wrapper {
   display: flex;
 
@@ -89,15 +78,12 @@ body {
   }
 }
 
-/* -------------------------------------- */
-/*            항목과 금액 등록 영역            */
-/* -------------------------------------- */
 .account__register--form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-top: 1.3rem;
+  margin-top: 20px;
 }
 
 .account__register--inputs-container {
@@ -111,8 +97,8 @@ body {
 .account__register-cost {
   display: flex;
   align-items: center;
+  justify-content: start;
   gap: 1rem;
-  width: inherit;
 
   & label {
     width: 60px;
@@ -136,19 +122,22 @@ body {
 }
 
 .account__register--btns-container {
+  display: grid;
+  grid-template-rows: 1.4fr 1fr;
   align-content: space-around;
   flex-basis: 40%;
-  height: inherit;
   padding-left: 3rem;
 }
 
 .account__payment-form {
   display: flex;
+  justify-content: space-between;
+  align-items: start;
   border: none;
+  gap: 1.8rem;
   margin: 0;
   padding: 0;
   width: 100%;
-  gap: 2rem;
   word-break: keep-all;
 
   & input[type='radio'] {
@@ -157,11 +146,13 @@ body {
   & label {
     display: inline-flex;
     flex-direction: row;
-    gap: 2rem;
+    justify-content: center;
+    width: 100%;
     border: 1px solid var(--gray-300);
     border-radius: 10px;
     padding: 12px 40px;
     cursor: pointer;
+    word-break: keep-all;
 
     &:hover,
     &:focus {
@@ -182,37 +173,31 @@ body {
   cursor: pointer;
 }
 
-/* -------------------------------------- */
-/*             금액 항목 테이블               */
-/* -------------------------------------- */
-
 .account__output-table {
   width: 100%;
   border: 1px solid var(--gray-300);
   border-radius: 10px;
-  margin-top: 1.3rem;
+  margin-block: 20px;
   padding: 18px 40px;
   text-align: center;
   table-layout: fixed;
 
   & th {
     padding-bottom: 1rem;
+    font-size: var(--fontSize16);
   }
 
-  /* 테이블 열간격 비율 */
   & th:nth-child(2),
   & td:nth-child(2) {
     width: 15%;
   }
   & th:nth-child(1),
   & td:nth-child(1),
-  & th:nth-child(n+4):nth-child(-n+6),  /* 4~6번 열 th */
-  & td:nth-child(n+4):nth-child(-n+6) {
-    /* 4~6번 열 td */
+  & th:nth-child(n + 4):nth-child(-n + 6),
+  & td:nth-child(n + 4):nth-child(-n + 6) {
     width: 10%;
   }
 
-  /* 항목 (가장 긴 열 간격) */
   & th:nth-child(3),
   & td:nth-child(3) {
     width: 40%;
@@ -232,20 +217,11 @@ body {
   & tr {
     padding: 16px 0;
     text-align: center;
-  }
-
-  & input[type='date'] {
-    background-color: yellow;
+    font-size: var(--fontSize14);
   }
 
   & input[type='number'] {
-    background-color: green;
     color: var(--blue-200);
-  }
-
-  & input[type='text'] {
-    background-color: orange;
-    text-align: center;
   }
 
   & select {
@@ -260,4 +236,57 @@ body {
   }
 }
 
-/* 반응형 미디어쿼리 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .account__register--form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .account__register-cost {
+    word-break: keep-all;
+  }
+
+  .account__register--btns-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
+    padding-left: 0;
+    flex-basis: 100%;
+  }
+
+  .account__payment-form {
+    margin-top: 1rem;
+  }
+
+  .account__register--button {
+    height: 100%;
+  }
+
+  .account__output-table {
+    display: flex;
+    margin-top: 1.3rem;
+    padding: 1.3rem 10px;
+    word-break: keep-all;
+  }
+
+  .account__output-body {
+    word-break: keep-all;
+  }
+
+  .account__output-body svg {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .account__register--btns-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .account__register--button {
+    font-size: var(--fontSize22);
+  }
+}
