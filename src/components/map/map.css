@@ -285,6 +285,7 @@
   .map-section {
     --fontSize32: 32px;
     h3 {
+      padding: 15px 0 15px 45px;
       font-size: var(--fontSize26);
     }
   }

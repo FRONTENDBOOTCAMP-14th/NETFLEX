@@ -1,32 +1,26 @@
 @import url(../../styles/main.css);
 
 :root {
-  --fontsize36:2.3em;
+  --fontsize36: 2.3em;
 }
 
-/* ----------------------------------------- */
-
-h3 {
-  padding: 15px 0 15px 30px;
-  font-size: var(--fontSize22);
-}
-  
 .account {
   display: inline-flex;
-  flex-direction: row ;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  h3 {
+    padding: 15px 0 15px 30px;
+    font-size: var(--fontSize22);
+  }
 }
 
-/* -------------------------------------- */
-/*            항목과 금액 등록 영역            */
-/* -------------------------------------- */
 .account__register--form {
   display: flex;
   order: 1;
   flex-direction: column;
-  flex-basis:50%;
+  flex-basis: 50%;
 }
 
 .account__register--inputs-container {
@@ -46,7 +40,7 @@ h3 {
     text-align: center;
     font-size: var(--fontSize16);
     font-weight: var(--semiBold);
-    color: var(--black-200);    
+    color: var(--black-200);
   }
 
   & input {
@@ -61,23 +55,22 @@ h3 {
     }
   }
 
-  /* Date */
   &:nth-child(1) {
     display: none;
   }
 }
 
-.account__register--btns-container{
+.account__register--btns-container {
   display: flex;
   justify-content: end;
-  margin-top: 1rem;;
+  margin-top: 1rem;
   width: 100%;
 }
 
 .account__payment-form {
   display: none;
 }
- 
+
 .account__register--button {
   padding: 10px 0;
   width: calc(100% - 76px);
@@ -90,15 +83,11 @@ h3 {
   cursor: pointer;
 }
 
-/* -------------------------------------- */
-/*             총 금액 표시 영역             */
-/* -------------------------------------- */
-
 .account__show-total--Container {
   display: flex;
   justify-content: space-between;
   order: 2;
-  flex-basis: 48.6%;
+  flex-basis: 50%;
   border-radius: 10px;
   background-color: var(--blue-200);
   color: var(--white-fa);
@@ -121,12 +110,10 @@ h3 {
   }
 }
 
-
-/* 통화 단위 */
 .account__change-units--list {
   display: flex;
   position: absolute;
-  top:2.2rem;
+  top: 2.2rem;
   left: 11rem;
   background-color: var(--white-fa);
   z-index: 9999;
@@ -145,14 +132,12 @@ h3 {
 
   & button {
     padding: 5px 10px;
-    transform: translateY(-2px); /* 버튼내 텍스트 미세 조절 */
+    transform: translateY(-2px);
     font-size: var(--fontSize12);
     font-weight: var(--bold);
   }
 }
 
-
-/* 총 금액 */
 .account__total-cost--wrapper {
   display: flex;
 
@@ -167,15 +152,9 @@ h3 {
       padding: 0 10px;
       font-size: var(--fontSize22);
       transform: translateY(15px);
-  }
+    }
   }
 }
-
-
-
-/* -------------------------------------- */
-/*             금액 항목 테이블               */
-/* -------------------------------------- */
 
 .account__output-table {
   display: flex;
@@ -189,7 +168,7 @@ h3 {
   table-layout: fixed;
 
   & th {
-    padding-bottom:1rem;
+    padding-bottom: 1rem;
     font-size: var(--fontSize16);
   }
 
@@ -197,10 +176,10 @@ h3 {
   & th:nth-child(1),
   & td:nth-child(1),
   & th:nth-child(2),
-  & td:nth-child(2), {
+  & td:nth-child(2) {
     width: 15%;
   }
-  
+
   /* 항목 (가장 긴 열 간격) */
   & th:nth-child(3),
   & td:nth-child(3) {
@@ -215,29 +194,28 @@ h3 {
     text-align: start;
   }
 
-   /*  테이블 숨김 */
+  /*  테이블 숨김 */
   & th:nth-child(5),
   & td:nth-child(5),
   & th:nth-child(6),
   & td:nth-child(6) {
     display: none;
   }
-
-} 
+}
 .account__output-body {
   font-weight: var(--semiBold);
-  
-  & tr{
+
+  & tr {
     padding: 16px 0;
     text-align: center;
     font-size: var(--fontSize14);
   }
 
-  & input[type="number"] {
+  & input[type='number'] {
     color: var(--blue-200);
   }
 
-   & select {
+  & select {
     padding: 0;
     text-align: center;
     border: 0;
@@ -253,18 +231,18 @@ h3 {
 /* -------------------------------- */
 
 /* 기본 (모바일, min-width: 375px 기준) */
-@media (max-width: 1027.98px) {
+@media (max-width: 1279px) {
   .account {
     flex-direction: column;
     width: 100%;
-    }
+  }
 
   /* 총액 표시 */
   .account__show-total--Container {
     order: 1;
     width: 100%;
     min-height: 150px;
-    }
+  }
 
   .account__show--wrapper {
     & h4 {
@@ -274,12 +252,12 @@ h3 {
     & summary {
       margin: 1.5rem 0 0 0.5rem;
       transform: scale(80%);
-      }
+    }
   }
 
-    /* 통화 단위 */
+  /* 통화 단위 */
   .account__change-units--list {
-    top:3.6rem;
+    top: 3.6rem;
     left: 5rem;
   }
 
@@ -287,7 +265,7 @@ h3 {
   .account__total-cost--wrapper {
     & h4 {
       margin: 0 1rem 1rem auto;
-      font-size: 2.2em;
+      font-size: var(--fontSize28);
 
       & span {
         transform: translateY(12px);
@@ -307,7 +285,7 @@ h3 {
     width: 100%;
   }
 
-  .account__register--btns-container{
+  .account__register--btns-container {
     display: flex;
     flex-direction: column;
     flex-basis: 55%;
@@ -318,7 +296,7 @@ h3 {
   .account__payment-form {
     display: none;
   }
-  
+
   .account__register--button {
     height: 100%;
     width: 100%;
