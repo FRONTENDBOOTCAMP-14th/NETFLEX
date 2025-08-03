@@ -89,7 +89,9 @@
                       src="./src/assets/images/suggest/london_1x.jpg"
                       srcset="./src/assets/images/suggest/london_2x.jpg 2x"
                       alt="런던"
-                      loading="lazy"
+                      width="1300"
+                      height="700"
+                      loading="eager"
                       decoding="async"
                     />
                   </picture>
@@ -136,7 +138,9 @@
                       src="./src/assets/images/suggest/tokyo_1x.jpg"
                       srcset="./src/assets/images/suggest/tokyo_2x.jpg 2x"
                       alt="도쿄"
-                      loading="lazy"
+                      width="1300"
+                      height="700"
+                      loading="eager"
                       decoding="async"
                     />
                   </picture>
@@ -183,7 +187,9 @@
                       src="./src/assets/images/suggest/ny_1x.jpg"
                       srcset="./src/assets/images/suggest/ny_2x.jpg 2x"
                       alt="뉴욕"
-                      loading="lazy"
+                      width="1300"
+                      height="700"
+                      loading="eager"
                       decoding="async"
                     />
                   </picture>
@@ -230,7 +236,9 @@
                       src="./src/assets/images/suggest/paris_1x.jpg"
                       srcset="./src/assets/images/suggest/paris_2x.jpg 2x"
                       alt="파리"
-                      loading="lazy"
+                      width="1300"
+                      height="700"
+                      loading="eager"
                       decoding="async"
                     />
                   </picture>
@@ -793,7 +801,6 @@
         <section class="account">
           <h3>가계부</h3>
           <div class="account__show-total--Container">
-            <!-- 총지출 표시 -->
             <div class="account__show--wrapper">
               <h4>총 지출</h4>
               <!-- 통화단위 선택 버튼 -->
@@ -826,13 +833,10 @@
                 </ul>
               </details>
             </div>
-            <!-- 총 금액 표시 -->
             <div class="account__total-cost--wrapper">
-              <h4>1,289,045 <span>원</span></h4>
+              <h4>0<span>원</span></h4>
             </div>
           </div>
-
-          <!-- 입력폼 -->
           <form class="account__register--form">
             <div class="account__register--inputs-container">
               <div class="account__register-cost">
@@ -857,7 +861,6 @@
                 />
               </div>
             </div>
-
             <div class="account__register--btns-container">
               <fieldset class="account__payment-form">
                 <legend class="sr-only">결제 수단</legend>
@@ -872,14 +875,11 @@
                 <input type="radio" id="cash" name="payment" value="현금" />
                 <label for="cash">현금</label>
               </fieldset>
-              <!-- 등록버튼 -->
               <button type="submit" class="account__register--button">
                 등록
               </button>
             </div>
           </form>
-
-          <!-- 내역확인 테이블 -->
           <div class="account__output-table">
             <table>
               <thead>
@@ -892,9 +892,7 @@
                   <th>삭제</th>
                 </tr>
               </thead>
-              <tbody class="account__output-body">
-                <!-- JS로 항목 삽입 -->
-              </tbody>
+              <tbody class="account__output-body"></tbody>
             </table>
           </div>
         </section>

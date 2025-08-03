@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (saved) {
       parseAndRender(JSON.parse(saved));
     } else {
-      fetch('./account-page-data.json')
+      fetch('/JSON/account-page-data.json')
         .then(res => res.json())
         .then(parseAndRender)
         .catch(err => console.error('초기 데이터 로딩 실패:', err));
