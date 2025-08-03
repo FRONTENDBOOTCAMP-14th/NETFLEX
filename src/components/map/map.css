@@ -90,6 +90,7 @@
 
   svg {
     translate: 50% 0;
+    rotate: 180deg;
   }
 
   &:hover {
@@ -99,7 +100,7 @@
   &.side-open {
     translate: -70vw -50%;
     svg {
-      rotate: 180deg;
+      rotate: 0deg;
     }
   }
 }
@@ -198,8 +199,6 @@
   }
 
   .map__search-list {
-    /* padding-inline: 10px; */
-    /* .is-activate */
     .map__search-list--around,
     .map__search-list--saved {
       display: none;
@@ -286,6 +285,7 @@
   .map-section {
     --fontSize32: 32px;
     h3 {
+      padding: 15px 0 15px 45px;
       font-size: var(--fontSize26);
     }
   }
@@ -351,7 +351,7 @@
 @media (min-width: 1280px) {
   .map-section {
     overflow: hidden;
-    max-width: 900px;
+
     h3 {
       font-size: var(--fontSize32);
     }

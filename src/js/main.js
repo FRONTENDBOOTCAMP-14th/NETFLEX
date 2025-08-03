@@ -7,4 +7,6 @@ import '../components/exchange-rate/exchange-rate.js';
 import '../components/departure-checklist/departure-checklist.js';
 import '../components/map/map.js';
 import '../components/etiquette/etiquette.js';
+import '../components/suggest/suggest.js';
+import '../pages/account-page/account-page.js';
 import '../styles/index-page.css';

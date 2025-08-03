@@ -4,25 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가계부</title>
-    <link rel="stylesheet" href="./account.css" />
-
-    <script
-      type="module"
-      src="../../pages/account-page/account-page.js"
-    ></script>
-
+    <link rel="stylesheet" href="./account-page.css" />
+    <script type="module" src="./account-page.js"></script>
   </head>
   <body>
-    <h3>가계부</h3>
     <section class="account">
-      
+      <h3>가계부</h3>
       <div class="account__show-total--Container">
         <!-- 총지출 표시 -->
         <div class="account__show--wrapper">
           <h4>총 지출</h4>
           <!-- 통화단위 선택 버튼 -->
-
-          <details>=
+          <details>
             <summary>
               <span class="sr-only">통화단위 선택</span>
               <svg
@@ -50,11 +43,7 @@
               <li><button class="button">JPY</button></li>
             </ul>
           </details>
-
         </div>
-
-       </div>
-
         <!-- 총 금액 표시 -->
         <div class="account__total-cost--wrapper">
           <h4>1,289,045 <span>원</span></h4>
@@ -66,7 +55,6 @@
         <div class="account__register--inputs-container">
           <div class="account__register-cost">
             <label for="accountDate">날짜</label>
-
             <input type="date" id="accountDate" value="2025-07-31" />
           </div>
           <div class="account__register-cost">
@@ -76,18 +64,15 @@
           <div class="account__register-cost">
             <label for="accountCost">금액</label>
             <input type="number" id="accountCost" placeholder="1000" min="0" />
-
           </div>
         </div>
 
         <div class="account__register--btns-container">
           <fieldset class="account__payment-form">
             <legend class="sr-only">결제 수단</legend>
-
             <input type="radio" id="card" name="payment" value="카드" checked />
             <label for="card">카드</label>
             <input type="radio" id="cash" name="payment" value="현금" />
-
             <label for="cash">현금</label>
           </fieldset>
           <!-- 등록버튼 -->
@@ -109,7 +94,7 @@
             </tr>
           </thead>
           <tbody class="account__output-body">
-
+            <!-- JS로 항목 삽입 -->
           </tbody>
         </table>
       </div>
