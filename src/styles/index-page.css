@@ -127,6 +127,11 @@ body {
       border-radius: 0 15px 15px 0;
       max-width: 60vw;
       translate: 100px 5vw;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &:-webkit-scrollbar {
+        display: none;
+      }
     }
     .main-layout {
       padding-inline: 40px;
