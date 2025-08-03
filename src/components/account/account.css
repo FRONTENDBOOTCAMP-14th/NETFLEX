@@ -1,104 +1,35 @@
 @import url(../../styles/main.css);
 
-/* ----------------------------------------- */
+:root {
+  --fontsize36: 2.3em;
+}
 
 .account {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  width: 100%;
-
+  flex-wrap: wrap;
+  gap: 1rem;
   h3 {
     padding: 15px 0 15px 30px;
     font-size: var(--fontSize22);
   }
 }
 
-/* -------------------------------------- */
-/*             총 금액 표시 영역             */
-/* -------------------------------------- */
-
-.account__show-total--Container {
-  border-radius: 10px;
-  background-color: var(--blue-200);
-  color: var(--white-fa);
-}
-
-.account__show--wrapper {
+.account__register--form {
   display: flex;
-  position: relative;
-  font-size: var(--fontSize18);
-
-  & h4 {
-    margin: 1rem;
-  }
-
-  & summary {
-    margin-top: 1.1rem;
-    list-style: none;
-    transform: scale(80%);
-  }
+  order: 1;
+  flex-direction: column;
+  flex-basis: 50%;
 }
 
-/* 통화 단위 */
-.account__change-units--list {
-  display: flex;
-  position: absolute;
-  top: 1rem;
-  left: 8rem;
-  background-color: var(--white-fa);
-  z-index: 9999;
-
-  & li {
-    border: 1px solid var(--gray-400);
-    color: var(--black-200);
-
-    &:hover,
-    &:focus {
-      background-color: var(--blue-200);
-      color: var(--white-fa);
-      font-weight: var(--bold);
-    }
-  }
-
-  & button {
-    padding: 5px 10px;
-    transform: translateY(-2px); /* 버튼내 텍스트 미세 조절 */
-    font-size: var(--fontSize12);
-    font-weight: var(--bold);
-  }
-}
-
-/* 총 금액 */
-.account__total-cost--wrapper {
-  display: flex;
-
-  & h4 {
-    display: flex;
-    margin: 0 1rem 1rem auto;
-    font-size: var(--fontSize28);
-
-    & span {
-      padding: 0 10px;
-      font-size: var(--fontSize22);
-      transform: translateY(5px);
-    }
-  }
-}
-
-/* -------------------------------------- */
-/*            항목과 금액 등록 영역            */
-/* -------------------------------------- */
-
-.account__register--container {
+.account__register--inputs-container {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
-  width: 100%;
-  margin-top: 1.3rem;
+  gap: 1rem;
 }
 
-.account__register--costRow {
+.account__register-cost {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -117,36 +48,257 @@
     padding: 0.5rem;
     border: 1px solid var(--gray-400);
     border-radius: 5px;
-    color: var(--balck-200);
+    color: var(--black-200);
 
     &::placeholder {
       color: var(--gray-300);
     }
   }
+
+  &:nth-child(1) {
+    display: none;
+  }
+}
+
+.account__register--btns-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.account__payment-form {
+  display: none;
 }
 
 .account__register--button {
-  background-color: var(--blue-200);
   padding: 10px 0;
-  width: 100%;
+  width: calc(100% - 76px);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: var(--blue-200);
   color: var(--white-fa);
+  font-size: var(--fontSize20);
   font-weight: var(--bold);
   cursor: pointer;
 }
 
-/* -------------------------------------- */
-/*             금액 항목 테이블               */
-/* -------------------------------------- */
+.account__show-total--Container {
+  display: flex;
+  justify-content: space-between;
+  order: 2;
+  flex-basis: 50%;
+  border-radius: 10px;
+  background-color: var(--blue-200);
+  color: var(--white-fa);
+}
+
+.account__show--wrapper {
+  display: flex;
+  position: relative;
+  font-size: var(--fontSize18);
+
+  & h4 {
+    margin: 2rem;
+    font-size: var(--fontSize26);
+    font-weight: var(--bold);
+  }
+
+  & summary {
+    margin-top: 2.5rem;
+    list-style: none;
+  }
+}
+
+.account__change-units--list {
+  display: flex;
+  position: absolute;
+  top: 2.2rem;
+  left: 11rem;
+  background-color: var(--white-fa);
+  z-index: 9999;
+
+  & li {
+    border: 1px solid var(--gray-400);
+    color: var(--black-200);
+
+    &:hover,
+    &:focus {
+      background-color: var(--blue-200);
+      color: var(--white-fa);
+      font-weight: var(--bold);
+    }
+  }
+
+  & button {
+    padding: 5px 10px;
+    transform: translateY(-2px);
+    font-size: var(--fontSize12);
+    font-weight: var(--bold);
+  }
+}
+
+.account__total-cost--wrapper {
+  display: flex;
+
+  & h4 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: end;
+    margin: 0 2rem 2rem auto;
+    font-size: var(--fontsize36);
+
+    & span {
+      padding: 0 10px;
+      font-size: var(--fontSize22);
+      transform: translateY(15px);
+    }
+  }
+}
 
 .account__output-table {
-  /* background-color: violet; */
+  display: flex;
+  order: 3;
+  flex: 0 0 100%;
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
   margin-top: 1.3rem;
-  /* 모바일 테이블 항목 생략*/
-  & .account__method,
-  .account__modify,
-  .account__delete {
+  padding: 18px 40px;
+  text-align: center;
+  table-layout: fixed;
+
+  & th {
+    padding-bottom: 1rem;
+    font-size: var(--fontSize16);
+  }
+
+  /* 테이블 열간격 비율 */
+  & th:nth-child(1),
+  & td:nth-child(1),
+  & th:nth-child(2),
+  & td:nth-child(2) {
+    width: 15%;
+  }
+
+  /* 항목 (가장 긴 열 간격) */
+  & th:nth-child(3),
+  & td:nth-child(3) {
+    width: 40%;
+    padding-left: 2em;
+  }
+
+  & td:nth-child(2) {
+    color: var(--blue-200);
+  }
+  & td:nth-child(3) {
+    text-align: start;
+  }
+
+  /*  테이블 숨김 */
+  & th:nth-child(5),
+  & td:nth-child(5),
+  & th:nth-child(6),
+  & td:nth-child(6) {
     display: none;
+  }
+}
+.account__output-body {
+  font-weight: var(--semiBold);
+
+  & tr {
+    padding: 16px 0;
+    text-align: center;
+    font-size: var(--fontSize14);
+  }
+
+  & input[type='number'] {
+    color: var(--blue-200);
+  }
+
+  & select {
+    padding: 0;
+    text-align: center;
+    border: 0;
+  }
+
+  & button {
+    display: inline-flex;
+    gap: 0.8rem;
+  }
+}
+/* -------------------------------- */
+/* 반응형 */
+/* -------------------------------- */
+
+/* 기본 (모바일, min-width: 375px 기준) */
+@media (max-width: 1279px) {
+  .account {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* 총액 표시 */
+  .account__show-total--Container {
+    order: 1;
+    width: 100%;
+    min-height: 150px;
+  }
+
+  .account__show--wrapper {
+    & h4 {
+      margin: 1rem 0 0 1rem;
+    }
+
+    & summary {
+      margin: 1.5rem 0 0 0.5rem;
+      transform: scale(80%);
+    }
+  }
+
+  /* 통화 단위 */
+  .account__change-units--list {
+    top: 3.6rem;
+    left: 5rem;
+  }
+
+  /* 총 금액 */
+  .account__total-cost--wrapper {
+    & h4 {
+      margin: 0 1rem 1rem auto;
+      font-size: var(--fontSize28);
+
+      & span {
+        transform: translateY(12px);
+      }
+    }
+  }
+  /* 금액 등록 */
+  .account__register--form {
+    display: flex;
+    order: 2;
+    flex-direction: row;
+    padding: 0;
+    width: inherit;
+  }
+
+  .account__register--inputs-container {
+    width: 100%;
+  }
+
+  .account__register--btns-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 55%;
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  .account__payment-form {
+    display: none;
+  }
+
+  .account__register--button {
+    height: 100%;
+    width: 100%;
   }
 }
