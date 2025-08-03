@@ -10,6 +10,7 @@
     padding: 15px 0 15px 30px;
     font-size: var(--fontSize22);
   }
+
 }
 
 .account__show-total--Container {
@@ -37,7 +38,7 @@
 .account__change-units--list {
   display: flex;
   position: absolute;
-  top: 1rem;
+  top:1rem;
   left: 8rem;
   background-color: var(--white-fa);
   z-index: 9999;
@@ -45,15 +46,15 @@
   & li {
     border: 1px solid var(--gray-400);
     color: var(--black-200);
-
+    
     &:hover,
     &:focus {
-      background-color: var(--blue-200);
+      background-color : var(--blue-200);
       color: var(--white-fa);
-      font-weight: var(--bold);
+      font-weight: var(--bold);  
     }
   }
-
+  
   & button {
     padding: 5px 10px;
     transform: translateY(-2px);
@@ -64,7 +65,7 @@
 
 .account__total-cost--wrapper {
   display: flex;
-
+  
   & h4 {
     display: flex;
     margin: 0 1rem 1rem auto;
@@ -74,7 +75,7 @@
       padding: 0 10px;
       font-size: var(--fontSize22);
       transform: translateY(5px);
-    }
+  }
   }
 }
 
@@ -105,7 +106,7 @@
     text-align: center;
     font-size: var(--fontSize16);
     font-weight: var(--semiBold);
-    color: var(--black-200);
+    color: var(--black-200);    
   }
 
   & input {
@@ -119,14 +120,19 @@
       color: var(--gray-300);
     }
   }
+
+  /* Date */
+  &:nth-child(1) {
+    width: 40%;
+  }
 }
 
-.account__register--btns-container {
   display: grid;
   grid-template-rows: 1.4fr 1fr;
   align-content: space-around;
   flex-basis: 40%;
   padding-left: 3rem;
+  
 }
 
 .account__payment-form {
@@ -140,10 +146,10 @@
   width: 100%;
   word-break: keep-all;
 
-  & input[type='radio'] {
+  & input[type="radio"] {
     display: none;
   }
-  & label {
+  & label{
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -159,9 +165,9 @@
       background-color: var(--blue-200);
       color: var(--white-fa);
     }
-  }
+  }  
 }
-
+ 
 .account__register--button {
   background-color: var(--blue-200);
   padding: 10px 0;
@@ -183,16 +189,19 @@
   table-layout: fixed;
 
   & th {
+
     padding-bottom: 1rem;
+
     font-size: var(--fontSize16);
   }
 
   & th:nth-child(2),
-  & td:nth-child(2) {
+  & td:nth-child(2), {
     width: 15%;
   }
   & th:nth-child(1),
   & td:nth-child(1),
+
   & th:nth-child(n + 4):nth-child(-n + 6),
   & td:nth-child(n + 4):nth-child(-n + 6) {
     width: 10%;
@@ -210,15 +219,17 @@
   & td:nth-child(3) {
     text-align: start;
   }
-}
+
+} 
 .account__output-body {
   font-weight: var(--semiBold);
-
-  & tr {
+  
+  & tr{
     padding: 16px 0;
     text-align: center;
     font-size: var(--fontSize14);
   }
+
 
   & input[type='number'] {
     color: var(--blue-200);
@@ -235,6 +246,56 @@
     gap: 0.8rem;
   }
 }
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .account__register--form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 18px; 
+  }
+
+  .account__register--inputs-container,
+  .account__register-cost:nth-child(1) {
+    width: 100%;
+  }
+
+  .account__register-cost {
+    word-break: keep-all;
+  }
+
+  .account__register--btns-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
+    padding-left: 0;
+    flex-basis: 100%;
+  }
+
+  .account__payment-form {
+    margin-top: 1rem;
+  }
+
+  .account__register--button {
+    height: 100%;
+  }
+
+  .account__output-table {
+    display: flex;
+    margin-top: 1.3rem;
+    padding: 1.3rem 10px;
+    word-break: keep-all;
+  }
+
+  .account__output-body {
+    word-break: keep-all;
+  }
+
+  .account__output-body svg {
+    display: none;
+  }
+}
+
 
 @media (min-width: 375px) and (max-width: 767px) {
   .account__register--form {
@@ -281,6 +342,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+
   .account__register--btns-container {
     display: grid;
     grid-template-rows: 1fr 1fr;
