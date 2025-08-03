@@ -122,16 +122,16 @@ summary::-webkit-details-marker {
 
 /* 개별 카드 이미지 삽입  */
 .etiquette-img.card-01 {
-  background-image: url('../../assets/images/etiquette/UK/etiquette-london-1_1x.avif');
+  background-image: url('/images/etiquette/etiquette-london-1_1x.avif');
 }
 .etiquette-img.card-02 {
-  background-image: url('../../assets/images/etiquette/UK/etiquette-london-2_1x.avif');
+  background-image: url('/images/etiquette/etiquette-london-2_1x.avif');
 }
 .etiquette-img.card-03 {
-  background-image: url('../../assets/images/etiquette/UK/etiquette-london-3_1x.avif');
+  background-image: url('/images/etiquette/etiquette-london-3_1x.avif');
 }
 .etiquette-img.card-04 {
-  background-image: url('../../assets/images/etiquette/UK/etiquette-london-4_1x.avif');
+  background-image: url('/images/etiquette/etiquette-london-4_1x.avif');
 }
 
 .etiquette__cardTxt {
