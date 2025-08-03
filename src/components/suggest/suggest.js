@@ -1,3 +1,4 @@
+import './suggest.css';
 document.addEventListener('DOMContentLoaded', () => {
   const suggestSection = document.querySelector('.suggest-section');
   const suggestList = suggestSection.querySelector('.suggest__list');
